@@ -3,8 +3,7 @@
 #include "projetsvg.c"
 
 int main(void){
-    rectangle_t test;
-
+    rectangle_t test = createRectangle();
     getRectangle(test);
     return EXIT_SUCCESS;
 }
