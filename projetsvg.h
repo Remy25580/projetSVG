@@ -9,7 +9,6 @@ typedef struct rectangle_s renctange_t;
 
 //Prototypes fonctions
 FILE *creatingFile(char *name);
-
 FILE *openingFile(char *name);
-
+renctange_t createRectangle(void);
 #endif
