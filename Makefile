@@ -9,7 +9,7 @@ build:
 	$(CC) $(FLAGS) -c projetsvg.c
 	$(CC) $(OBJ) -o $(EXE)
 
-move_to_bin:
-	rm bin/projetSvg.exe
-	rm bin/main.o
-	rm bin/projetsvg.o
+clean:
+	$(EXE) del /Q projetSVG\$(EXE)
+	main.o del /Q projetSVG\main.o
+	projetsvg.o del /Q projetSVG\projetsvg.o
