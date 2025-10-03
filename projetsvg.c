@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "projetsvg.h"
 
+//Définitions de fonctions
+
 FILE *creatingFile(char *name){
     FILE *pointeur = fopen(name, "w");
 
@@ -29,13 +31,34 @@ FILE *openingFile(char *name){
     
 }
 
+int help(openedOrNotType status){
+    switch(status){
+        case TYPECLOSED:
+        //fct exécutables quand un fichier est ouvert
+        break;
+    case TYPEOPENED:
+        //fct exécutables quand un fichier n'est pas encore ouvert
+        break;
+    
+    }
+
+    return EXIT_SUCCESS;
+}
+
 void closeFile(FILE *name){
     fclose(name);
 }
 
+// Définitions de structures
+
+
+// Définitions d'unions
+
 typedef union{
 
 } openedOrNot;
+
+// Définitions d'énumérations
 
 typedef enum {
     TYPEOPENED,

@@ -5,14 +5,15 @@
 FILE *creatingFile(char *name);
 
 FILE *openingFile(char *name);
+
 void closeFile(FILE *name);
 
 //Prototypes structures
 
 //Prototypes unions
-typedef union openedOrNotType;
+typedef union openedOrNot;
 
 //Protoypes enumérations
-typedef enum openedOrNot;
+typedef enum openedOrNotType;
 
 #endif
