@@ -3,9 +3,6 @@
 #include "projetsvg.h"
 
 
-// Définitions de structures
-
-
 // Définitions d'unions
 
 
@@ -45,5 +42,32 @@ void getRectangle(rectangle_t r){
     printf("\n");
     printf("\t Start postition : %d;%d\n", r.xpos, r.ypos);
     printf("\t Height : %d  Width : %d\n", r.height, r.width);
+    printf("\n");
+}
+
+carre_t createSquare(void){
+    carre_t c;
+    printf("You are now creating a square.\n");
+    printf("What's the x position where starts your square ?\n");
+    int x;
+    scanf("%d", &x);
+    printf("Great! Now what's the y postition where starts your square ?\n");
+    int y;
+    scanf("%d", &y);
+    printf("And now, what will be the dimensions of your square's borders ?\n");
+    int d;
+    scanf("%d", &d);
+    printf("Your square is now made! \n");
+    c.xpos = x;
+    c.ypos = y;
+    c.dimension = d;
+    return c;
+}
+
+void getSquare(carre_t c){
+    printf("Here's your square: \n");
+    printf("\n");
+    printf("\t Start postition : %d;%d\n", c.xpos, c.ypos);
+    printf("\t Size : %dx%d", c.dimension, c.dimension);
     printf("\n");
 }
