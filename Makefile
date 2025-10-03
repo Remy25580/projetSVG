@@ -6,10 +6,8 @@ EXE := projetSvg
 BIN_DIR := bin
 
 build:
-	$(CC) $(FLAGS) -c main.c
-	$(CC) $(FLAGS) -c projetsvg.c
-	$(CC) $(OBJ) -o $(EXE)
-
+	$(CC) $(FLAGS) -c *.c
+	$(CC) *.o -o $(EXE)
 
 clean:
 	del *.o
