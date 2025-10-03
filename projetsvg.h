@@ -2,7 +2,7 @@
 #define PROJETSVG
 
 //Prototypes structures
-
+typedef struct rectangle_s renctange_t;
 //Prototypes unions
 
 //Protoypes enumérations

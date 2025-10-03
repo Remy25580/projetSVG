@@ -3,7 +3,6 @@
 #include "projetsvg.h"
 
 int main(void){
-    FILE *opened = NULL;
 
 
     return EXIT_SUCCESS;

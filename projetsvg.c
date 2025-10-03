@@ -4,7 +4,12 @@
 
 
 // Définitions de structures
-
+typedef struct rectangle_s{
+    int height;
+    int width;
+    int xpos;
+    int ypos;
+} renctange_t;
 
 // Définitions d'unions
 
