@@ -9,7 +9,7 @@ typedef struct rectangle_s{
     int width;
     int xpos;
     int ypos;
-} renctange_t;
+} renctangle_t;
 
 // Définitions d'unions
 
@@ -47,8 +47,8 @@ FILE *openingFile(char *name){
     
 }
 
-renctange_t createRectangle(void){
-    renctange_t r;
+renctangle_t createRectangle(void){
+    renctangle_t r;
     printf("You are now creating a rectangle.\n");
     printf("What's the x position where starts your rectangle ?\n");
     int x;
@@ -67,7 +67,7 @@ renctange_t createRectangle(void){
 
 }
 
-void getRectangle(renctange_t r){
+void getRectangle(renctangle_t r){
     printf("Here's your rectangle: \n");
     printf("\n");
     printf("\t Start postition : %d,%d\n", r.xpos, r.ypos);

@@ -2,7 +2,7 @@
 #define PROJETSVG
 
 //Prototypes structures
-typedef struct rectangle_s renctange_t;
+typedef struct rectangle_s renctangle_t;
 //Prototypes unions
 
 //Protoypes enumérations
@@ -10,6 +10,6 @@ typedef struct rectangle_s renctange_t;
 //Prototypes fonctions
 FILE *creatingFile(char *name);
 FILE *openingFile(char *name);
-renctange_t createRectangle(void);
-void getRectangle(renctange_t r);
+renctangle_t createRectangle(void);
+void getRectangle(renctangle_t r);
 #endif
