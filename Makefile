@@ -11,4 +11,5 @@ build:
 
 clean:
 	move /Y $(EXE) bin\
-	move /Y $(OBJ) bin\
+	move /Y main.o bin\
+	move /Y projetsvg.o bin\
