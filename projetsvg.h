@@ -11,4 +11,5 @@ typedef struct rectangle_s renctange_t;
 FILE *creatingFile(char *name);
 FILE *openingFile(char *name);
 renctange_t createRectangle(void);
+void getRectangle(renctange_t r);
 #endif

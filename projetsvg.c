@@ -66,3 +66,11 @@ renctange_t createRectangle(void){
     return r;
 
 }
+
+void getRectangle(renctange_t r){
+    printf("Here's your rectangle: \n");
+    printf("\n");
+    printf("\t Start postition : %d,%d\n", r.xpos, r.ypos);
+    printf("\t Height : %d  Width : %d\n", r.height, r.width);
+    printf("\n");
+}
