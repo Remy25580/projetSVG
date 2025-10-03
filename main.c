@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "projetsvg.c"
+#include "projetsvg.h"
 
 int main(void){
     rectangle_t test = createRectangle();

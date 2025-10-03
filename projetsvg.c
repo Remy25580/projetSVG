@@ -4,11 +4,7 @@
 
 
 // Définitions de structures
-typedef struct rectangle_s{
 
-    int height,width,xpos,ypos;
-    
-} rectangle_t;
 
 // Définitions d'unions
 
