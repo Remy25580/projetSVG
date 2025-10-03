@@ -10,5 +10,5 @@ build:
 	$(CC) $(OBJ) -o $(EXE)
 
 clean:
-	mv /Y $(EXE) bin\
-	mv /Y $(OBJ) bin\
+	move /Y $(EXE) bin\
+	move /Y $(OBJ) bin\
