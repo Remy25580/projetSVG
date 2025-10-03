@@ -18,8 +18,4 @@ move_to_bin:
 
 
 clean:
-	if exist $(BIN_DIR)\$(EXE) del /Q $(BIN_DIR)\$(EXE)
-	if exist $(BIN_DIR)\main.o del /Q $(BIN_DIR)\main.o
-	if exist $(BIN_DIR)\projetsvg.o del /Q $(BIN_DIR)\projetsvg.o
-
-.PHONY: build move_to_bin clean
+	del *.o $(OUT)
