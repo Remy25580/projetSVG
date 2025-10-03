@@ -4,7 +4,7 @@
 //Prototypes structures
 
 //Prototypes unions
-typedef union openedOrNot;
+typedef union oon openedOrNot;
 
 //Protoypes enumérations
 typedef enum oont openedOrNotType;

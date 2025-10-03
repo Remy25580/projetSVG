@@ -8,7 +8,7 @@
 
 // Définitions d'unions
 
-typedef union{
+typedef union oon{
 
 } openedOrNot;
 
