@@ -10,6 +10,6 @@ build:
 	$(CC) $(OBJ) -o $(EXE)
 
 move_to_bin:
-	rm bin/projetSvg
+	rm bin/projetSvg.exe
 	rm bin/main.o
 	rm bin/projetsvg.o
