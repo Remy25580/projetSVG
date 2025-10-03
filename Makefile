@@ -2,7 +2,7 @@ CC := gcc
 FLAGS := -std=c99 -Wall -Werror -Wextra
 OBJ := main.o projetsvg.o
 SRC := main.c projetsvg.c
-EXE := projetSvg.exe
+EXE := projetSvg
 BIN_DIR := bin
 
 build:
@@ -18,4 +18,4 @@ move_to_bin:
 
 
 clean:
-	del *.o $(OUT)
+	del *.o $(EXE)
