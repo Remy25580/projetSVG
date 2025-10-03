@@ -8,16 +8,9 @@
 
 // Définitions d'unions
 
-typedef union oon{
-
-} openedOrNot;
 
 // Définitions d'énumérations
 
-typedef enum oont{
-    TYPEOPENED,
-    TYPECLOSED
-} openedOrNotType;
 
 
 //Définitions de fonctions
@@ -48,22 +41,3 @@ FILE *openingFile(char *name){
     }
     
 }
-
-int help(openedOrNotType s){
-    switch(s){
-        case TYPECLOSED:
-        //fct exécutables quand un fichier est ouvert
-        break;
-        case TYPEOPENED:
-        //fct exécutables quand un fichier n'est pas encore ouvert
-        break;
-    
-    }
-
-    return EXIT_SUCCESS;
-}
-
-void closeFile(FILE *name){
-    fclose(name);
-}
-
