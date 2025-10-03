@@ -3,8 +3,7 @@ FLAGS := -std=c99 -Wall -Werror -Wextra
 EXE := projetSvg
 
 build:
-	$(CC) $(FLAGS) -c projetsvg.c
-	$(CC) $(FLAGS) -c main.c
+	$(CC) $(FLAGS) -c *.c
 	$(CC) *.o -o $(EXE)
 
 clean:
