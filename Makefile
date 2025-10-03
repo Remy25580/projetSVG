@@ -9,7 +9,7 @@ build:
 	$(CC) $(FLAGS) -c projetsvg.c
 	$(CC) $(OBJ) -o $(EXE)
 
-clean:
+move_to_bin:
 	move /Y $(EXE) bin\
 	move /Y main.o bin\
 	move /Y projetsvg.o bin\
