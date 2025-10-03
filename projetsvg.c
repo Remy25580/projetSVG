@@ -6,7 +6,7 @@ FILE *creatingFile(char *name){
     FILE *pointeur = fopen(name, "w");
 
     if (pointeur == NULL){
-        printf("Impossible de cré=eer le fichier\n");
+        printf("Impossible de creer le fichier\n");
         return NULL;
     }
     else{
