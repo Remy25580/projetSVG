@@ -54,7 +54,7 @@ int help(openedOrNotType s){
         case TYPECLOSED:
         //fct exécutables quand un fichier est ouvert
         break;
-    case TYPEOPENED:
+        case TYPEOPENED:
         //fct exécutables quand un fichier n'est pas encore ouvert
         break;
     

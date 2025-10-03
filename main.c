@@ -6,6 +6,5 @@ int main(void){
     FILE *opened = NULL;
 
     openedOrNotType status = TYPECLOSED;
-
     return EXIT_SUCCESS;
-}
+} 
