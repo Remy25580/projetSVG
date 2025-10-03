@@ -15,3 +15,6 @@ FILE *creatingFile(char *name){
     }
 }
 
+void closeFile(FILE *name){
+    fclose(name);
+}
