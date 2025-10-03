@@ -19,33 +19,6 @@ typedef struct rectangle_s{
 
 //Définitions de fonctions
 
-FILE *creatingFile(char *name){
-    FILE *pointeur = fopen(name, "w");
-
-    if (pointeur == NULL){
-        printf("Impossible de creer le fichier\n");
-        return NULL;
-    }
-    else{
-        printf("Fichier cree avec succes!\n");
-        return pointeur;
-    }
-}
-
-FILE *openingFile(char *name){
-    FILE *pointeur = fopen(name, "w");
-
-    if (pointeur == NULL){
-        printf("Le fichier n'a pas ete trouve.\n");
-        return NULL;
-    }
-    else{
-        printf("Le fichier a ete ouvert avec succès! \n");
-        return pointeur;
-    }
-    
-}
-
 rectangle_t createRectangle(void){
     rectangle_t r;
     printf("You are now creating a rectangle.\n");
