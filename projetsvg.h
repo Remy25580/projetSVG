@@ -1,19 +1,23 @@
 #ifndef PROJETSVG
 #define PROJETSVG
 
-//Prototypes fonctions
-FILE *creatingFile(char *name);
-
-FILE *openingFile(char *name);
-
-void closeFile(FILE *name);
-
 //Prototypes structures
 
 //Prototypes unions
 typedef union openedOrNot;
 
 //Protoypes enumérations
-typedef enum openedOrNotType;
+typedef enum oont openedOrNotType;
+
+
+//Prototypes fonctions
+FILE *creatingFile(char *name);
+
+FILE *openingFile(char *name);
+
+int help(openedOrNotType s);
+
+void closeFile(FILE *name);
+
 
 #endif

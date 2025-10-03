@@ -2,6 +2,24 @@
 #include <stdlib.h>
 #include "projetsvg.h"
 
+
+// Définitions de structures
+
+
+// Définitions d'unions
+
+typedef union{
+
+} openedOrNot;
+
+// Définitions d'énumérations
+
+typedef enum oont{
+    TYPEOPENED,
+    TYPECLOSED
+} openedOrNotType;
+
+
 //Définitions de fonctions
 
 FILE *creatingFile(char *name){
@@ -31,8 +49,8 @@ FILE *openingFile(char *name){
     
 }
 
-int help(openedOrNotType status){
-    switch(status){
+int help(openedOrNotType s){
+    switch(s){
         case TYPECLOSED:
         //fct exécutables quand un fichier est ouvert
         break;
@@ -49,18 +67,3 @@ void closeFile(FILE *name){
     fclose(name);
 }
 
-// Définitions de structures
-
-
-// Définitions d'unions
-
-typedef union{
-
-} openedOrNot;
-
-// Définitions d'énumérations
-
-typedef enum {
-    TYPEOPENED,
-    TYPECLOSED
-} openedOrNotType;
