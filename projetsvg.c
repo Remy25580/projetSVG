@@ -32,3 +32,12 @@ FILE *openingFile(char *name){
 void closeFile(FILE *name){
     fclose(name);
 }
+
+typedef union{
+
+} openedOrNot;
+
+typedef enum {
+    TYPEOPENED,
+    TYPECLOSED
+} openedOrNotType;
