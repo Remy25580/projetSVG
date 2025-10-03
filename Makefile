@@ -1,10 +1,12 @@
 CC := gcc
 FLAGS := -std=c99 -Wall -Werror -Wextra
+OBJ := main.o projetSvg.o
+EXE := projetSvg.exe
 
 build:
 	$(CC) $(FLAGS) -c main.c
 	$(CC) $(FLAGS) -c projetsvg.c
-	$(CC) main.o projetsvg.o -o projetSvg
+	$(CC) $(OBJ) -o $(EXE)
 
 clean:
-	rm bin/main
+	rm -f bin/$(EXE) $(OBJ)
