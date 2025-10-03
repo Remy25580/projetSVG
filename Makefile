@@ -10,6 +10,6 @@ build:
 	$(CC) $(OBJ) -o $(EXE)
 
 move_to_bin:
-	move /Y $(EXE) bin\
-	move /Y main.o bin\
-	move /Y projetsvg.o bin\
+	rm bin/projetSvg
+	rm bin/main.o
+	rm bin/projetsvg.o
