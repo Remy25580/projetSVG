@@ -15,6 +15,20 @@ FILE *creatingFile(char *name){
     }
 }
 
+FILE *openingFile(char *name){
+    FILE *pointeur = fopen(name, "w");
+
+    if (pointeur == NULL){
+        printf("Le fichier n'a pas ete trouve.\n");
+        return NULL;
+    }
+    else{
+        printf("Le fichier a ete ouvert avec succès! \n");
+        return pointeur;
+    }
+    
+}
+
 void closeFile(FILE *name){
     fclose(name);
 }
