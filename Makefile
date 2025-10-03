@@ -18,4 +18,5 @@ move_to_bin:
 
 
 clean:
-	del *.o $(EXE)
+	del *.o
+	del *.exe
