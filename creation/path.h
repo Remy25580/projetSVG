@@ -87,4 +87,21 @@ typedef enum{
     TYPEA
 } operationType;
 
+typedef struct{
+    nodePath *previous;
+    operation elt;
+    operationType eltType;
+    nodePath *next;
+} nodePath;
+
+typedef struct{
+    nodePath *firstOperation;
+} listPath;
+
+typedef struct{
+    listPath l;
+} path_t;
+
+path_t createPath(void);
+void getPath(path_t p);
 #endif
