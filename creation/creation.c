@@ -90,3 +90,11 @@ circle_t createCicrcle(void){
     c.radius = r;
     return c;
 }
+
+void getCircle(circle_t c){
+    printf("Here's your circle : \n");
+    printf("\n");
+    printf("\t Position of your circle : %d;%d", c.xpos, c.ypos);
+    printf("\t Radius of the circle : %d", c.radius);
+    printf("\n");
+}
