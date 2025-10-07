@@ -94,7 +94,7 @@ circle_t createCicrcle(void){
 void getCircle(circle_t c){
     printf("Here's your circle : \n");
     printf("\n");
-    printf("\t Position of your circle : %d;%d", c.xpos, c.ypos);
-    printf("\t Radius of the circle : %d", c.radius);
+    printf("\t Position of your circle : %d;%d \n", c.xpos, c.ypos);
+    printf("\t Radius of the circle : %d \n", c.radius);
     printf("\n");
 }
