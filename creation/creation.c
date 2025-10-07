@@ -204,7 +204,7 @@ polyline_t createPolyline(void){
     currentLine.xstart = xs;
     currentLine.ystart = ys;
     for (int i = 0; i < nb; i++){
-        printf("What's the point n°%d of your polyline ?\n", i+2);
+        printf("What's the point n %d of your polyline ?\n", i+2);
         printf("x position : ");
         scanf("%d", &x);
         printf("y position : ");
@@ -228,7 +228,7 @@ void getPolyline(polyline_t pl){
     printf("Here's your polyline : \n");
     printf("\n");
     for (int i = 0; i < pl.nbLines; i++){
-        printf("\t Line n°%d :  Start: %d;%d  End: %d,%d \n", i+1, pl.lines[i].xstart,
+        printf("\t Line n %d :  Start: %d;%d  End: %d;%d \n", i+1, pl.lines[i].xstart,
         pl.lines[i].ystart, pl.lines[i].xend, pl.lines[i].yend);
 
     }
