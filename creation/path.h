@@ -4,24 +4,24 @@
 typedef struct{
     float xpos;
     float ypos;
-} M;
+} Mtype;
 
 typedef struct{
     float xpos;
     float ypos;
-} L;
+} Ltype;
 
 typedef struct{
     float xpos
-} H;
+} Htype;
 
 typedef struct{
     float ypos;
-} V;
+} Vtype;
 
 typedef struct{
 
-} Z;
+} Ztype;
 
 typedef struct{
     float xpent1;
@@ -30,26 +30,26 @@ typedef struct{
     float ypent2;
     float xend;
     float yend;
-} C;
+} Ctype;
 
 typedef struct{
     float xpent2;
     float ypent2;
     float xend;
     float yend;
-} S;
+} Stype;
 
 typedef struct{
     float xpent1;
     float ypent1;
     float xend;
     float yend;
-} Q;
+} Qtype;
 
 typedef struct{
     float xend;
     float yend;
-} T;
+} Ttype;
 
 typedef struct{
     float xradius;
@@ -59,32 +59,32 @@ typedef struct{
     int drawingWay;
     float xend;
     float yend;
-} A;
+} Atype;
 
 typedef union{
-    M m;
-    L l;
-    H h;
-    V v;
-    Z z;
-    C c;
-    S s;
-    Q q;
-    T t;
-    A a;
+    Mtype m;
+    Ltype l;
+    Htype h;
+    Vtype v;
+    Ztype z;
+    Ctype c;
+    Stype s;
+    Qtype q;
+    Ttype t;
+    Atype a;
 } operation;
 
 typedef enum{
-    TYPEM,
-    TYPEL,
-    TYPEH,
-    TYPEV,
-    TYPEZ,
-    TYPEC,
-    TYPES,
-    TYPEQ,
-    TYPET,
-    TYPEA
+    M,
+    L,
+    H,
+    V,
+    Z,
+    C,
+    S,
+    Q,
+    T,
+    A
 } operationType;
 
 typedef struct{
