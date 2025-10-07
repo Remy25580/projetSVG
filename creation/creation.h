@@ -20,6 +20,13 @@ typedef struct circle_s{
     int xpos;
     int ypos;
 } circle_t;
+
+typedef struct ellipse_s{
+    int xradius;
+    int yradius;
+    int xpos;
+    int ypos;
+} ellipse_t;
 //Prototypes unions
 
 //Protoypes enumérations
@@ -32,4 +39,6 @@ square_t createSquare(void);
 void getSquare(square_t c);
 circle_t createCicrcle(void);
 void getCircle(circle_t c);
+ellipse_t createEllipse(void);
+void getEllipse(ellipse_t e);
 #endif
