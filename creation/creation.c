@@ -15,12 +15,15 @@
 rectangle_t createRectangle(void){
     rectangle_t r;
     printf("You are now creating a rectangle.\n");
-    printf("What's the x position where starts your rectangle ?\n");
+    printf("Where does your rectangle start ?\n");
+    printf("\n");
     int x;
-    scanf("%d", &x);
-    printf("Great! Now what's the y postition where starts your rectangle ?\n");
     int y;
+    printf("x position : ");
+    scanf("%d", &x);
+    printf("y position : ");
     scanf("%d", &y);
+
     printf("And now, what will be the height of your rectangle ?\n");
     int h;
     scanf("%d", &h);
@@ -48,12 +51,15 @@ void getRectangle(rectangle_t r){
 square_t createSquare(void){
     square_t c;
     printf("You are now creating a square.\n");
-    printf("What's the x position where starts your square ?\n");
+    printf("Where does your square start ?\n");
+    printf("\n");
     int x;
-    scanf("%d", &x);
-    printf("Great! Now what's the y postition where starts your square ?\n");
     int y;
+    printf("x position : ");
+    scanf("%d", &x);
+    printf("y position : ");
     scanf("%d", &y);
+
     printf("And now, what will be the dimensions of your square's borders ?\n");
     int d;
     scanf("%d", &d);
@@ -75,12 +81,15 @@ void getSquare(square_t c){
 circle_t createCicrcle(void){
     circle_t c;
     printf("You are now creating a circle.\n");
-    printf("What's the x position of your circle's center ?\n");
+    printf("Where's the center of your circle ?\n");
+    printf("\n");
     int x;
-    scanf("%d", &x);
-    printf("Great! Now, what's the y position of your circle's center ?\n");
     int y;
+    printf("x position : ");
+    scanf("%d", &x);
+    printf("y position : ");
     scanf("%d", &y);
+
     printf("And to finsh, what's the radius of your circle ?\n");
     int r;
     scanf("%d", &r);
@@ -102,12 +111,15 @@ void getCircle(circle_t c){
 ellipse_t createEllipse(void){
     ellipse_t e;
     printf("You are now creating an ellipse.\n");
-    printf("What's the x position of your ellipse's center ?\n");
+    printf("Where's the center of your ellipse ?\n");
+    printf("\n");
     int x;
-    scanf("%d", &x);
-    printf("Great! Now, what's the y position of your ellipse's center ?\n");
     int y;
+    printf("x position : ");
+    scanf("%d", &x);
+    printf("y position : ");    
     scanf("%d", &y);
+    
     printf("Now, what's the x radius of your ellipse ?\n");
     int xr;
     scanf("%d", &xr);
