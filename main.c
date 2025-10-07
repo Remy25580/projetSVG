@@ -3,7 +3,7 @@
 #include "creation/creation.h"
 
 int main(void){
-    polygon_t test = createPolygon();
-    getPolygon(test);
+    rectangle_t test = createRectangle();
+    getRectangle(test);
     return EXIT_SUCCESS;
 }

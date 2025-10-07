@@ -31,23 +31,15 @@ rectangle_t createRectangle(void){
     int w;
     scanf("%d", &w);
 
-    printf("Do you want to add round corners to your rectangle ? \n");
-    printf("Enter 1 for yes and 0 for no ");
-    int confirm = -1;
-    while (confirm != 0 || confirm != 1){
-        scanf("%d", &confirm);
-        if (confirm != 0 && confirm != 1){
-            printf("Invalid value.\n");
-        }
-    }
+    printf("Now let's make the corners of your rectangle.\n");
     int rx = 0;
     int ry = 0;
-    if (confirm == 1){
-        printf("So, what's the x radius of the corners ?\n");
-        scanf("%d", &rx);
-        printf("And to finish, what is the y radius of the corners ?\n");
-        scanf("%d", &ry);
-    }
+
+    printf("So, what's the x radius of the corners ?\n");
+    scanf("%d", &rx);
+    printf("And to finish, what is the y radius of the corners ?\n");
+    scanf("%d", &ry);
+    
     printf("Your rectangle is now made! \n");
     r.xpos = x;
     r.ypos = y;
@@ -65,6 +57,7 @@ void getRectangle(rectangle_t r){
     printf("\n");
     printf("\t Start postition : %d;%d\n", r.xpos, r.ypos);
     printf("\t Height : %d  Width : %d\n", r.height, r.width);
+    printf("\t Radius of the corners : %dx and %dy \n", r.xradius,r.yradius);
     printf("\n");
 }
 
@@ -80,13 +73,25 @@ square_t createSquare(void){
     printf("y position : ");
     scanf("%d", &y);
 
-    printf("And now, what will be the dimensions of your square's borders ?\n");
+    printf("Now, what will be the dimensions of your square's borders ?\n");
     int d;
     scanf("%d", &d);
+
+    printf("Now let's make the corners of your square.\n");
+    int rx = 0;
+    int ry = 0;
+
+    printf("So, what's the x radius of the corners ?\n");
+    scanf("%d", &rx);
+    printf("And to finish, what is the y radius of the corners ?\n");
+    scanf("%d", &ry);
+
     printf("Your square is now made! \n");
     c.xpos = x;
     c.ypos = y;
     c.dimension = d;
+    c.xradius = rx;
+    c.yradius = ry;
     return c;
 }
 
@@ -159,7 +164,7 @@ void getEllipse(ellipse_t e){
     printf("\n");
     printf("\t Position of your ellipse : %d;%d \n", e.xpos, e.ypos);
     printf("\t Lenght of your ellipse(x radius) : %d \n", e.xradius);
-    printf("\t Height of yout ellipse(y radius) : %d \n", e.yradius);
+    printf("\t Height of your ellipse(y radius) : %d \n", e.yradius);
     printf("\n");
 }
 
