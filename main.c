@@ -3,7 +3,7 @@
 #include "creation/creation.h"
 
 int main(void){
-    line_t test = createLine();
-    getLine(test);
+    rectangle_t test = createRectangle();
+    getRectangle(test);
     return EXIT_SUCCESS;
 }
