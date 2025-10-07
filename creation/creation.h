@@ -39,6 +39,11 @@ typedef struct polyline_s{
     int nbLines;
     line_t *lines;
 } polyline_t;
+
+typedef struct polygon_s{
+    int nbSides;
+    polyline_t polygon;
+} polygon_t;
 //Prototypes unions
 
 //Protoypes enumérations
@@ -55,7 +60,10 @@ ellipse_t createEllipse(void);
 void getEllipse(ellipse_t e);
 line_t createLine(void);
 void getLine(line_t l);
+
 polyline_t createPolyline(void);
 void getPolyline(polyline_t pl);
+polygon_t createPolygon(void);
+void getPolygon(polygon_t pg);
 
 #endif

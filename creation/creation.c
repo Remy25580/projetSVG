@@ -234,3 +234,12 @@ void getPolyline(polyline_t pl){
     }
     printf("\n");
 }
+
+polygon_t createPolygon(void){
+    polygon_t pg;
+    printf("You are now creating a polygon.\n");
+    int nb;
+    printf("First of all, how many sides will your polygon have ? \n");
+    scanf("%d", &nb);
+    
+}
