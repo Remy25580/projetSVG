@@ -61,6 +61,30 @@ typedef struct{
     float yend;
 } A;
 
+typedef union{
+    M m;
+    L l;
+    H h;
+    V v;
+    Z z;
+    C c;
+    S s;
+    Q q;
+    T t;
+    A a;
+} operation;
 
+typedef enum{
+    TYPEM,
+    TYPEL,
+    TYPEH,
+    TYPEV,
+    TYPEZ,
+    TYPEC,
+    TYPES,
+    TYPEQ,
+    TYPET,
+    TYPEA
+} operationType;
 
 #endif
