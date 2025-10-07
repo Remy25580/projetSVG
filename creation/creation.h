@@ -16,7 +16,7 @@ typedef struct square_s{
 } square_t;
 
 typedef struct circle_s{
-    int rayon;
+    int radius;
     int xpos;
     int ypos;
 } circle_t;

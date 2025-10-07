@@ -87,6 +87,6 @@ circle_t createCicrcle(void){
     printf("Your circle is now made !\n");
     c.xpos = x;
     c.ypos = y;
-    c.rayon = r;
+    c.radius = r;
     return c;
 }
