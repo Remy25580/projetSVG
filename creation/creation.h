@@ -42,7 +42,7 @@ typedef struct polyline_s{
 
 typedef struct polygon_s{
     int nbSides;
-    polyline_t polygon;
+    line_t *lines;
 } polygon_t;
 //Prototypes unions
 
@@ -60,7 +60,6 @@ ellipse_t createEllipse(void);
 void getEllipse(ellipse_t e);
 line_t createLine(void);
 void getLine(line_t l);
-
 polyline_t createPolyline(void);
 void getPolyline(polyline_t pl);
 polygon_t createPolygon(void);

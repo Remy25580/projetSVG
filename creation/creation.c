@@ -188,6 +188,7 @@ polyline_t createPolyline(void){
     int nb;
     printf("First of all, how many lines do you want to connect ? \n");
     scanf("%d", &nb);
+
     printf("Great! Now let's create your lines.\n");
     pl.nbLines = nb;
     pl.lines = malloc(nb * sizeof(polyline_t));
@@ -242,4 +243,50 @@ polygon_t createPolygon(void){
     printf("First of all, how many sides will your polygon have ? \n");
     scanf("%d", &nb);
     
+    printf("Great! Now let's create the sides.\n");
+    pg.nbSides = nb;
+    pg.lines = malloc(nb * sizeof(polyline_t));
+    printf("What's the begining point of your polygon ?\n");
+    int xs;
+    int ys;
+    printf("x position : ");
+    scanf("%d", &xs);
+    printf("y position : ");
+    scanf("%d", &ys);
+    int x;
+    int y;
+    line_t currentLine;
+    currentLine.xstart = xs;
+    currentLine.ystart = ys;
+    for (int i = 0; i < nb-1; i++){
+        printf("What's the point n %d of your polylgon ?\n", i+2);
+        printf("x position : ");
+        scanf("%d", &x);
+        printf("y position : ");
+        scanf("%d", &y);
+
+        currentLine.xend = x;
+        currentLine.yend = y;
+
+        pg.lines[i] = currentLine;
+
+        currentLine.xstart = x;
+        currentLine.ystart = y;
+        printf("Point added to your polygon! \n");
+
+    }
+    currentLine.xend = pg.lines[0].xstart;
+    currentLine.yend = pg.lines[0].ystart;
+    pg.lines[nb-1] = currentLine;
+
+    printf("Your polylgon is now made ! \n");
+}
+
+void getPolygon(polygon_t pg){
+    printf("Here's your polygon : \n");
+    printf("\n");
+    for (int i = 0; i < pg.nbSides; i++){
+        print("\t Point n %d: %d;%d \n", i+1, pg.lines[i].xstart, pg.lines[i].ystart);
+    }
+    printf("\n");
 }
