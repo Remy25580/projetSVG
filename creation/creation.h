@@ -1,5 +1,5 @@
-#ifndef PROJETSVG
-#define PROJETSVG
+#ifndef CREATION
+#define CREATION
 
 //Prototypes structures
 typedef struct rectangle_s{
