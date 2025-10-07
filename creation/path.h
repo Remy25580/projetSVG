@@ -84,7 +84,8 @@ typedef enum{
     S,
     Q,
     T,
-    A
+    A,
+    D
 } operationType;
 
 typedef struct{
