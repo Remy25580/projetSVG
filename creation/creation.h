@@ -3,40 +3,40 @@
 
 //Prototypes structures
 typedef struct rectangle_s{
-    int height;
-    int width;
-    int xpos;
-    int ypos;
-    int xradius;
-    int yradius;
+    float height;
+    float width;
+    float xpos;
+    float ypos;
+    float xradius;
+    float yradius;
 } rectangle_t;
 
 typedef struct square_s{
-    int dimension;
-    int xpos;
-    int ypos;
-    int xradius;
-    int yradius;
+    float dimension;
+    float xpos;
+    float ypos;
+    float xradius;
+    float yradius;
 } square_t;
 
 typedef struct circle_s{
-    int radius;
-    int xpos;
-    int ypos;
+    float radius;
+    float xpos;
+    float ypos;
 } circle_t;
 
 typedef struct ellipse_s{
-    int xradius;
-    int yradius;
-    int xpos;
-    int ypos;
+    float xradius;
+    float yradius;
+    float xpos;
+    float ypos;
 } ellipse_t;
 
 typedef struct line_s{
-    int xstart;
-    int xend;
-    int ystart;
-    int yend;
+    float xstart;
+    float xend;
+    float ystart;
+    float yend;
 } line_t;
 
 typedef struct polyline_s{

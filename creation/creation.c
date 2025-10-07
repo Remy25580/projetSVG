@@ -18,28 +18,28 @@ rectangle_t createRectangle(void){
     printf("You are now creating a rectangle.\n");
     printf("Where does your rectangle start ?\n");
     printf("\n");
-    int x;
-    int y;
+    float x;
+    float y;
     printf("x position : ");
-    scanf("%d", &x);
+    scanf("%f", &x);
     printf("y position : ");
-    scanf("%d", &y);
+    scanf("%f", &y);
 
     printf("And now, what will be the height of your rectangle ?\n");
-    int h;
-    scanf("%d", &h);
+    float h;
+    scanf("%f", &h);
     printf("And what will be the width of your rectangle ?\n");
-    int w;
-    scanf("%d", &w);
+    float w;
+    scanf("%f", &w);
 
     printf("Now let's make the corners of your rectangle.\n");
-    int rx = 0;
-    int ry = 0;
+    float rx = 0;
+    float ry = 0;
 
     printf("So, what's the x radius of the corners ?\n");
-    scanf("%d", &rx);
+    scanf("%f", &rx);
     printf("And to finish, what is the y radius of the corners ?\n");
-    scanf("%d", &ry);
+    scanf("%f", &ry);
     
     printf("Your rectangle is now made! \n");
     r.xpos = x;
@@ -56,9 +56,9 @@ rectangle_t createRectangle(void){
 void getRectangle(rectangle_t r){
     printf("Here's your rectangle: \n");
     printf("\n");
-    printf("\t Start postition : %d;%d\n", r.xpos, r.ypos);
-    printf("\t Height : %d  Width : %d\n", r.height, r.width);
-    printf("\t Radius of the corners : %dx and %dy \n", r.xradius,r.yradius);
+    printf("\t Start postition : %f;%f\n", r.xpos, r.ypos);
+    printf("\t Height : %f  Width : %f\n", r.height, r.width);
+    printf("\t Radius of the corners : %fx and %fy \n", r.xradius,r.yradius);
     printf("\n");
 }
 
@@ -67,25 +67,25 @@ square_t createSquare(void){
     printf("You are now creating a square.\n");
     printf("Where does your square start ?\n");
     printf("\n");
-    int x;
-    int y;
+    float x;
+    float y;
     printf("x position : ");
-    scanf("%d", &x);
+    scanf("%f", &x);
     printf("y position : ");
-    scanf("%d", &y);
+    scanf("%f", &y);
 
     printf("Now, what will be the dimensions of your square's borders ?\n");
-    int d;
-    scanf("%d", &d);
+    float d;
+    scanf("%f", &d);
 
     printf("Now let's make the corners of your square.\n");
-    int rx = 0;
-    int ry = 0;
+    float rx = 0;
+    float ry = 0;
 
     printf("So, what's the x radius of the corners ?\n");
-    scanf("%d", &rx);
+    scanf("%f", &rx);
     printf("And to finish, what is the y radius of the corners ?\n");
-    scanf("%d", &ry);
+    scanf("%f", &ry);
 
     printf("Your square is now made! \n");
     c.xpos = x;
@@ -99,8 +99,9 @@ square_t createSquare(void){
 void getSquare(square_t c){
     printf("Here's your square: \n");
     printf("\n");
-    printf("\t Start postition : %d;%d\n", c.xpos, c.ypos);
-    printf("\t Size : %dx%d", c.dimension, c.dimension);
+    printf("\t Start postition : %f;%f\n", c.xpos, c.ypos);
+    printf("\t Size : %fx%f", c.dimension, c.dimension);
+    printf("\t Radius of the corners : %fx and %fy \n", c.xradius,c.yradius);
     printf("\n");
 }
 
@@ -109,16 +110,16 @@ circle_t createCicrcle(void){
     printf("You are now creating a circle.\n");
     printf("Where's the center of your circle ?\n");
     printf("\n");
-    int x;
-    int y;
+    float x;
+    float y;
     printf("x position : ");
-    scanf("%d", &x);
+    scanf("%f", &x);
     printf("y position : ");
-    scanf("%d", &y);
+    scanf("%f", &y);
 
     printf("And to finsh, what's the radius of your circle ?\n");
-    int r;
-    scanf("%d", &r);
+    float r;
+    scanf("%f", &r);
     printf("Your circle is now made !\n");
     c.xpos = x;
     c.ypos = y;
@@ -129,8 +130,8 @@ circle_t createCicrcle(void){
 void getCircle(circle_t c){
     printf("Here's your circle : \n");
     printf("\n");
-    printf("\t Position of your circle : %d;%d \n", c.xpos, c.ypos);
-    printf("\t Radius of the circle : %d \n", c.radius);
+    printf("\t Position of your circle : %f;%f \n", c.xpos, c.ypos);
+    printf("\t Radius of the circle : %f \n", c.radius);
     printf("\n");
 }
 
@@ -139,19 +140,19 @@ ellipse_t createEllipse(void){
     printf("You are now creating an ellipse.\n");
     printf("Where's the center of your ellipse ?\n");
     printf("\n");
-    int x;
-    int y;
+    float x;
+    float y;
     printf("x position : ");
-    scanf("%d", &x);
+    scanf("%f", &x);
     printf("y position : ");    
-    scanf("%d", &y);
+    scanf("%f", &y);
 
     printf("Now, what's the x radius of your ellipse ?\n");
-    int xr;
-    scanf("%d", &xr);
+    float xr;
+    scanf("%f", &xr);
     printf("And to finish, what is the y radius of your ellipse ?\n");
-    int yr;
-    scanf("%d", &yr);
+    float yr;
+    scanf("%f", &yr);
     printf("Your ellipse is now made !\n");
     e.xpos = x;
     e.ypos = y;
@@ -163,9 +164,9 @@ ellipse_t createEllipse(void){
 void getEllipse(ellipse_t e){
     printf("Here's your ellipse : \n");
     printf("\n");
-    printf("\t Position of your ellipse : %d;%d \n", e.xpos, e.ypos);
-    printf("\t Lenght of your ellipse(x radius) : %d \n", e.xradius);
-    printf("\t Height of your ellipse(y radius) : %d \n", e.yradius);
+    printf("\t Position of your ellipse : %f;%f \n", e.xpos, e.ypos);
+    printf("\t Lenght of your ellipse(x radius) : %f \n", e.xradius);
+    printf("\t Height of your ellipse(y radius) : %f \n", e.yradius);
     printf("\n");
 }
 
@@ -174,23 +175,23 @@ line_t createLine(void){
     printf("You are now creating a line.\n");
     printf("What is the position of the begining of your line ?\n");
     printf("\n");
-    int xs;
-    int ys;
+    float xs;
+    float ys;
     printf("x position : ");
-    scanf("%d", &xs);
+    scanf("%f", &xs);
     printf("\n");
     printf("y position : ");
-    scanf("%d", &ys);
+    scanf("%f", &ys);
     printf("\n");
     printf("Good! Now what's the position of the ending of your line ?\n");
     printf("\n");
-    int xe;
-    int ye;
+    float xe;
+    float ye;
     printf("x position : ");
-    scanf("%d", &xe);
+    scanf("%f", &xe);
     printf("\n");
     printf("y position : ");
-    scanf("%d", &ye);
+    scanf("%f", &ye);
     printf("\n");
     printf("Your line is now made !\n");
     l.xstart = xs;
@@ -203,8 +204,8 @@ line_t createLine(void){
 void getLine(line_t l){
     printf("Here's your line : \n");
     printf("\n");
-    printf("\t Begining point : %d;%d \n", l.xstart, l.ystart);
-    printf("\t Ending point : %d;%d \n", l.xend,l.yend);
+    printf("\t Begining point : %f;%f \n", l.xstart, l.ystart);
+    printf("\t Ending point : %f;%f \n", l.xend,l.yend);
     printf("\n");
 }
 
@@ -219,23 +220,23 @@ polyline_t createPolyline(void){
     pl.nbLines = nb;
     pl.lines = malloc(nb * sizeof(polyline_t));
     printf("What's the begining point of your polyline ?\n");
-    int xs;
-    int ys;
+    float xs;
+    float ys;
     printf("x position : ");
-    scanf("%d", &xs);
+    scanf("%f", &xs);
     printf("y position : ");
-    scanf("%d", &ys);
-    int x;
-    int y;
+    scanf("%f", &ys);
+    float x;
+    float y;
     line_t currentLine;
     currentLine.xstart = xs;
     currentLine.ystart = ys;
     for (int i = 0; i < nb; i++){
         printf("What's the point n %d of your polyline ?\n", i+2);
         printf("x position : ");
-        scanf("%d", &x);
+        scanf("%f", &x);
         printf("y position : ");
-        scanf("%d", &y);
+        scanf("%f", &y);
 
         currentLine.xend = x;
         currentLine.yend = y;
@@ -255,7 +256,7 @@ void getPolyline(polyline_t pl){
     printf("Here's your polyline : \n");
     printf("\n");
     for (int i = 0; i < pl.nbLines; i++){
-        printf("\t Line n %d :  Start: %d;%d  End: %d;%d \n", i+1, pl.lines[i].xstart,
+        printf("\t Line n %d :  Start: %f;%f  End: %f;%f \n", i+1, pl.lines[i].xstart,
         pl.lines[i].ystart, pl.lines[i].xend, pl.lines[i].yend);
 
     }
@@ -273,23 +274,23 @@ polygon_t createPolygon(void){
     pg.nbSides = nb;
     pg.lines = malloc(nb * sizeof(polyline_t));
     printf("What's the begining point of your polygon ?\n");
-    int xs;
-    int ys;
+    float xs;
+    float ys;
     printf("x position : ");
-    scanf("%d", &xs);
+    scanf("%f", &xs);
     printf("y position : ");
-    scanf("%d", &ys);
-    int x;
-    int y;
+    scanf("%f", &ys);
+    float x;
+    float y;
     line_t currentLine;
     currentLine.xstart = xs;
     currentLine.ystart = ys;
     for (int i = 0; i < nb-1; i++){
         printf("What's the point n %d of your polylgon ?\n", i+2);
         printf("x position : ");
-        scanf("%d", &x);
+        scanf("%f", &x);
         printf("y position : ");
-        scanf("%d", &y);
+        scanf("%f", &y);
 
         currentLine.xend = x;
         currentLine.yend = y;
@@ -314,7 +315,7 @@ void getPolygon(polygon_t pg){
     printf("Here's your polygon : \n");
     printf("\n");
     for (int i = 0; i < pg.nbSides; i++){
-        printf("\t Point n %d: %d;%d \n", i+1, pg.lines[i].xstart, pg.lines[i].ystart);
+        printf("\t Point n %d: %f;%f \n", i+1, pg.lines[i].xstart, pg.lines[i].ystart);
     }
     printf("\n");
 }
