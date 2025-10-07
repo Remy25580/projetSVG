@@ -7,6 +7,8 @@ typedef struct rectangle_s{
     int width;
     int xpos;
     int ypos;
+    int xradius;
+    int yradius;
 } rectangle_t;
 
 typedef struct square_s{

@@ -30,11 +30,31 @@ rectangle_t createRectangle(void){
     printf("And what will be the width of your rectangle ?\n");
     int w;
     scanf("%d", &w);
+
+    printf("Do you want to add round corners to your rectangle ? \n");
+    printf("Enter 1 for yes and 0 for no ");
+    int confirm = -1;
+    while (confirm != 0 || confirm != 1){
+        scanf("%d", &confirm);
+        if (confirm != 0 && confirm != 1){
+            printf("Invalid value.\n");
+        }
+    }
+    int rx = 0;
+    int ry = 0;
+    if (confirm == 1){
+        printf("So, what's the x radius of the corners ?\n");
+        scanf("%d", &rx);
+        printf("And to finish, what is the y radius of the corners ?\n");
+        scanf("%d", &ry);
+    }
     printf("Your rectangle is now made! \n");
     r.xpos = x;
     r.ypos = y;
     r.height = h;
     r.width = w;
+    r.xradius = rx;
+    r.yradius = ry;
     
     return r;
 
