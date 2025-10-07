@@ -48,4 +48,6 @@ circle_t createCicrcle(void);
 void getCircle(circle_t c);
 ellipse_t createEllipse(void);
 void getEllipse(ellipse_t e);
+line_t createLine(void);
+void getLine(line_t l);
 #endif

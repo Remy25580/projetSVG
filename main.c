@@ -3,7 +3,7 @@
 #include "creation/creation.h"
 
 int main(void){
-    ellipse_t test = createEllipse();
-    getEllipse(test);
+    line_t test = createLine();
+    getLine(test);
     return EXIT_SUCCESS;
 }

@@ -130,3 +130,42 @@ void getEllipse(ellipse_t e){
     printf("\t Height of yout ellipse(y radius) : %d \n", e.yradius);
     printf("\n");
 }
+
+line_t createLine(void){
+    line_t l;
+    printf("You are now creating a line.\n");
+    printf("What is the position of the begining of your line ?\n");
+    printf("\n");
+    int xs;
+    int ys;
+    printf("x position : ");
+    scanf("%d", &xs);
+    printf("\n");
+    printf("y position : ");
+    scanf("%d", &ys);
+    printf("\n");
+    printf("Good! Now what's the position of the ending of your line ?\n");
+    printf("\n");
+    int xe;
+    int ye;
+    printf("x position : ");
+    scanf("%d", &xe);
+    printf("\n");
+    printf("y position : ");
+    scanf("%d", &ye);
+    printf("\n");
+    printf("Your line is now made !\n");
+    l.xstart = xs;
+    l.ystart = ys;
+    l.xend = xe;
+    l.yend = ye;
+    return l;
+}
+
+void getLine(line_t l){
+    printf("Here's your line : \n");
+    printf("\n");
+    printf("\t Begining point : %d;%d \n", l.xstart, l.ystart);
+    printf("\t Ending point : %d;%d \n", l.xend,l.yend);
+    printf("\n");
+}
