@@ -73,5 +73,20 @@ void getSquare(square_t c){
 }
 
 circle_t createCicrcle(void){
-    
+    circle_t c;
+    printf("You are now creating a circle.\n");
+    printf("What's the x position of your circle's center ?\n");
+    int x;
+    scanf("%d", &x);
+    printf("Great! Now, what's the y position of your circle's center ?\n");
+    int y;
+    scanf("%d", &y);
+    printf("And to finsh, what's the radius of your circle ?\n");
+    int r;
+    scanf("%d", &r);
+    printf("Your circle is now made !\n");
+    c.xpos = x;
+    c.ypos = y;
+    c.rayon = r;
+    return c;
 }
