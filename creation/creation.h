@@ -9,11 +9,17 @@ typedef struct rectangle_s{
     int ypos;
 } rectangle_t;
 
-typedef struct carre_s{
+typedef struct square_s{
     int dimension;
     int xpos;
     int ypos;
-} carre_t;
+} square_t;
+
+typedef struct circle_s{
+    int rayon;
+    int xpos;
+    int ypos;
+} circle_t;
 //Prototypes unions
 
 //Protoypes enumérations
@@ -22,6 +28,8 @@ typedef struct carre_s{
 
 rectangle_t createRectangle(void);
 void getRectangle(rectangle_t r);
-carre_t createSquare(void);
-void getSquare(carre_t c);
+square_t createSquare(void);
+void getSquare(square_t c);
+circle_t createCicrcle(void);
+void getCircle(circle_t c);
 #endif

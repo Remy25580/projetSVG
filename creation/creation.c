@@ -45,8 +45,8 @@ void getRectangle(rectangle_t r){
     printf("\n");
 }
 
-carre_t createSquare(void){
-    carre_t c;
+square_t createSquare(void){
+    square_t c;
     printf("You are now creating a square.\n");
     printf("What's the x position where starts your square ?\n");
     int x;
@@ -64,10 +64,14 @@ carre_t createSquare(void){
     return c;
 }
 
-void getSquare(carre_t c){
+void getSquare(square_t c){
     printf("Here's your square: \n");
     printf("\n");
     printf("\t Start postition : %d;%d\n", c.xpos, c.ypos);
     printf("\t Size : %dx%d", c.dimension, c.dimension);
     printf("\n");
+}
+
+circle_t createCicrcle(void){
+    
 }
