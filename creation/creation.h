@@ -27,6 +27,13 @@ typedef struct ellipse_s{
     int xpos;
     int ypos;
 } ellipse_t;
+
+typedef struct line_s{
+    int xstart;
+    int xend;
+    int ystart;
+    int yend;
+} line_t;
 //Prototypes unions
 
 //Protoypes enumérations
