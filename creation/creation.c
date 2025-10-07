@@ -280,13 +280,15 @@ polygon_t createPolygon(void){
     pg.lines[nb-1] = currentLine;
 
     printf("Your polylgon is now made ! \n");
+    
+    return pg;
 }
 
 void getPolygon(polygon_t pg){
     printf("Here's your polygon : \n");
     printf("\n");
     for (int i = 0; i < pg.nbSides; i++){
-        print("\t Point n %d: %d;%d \n", i+1, pg.lines[i].xstart, pg.lines[i].ystart);
+        printf("\t Point n %d: %d;%d \n", i+1, pg.lines[i].xstart, pg.lines[i].ystart);
     }
     printf("\n");
 }
