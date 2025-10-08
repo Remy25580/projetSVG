@@ -4,7 +4,7 @@
 #include "creation/path.h"
 
 int main(void){
-    rectangle_t test = createRectangle();
-    getRectangle(test);
+    path_t test = createPath();
+    getPath(test);
     return EXIT_SUCCESS;
 }
