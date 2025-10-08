@@ -32,14 +32,14 @@ path_t createPath(void){
 
 
         
-        scanf("%c", &op);
+        scanf("%s", &op);
         switch (op){
-            case D:
+            case 'D':
                 printf("Your path is now made! \n");
                 return t;
                 creating = 1;
                 break;
-            case M:
+            case 'M':
                 currentNode.eltType = M;
                 printf("What is the position where you want to move in ? \n");
                 printf("x position : ");
@@ -51,7 +51,7 @@ path_t createPath(void){
                 currentNode.elt.m.ypos = y;
                 printf("You moved to that point!\n");
                 break;
-            case L:
+            case 'L':
                 currentNode.eltType = L;
                 printf("To what point do you want to draw a line ?\n");
                 printf("x position : ");
@@ -63,7 +63,7 @@ path_t createPath(void){
                 currentNode.elt.l.ypos = y;
                 printf("You drew a line to that point !\n");
                 break;
-            case H:
+            case 'H':
                 currentNode.eltType = L;
                 printf("To what x-axis do you want to draw a horizontal line ? \n");
                 printf("x-axis : ");
@@ -72,7 +72,7 @@ path_t createPath(void){
                 currentNode.elt.h.xpos = x;
                 printf("You drew a horizontal line to that axis !\n");
                 break;
-            case V:
+            case 'V':
                 currentNode.eltType = V;
                 printf("To what y-axis do you want to draw a vertical line? \n");
                 printf("y-axis : ");
@@ -81,12 +81,12 @@ path_t createPath(void){
                 currentNode.elt.v.ypos = y;
                 printf("You drew a vertical line to that axis !\n");
                 break;
-            case Z:
+            case 'Z':
                 currentNode.eltType = Z;
                 printf("You drew a line to the last unclosed point !\n");
                 currentNode.elt.z.verif = 0;
                 break;
-            case C:
+            case 'C':
                 currentNode.eltType = C;
                 printf("To what point do you want to create a cubic curve ?\n");
                 printf("x position : ");
@@ -114,7 +114,7 @@ path_t createPath(void){
                 currentNode.elt.c.ypent2 = ypent2;
                 printf("You drew a cubic curve !\n");
                 break;
-            case S:
+            case 'S':
                 currentNode.eltType = S;
                 printf("To what point do you want to draw that cubic curve ?\n");
                 printf("x position : ");
@@ -134,7 +134,7 @@ path_t createPath(void){
                 currentNode.elt.s.ypent2 = ypent2;
                 printf("You drew a cubic curve !\n");
                 break;
-            case Q:
+            case 'Q':
                 currentNode.eltType = Q;
                 printf("To what point do you want to create a quadratic curve ?\n");
                 printf("x position : ");
@@ -154,7 +154,7 @@ path_t createPath(void){
                 currentNode.elt.q.ypent1 = ypent1;
                 printf("You drew a quadratic curve !\n");
                 break;
-            case T:
+            case 'T':
                 currentNode.eltType = T;
                 printf("To what point do you want to draw that quadratic curve ?\n");
                 printf("x position : ");
@@ -166,7 +166,7 @@ path_t createPath(void){
                 currentNode.elt.t.yend = y;
                 printf("You drew a quadratic curve ! \n");
                 break;
-            case A:
+            case 'A':
                 currentNode.eltType = A;
                 printf("First of all, to what point will your arc go ?\n");
                 printf("x position : ");
