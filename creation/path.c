@@ -21,7 +21,7 @@ path_t createPath(void){
     nodePath currentNode;
     currentNode.next = NULL;
     currentNode.previous = NULL;
-    operationType op;
+    char op;
     printf("You are now creating a path.\n");
     int creating = 0;
     int unvalidOperation;
@@ -181,7 +181,7 @@ path_t createPath(void){
                 scanf("%f", &yr);
                 printf("\n");
                 printf("What will be the rotation of that ellipse, to draw your arc ?\n");
-                scanf("%s", &rotation);
+                scanf("%f", &rotation);
                 printf("\n");
                 printf("So, will the small or big side of the ellipse be drawn as an arc ?\n");
                 printf("Type 0 for the small, or 1 for the big ");
@@ -220,11 +220,12 @@ path_t createPath(void){
                 while (prev->next != NULL){
                     prev = prev->next;
                 }
-                prev->next = currentNode;
+                prev->next = &currentNode;
                 currentNode.previous = prev;
             }
         }
     }
+    return t;
 }
 
 
