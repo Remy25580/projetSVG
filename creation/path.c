@@ -19,6 +19,7 @@ path_t createPath(void){
     nodePath *prev;
     path_t t;
     nodePath currentNode;
+    t.l.firstOperation = NULL;
     currentNode.next = NULL;
     currentNode.previous = NULL;
     char op;
@@ -28,7 +29,7 @@ path_t createPath(void){
     while(creating == 0){        
         printf("What operation do you wanna use on your path? \n");
         printf("M, L, H, V, Z, C, S, Q, T, A, or D to stop.\n");
-        unvalidOperation = 1;
+        unvalidOperation = 0;
 
 
         
@@ -36,7 +37,7 @@ path_t createPath(void){
         switch (op){
             case 'D':
                 creating = 1;
-                unvalidOperation = 0;
+                unvalidOperation = 1;
                 printf("Your path is now made! \n");
                 break;
             case 'M':
@@ -211,7 +212,7 @@ path_t createPath(void){
                 unvalidOperation = 0;
                 break;
         }
-        if(unvalidOperation == 1){
+        if(unvalidOperation == 0){
             if (t.l.firstOperation == NULL){
                 t.l.firstOperation = &currentNode;
             }
