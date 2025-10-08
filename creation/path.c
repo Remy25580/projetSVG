@@ -6,6 +6,7 @@
 path_t createPath(void){
     int x;
     int y;
+    nodePath *prev;
     path_t t;
     printf("You are now creating a path.\n");
     int creating = 0;
@@ -39,7 +40,13 @@ path_t createPath(void){
         if (t.l.firstOperation == NULL){
             t.l.firstOperation = &currentNode;
         }
+        else{
+            prev = t.l.firstOperation;
+            while (prev->next != NULL){
+                prev = prev->next;
+            }
+            prev->next = currentNode;
+            currentNode.previous = prev;
+        }
     }
-    
-
 }
