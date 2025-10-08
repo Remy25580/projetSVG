@@ -12,7 +12,7 @@ typedef struct{
 } Ltype;
 
 typedef struct{
-    float xpos
+    float xpos;
 } Htype;
 
 typedef struct{
@@ -89,12 +89,14 @@ typedef enum{
     D
 } operationType;
 
-typedef struct{
+typedef struct nodePath_s nodePath;
+
+struct nodePath_s{
     nodePath *previous;
     operation elt;
     operationType eltType;
     nodePath *next;
-} nodePath;
+};
 
 typedef struct{
     nodePath *firstOperation;
