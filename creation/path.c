@@ -45,7 +45,7 @@ path_t createPath(void){
                 scanf("%f", &y);
                 currentNode.elt.l.xpos = x;
                 currentNode.elt.l.ypos = y;
-                printf("You draw a line to that point !\n");
+                printf("You drew a line to that point !\n");
                 break;
             case H:
                 currentNode.eltType = L;
@@ -53,7 +53,7 @@ path_t createPath(void){
                 printf("x-axis : ");
                 scanf("%f", &x);
                 currentNode.elt.h.xpos = x;
-                printf("You draw a horizontal line to that axis !\n");
+                printf("You drew a horizontal line to that axis !\n");
                 break;
             case V:
                 currentNode.eltType = V;
@@ -61,11 +61,11 @@ path_t createPath(void){
                 printf("y-axis : ");
                 scanf("%f", &y);
                 currentNode.elt.v.ypos = y;
-                printf("You drax a vertical line to that axis !\n");
+                printf("You drew a vertical line to that axis !\n");
                 break;
             case Z:
                 currentNode.eltType = Z;
-                printf("You draw a line to the last unclosed point !\n");
+                printf("You drew a line to the last unclosed point !\n");
                 currentNode.elt.z.verif = 0;
                 break;
 
