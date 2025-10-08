@@ -62,6 +62,13 @@ path_t createPath(void){
                 scanf("%f", &y);
                 currentNode.elt.v.ypos = y;
                 printf("You drax a vertical line to that axis !\n");
+                break;
+            case Z:
+                currentNode.eltType = Z;
+                printf("You draw a line to the last unclosed point !\n");
+                currentNode.elt.z.verif = 0;
+                break;
+
 
             
         }

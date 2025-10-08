@@ -20,6 +20,7 @@ typedef struct{
 } Vtype;
 
 typedef struct{
+    int verif;
 
 } Ztype;
 
