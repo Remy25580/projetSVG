@@ -226,3 +226,65 @@ path_t createPath(void){
         }
     }
 }
+
+
+void getPath(path_t p){
+    printf("Here's your path : ");
+    nodePath *currentnode;
+    currentnode = p.l.firstOperation;
+    while (currentnode != NULL){
+        switch (currentnode->eltType){
+            case M:
+                printf("\t -Moved to the point %f;%f\n", currentnode->elt.m.xpos, currentnode->elt.m.ypos);
+                break;
+            case L:
+                printf("\t -Drew a line to the point %f:%f\n", currentnode->elt.l.xpos,currentnode->elt.l.ypos);
+                break;
+            case H:
+                printf("\t -Drew a horizontal line to the x-axis %f\n", currentnode->elt.h.xpos);
+                break;
+            case V:
+                printf("\t -Drew a vertical line to the y-axis %f\n", currentnode->elt.v.ypos);
+                break;
+            case Z:
+                printf("\t -Drew a line to the last unclosed point\n");
+                break;
+            case C:
+                printf("\t -Drew a cubic curve to the point %f;%f which:\n", currentnode->elt.c.xend,currentnode->elt.c.yend);
+                printf("\t \t First control point is %f;%f\n", currentnode->elt.c.xpent1,currentnode->elt.c.ypent1);
+                printf("\t \t Sirst control point is %f;%f\n", currentnode->elt.c.xpent2,currentnode->elt.c.ypent2);
+                break;
+            case S:
+                printf("\t -Drew a cubic curve following another, to the point %f;%f which:\n", currentnode->elt.s.xend,currentnode->elt.s.yend);
+                printf("\t \t Second control point is %f;%f\n", currentnode->elt.s.xpent2,currentnode->elt.s.ypent2);
+                break;
+            case Q:
+                printf("\t -Drew a quadratic curve to the point %f;%f which:\n", currentnode->elt.q.xend,currentnode->elt.q.yend);
+                printf("\t \t Point of control is %f;%f\n", currentnode->elt.q.xpent1, currentnode->elt.q.ypent1);
+                break;
+            case T:
+                printf("\t -Drew a quadratic curve following another, to the point %f;%f\n", currentnode->elt.t.xend,currentnode->elt.t.yend);
+                break;
+            case A:
+                printf("\t -Drew an arc to the point %f;%f with an ellipse of:\n",currentnode->elt.a.xend,currentnode->elt.a.yend);
+                printf("\t \t x radius %f and y radius %f \n", currentnode->elt.a.xradius,currentnode->elt.a.yradius);
+                printf("\t \t Rotated to %f degrees \n",currentnode->elt.a.rotation);
+                if(currentnode->elt.a.side == 0){
+                    printf("\t \t The small side of the ellipse has been drawn\n");
+                }
+                else{
+                    printf("\t \t The big side of the ellipse has been drawn\n");
+                }
+                if(currentnode->elt.a.drawingWay == 0){
+                    printf("\t \t The arc has been drawn at negative angles\n");
+                }
+                else{
+                    printf("\t \t The arc has been drawn at positive angles\n");
+                }
+            default:
+                break;
+        }
+        currentnode = currentnode->next;
+    }
+    
+}  
