@@ -10,14 +10,20 @@ path_t createPath(void){
     float ypent1;
     float xpent2;
     float ypent2;
+    float xr;
+    float yr;
+    float rotation;
+    int side;
+    int drawingWay;
+
     nodePath *prev;
     path_t t;
+    nodePath currentNode;
+    currentNode.next = NULL;
+    currentNode.previous = NULL;
     printf("You are now creating a path.\n");
     int creating = 0;
-    while(creating == 0){
-        nodePath currentNode;
-        currentNode.next = NULL;
-        currentNode.previous = NULL;
+    while(creating == 0){        
         printf("What operation do you wanna use on your path? \n");
         printf("M, L, H, V, Z, C, S, Q, T, A, or D to stop.\n");
 
@@ -156,8 +162,49 @@ path_t createPath(void){
                 currentNode.elt.t.yend = y;
                 printf("You drew a quadratic curve ! \n");
                 break;
-
-            
+            case A:
+                currentNode.eltType = A;
+                printf("First of all, to what point will your arc go ?\n");
+                printf("x position : ");
+                scanf("%f", &x);
+                printf("y position : ");
+                scanf("%f", &y);
+                printf("\n");
+                printf("Now, what are the radiuses of the ellipse to make your arc ?\n");
+                printf("x radius (lenght) : ");
+                scanf("%f", &xr);
+                printf("y radius (height) : ");
+                scanf("%f", &yr);
+                printf("\n");
+                printf("What will be the rotation of that ellipse, to draw your arc ?\n");
+                scanf("%s", &rotation);
+                printf("\n");
+                printf("So, will the small or big side of the ellipse be drawn as an arc ?\n");
+                printf("Type 0 for the small, or 1 for the big ");
+                scanf("%d", &side);
+                if(side != 0 && side != 1){
+                    side = 1;
+                    printf("If a value other than 0 or 1 has been typed, it'll be considered as 1.\n");
+                }
+                printf("And to finish, will the arc be drawn at positive angles or negative ones ?\n");
+                printf("Type 0 for the negative, or 1 for the positive ");
+                scanf("%d", &drawingWay);
+                if(drawingWay != 0 && drawingWay != 1){
+                    drawingWay = 1;
+                    printf("If a value other then 0 or 1 has been typed, it'll be considered as 1.\n");
+                }
+                currentNode.elt.a.xend = x;
+                currentNode.elt.a.yend = y;
+                currentNode.elt.a.xradius = xr;
+                currentNode.elt.a.yradius = yr;
+                currentNode.elt.a.rotation = rotation;
+                currentNode.elt.a.side = side;
+                currentNode.elt.a.drawingWay = drawingWay;
+                printf("You drew an arc !\n");
+                break;
+            default:
+                printf("That operation is not recognized, please type again.\n");
+                break;
         }
         if (t.l.firstOperation == NULL){
             t.l.firstOperation = &currentNode;
