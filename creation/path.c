@@ -37,7 +37,6 @@ path_t createPath(void){
             case 'D':
                 printf("Your path is now made! \n");
                 return t;
-                creating = 1;
                 break;
             case 'M':
                 currentNode.eltType = M;
