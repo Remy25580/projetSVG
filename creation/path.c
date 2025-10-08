@@ -21,13 +21,17 @@ path_t createPath(void){
     nodePath currentNode;
     currentNode.next = NULL;
     currentNode.previous = NULL;
+    operationType op;
     printf("You are now creating a path.\n");
     int creating = 0;
+    int unvalidOperation;
     while(creating == 0){        
         printf("What operation do you wanna use on your path? \n");
         printf("M, L, H, V, Z, C, S, Q, T, A, or D to stop.\n");
+        unvalidOperation = 1;
 
-        operationType op;
+
+        
         scanf("%c", &op);
         switch (op){
             case D:
@@ -204,18 +208,21 @@ path_t createPath(void){
                 break;
             default:
                 printf("That operation is not recognized, please type again.\n");
+                unvalidOperation = 0;
                 break;
         }
-        if (t.l.firstOperation == NULL){
-            t.l.firstOperation = &currentNode;
-        }
-        else{
-            prev = t.l.firstOperation;
-            while (prev->next != NULL){
-                prev = prev->next;
+        if(unvalidOperation == 1){
+            if (t.l.firstOperation == NULL){
+                t.l.firstOperation = &currentNode;
             }
-            prev->next = currentNode;
-            currentNode.previous = prev;
+            else{
+                prev = t.l.firstOperation;
+                while (prev->next != NULL){
+                    prev = prev->next;
+                }
+                prev->next = currentNode;
+                currentNode.previous = prev;
+            }
         }
     }
 }
