@@ -36,6 +36,26 @@ path_t createPath(void){
                 currentNode.elt.m.ypos = y;
                 printf("You moved to that point!\n");
                 break;
+            case L:
+                currentNode.eltType = L;
+                printf("To what point do you want to draw a line ?\n");
+                printf("x position : ");
+                scanf("%d", &x);
+                printf("y position : ");
+                scanf("%d", &y);
+                currentNode.elt.l.xpos = x;
+                currentNode.elt.l.ypos = y;
+                printf("You draw a line to that point !\n");
+                break;
+            case H:
+                currentNode.eltType = L;
+                printf("To what x-axis do you want to draw a horizontal line ? \n");
+                printf("x-axis : ");
+                scanf("%d", &x);
+                currentNode.elt.h.xpos = x;
+                printf("You draw a horizontal line to that axis !\n");
+                break;
+            
         }
         if (t.l.firstOperation == NULL){
             t.l.firstOperation = &currentNode;
