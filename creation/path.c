@@ -227,6 +227,7 @@ path_t createPath(void){
                 currentNode.previous = prev;
             }
         }
+        getPath(t);
     }
     return t;
 }
@@ -289,6 +290,7 @@ void getPath(path_t p){
                 break;
         }
         currentnode = currentnode->next;
+        printf("Now going to the next node");
     }
     
 }  
