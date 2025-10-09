@@ -308,6 +308,7 @@ void getPath(path_t p){
                 break;
 
         }
+        printf("Going to the next node \n");
         temp = current->next;
         current = temp;
     }
