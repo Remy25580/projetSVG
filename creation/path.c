@@ -4,6 +4,10 @@
 #include "path.h"
 
 path_t createPath(void){
+    path_t t;
+    t.size = 0;
+    int nb = 0;
+
     float x;
     float y;
     float xpent1;
@@ -16,11 +20,8 @@ path_t createPath(void){
     int side;
     int drawingWay;
 
-    nodePath *prev;
-    path_t t;
-    nodePath currentNode;
-    nodePath *temp;
-    t.l.firstOperation = NULL;
+    operationComplete temp;
+
     char op;
     printf("You are now creating a path.\n");
     int creating = 0;
@@ -29,10 +30,8 @@ path_t createPath(void){
         printf("What operation do you wanna use on your path? \n");
         printf("M, L, H, V, Z, C, S, Q, T, A, or D to stop.\n");
         unvalidOperation = 0;
-        currentNode.previous = NULL;
-        currentNode.next = NULL;
-        temp = NULL;
-        prev = NULL;
+
+
 
         
         scanf("%s", &op);
@@ -43,54 +42,54 @@ path_t createPath(void){
                 printf("Your path is now made! \n");
                 break;
             case 'M':
-                currentNode.eltType = M;
+                temp.opt = M;
                 printf("What is the position where you want to move in ? \n");
                 printf("x position : ");
                 scanf("%f", &x);
                 printf("y position : ");
                 scanf("%f", &y);
                 printf("\n");
-                currentNode.elt.m.xpos = x;
-                currentNode.elt.m.ypos = y;
+                temp.op.m.xpos = x;
+                temp.op.m.ypos = y;
                 printf("You moved to that point!\n");
                 break;
             case 'L':
-                currentNode.eltType = L;
+                temp.opt = L;
                 printf("To what point do you want to draw a line ?\n");
                 printf("x position : ");
                 scanf("%f", &x);
                 printf("y position : ");
                 scanf("%f", &y);
                 printf("\n");
-                currentNode.elt.l.xpos = x;
-                currentNode.elt.l.ypos = y;
+                temp.op.l.xpos = x;
+                temp.op.l.ypos = y;
                 printf("You drew a line to that point !\n");
                 break;
             case 'H':
-                currentNode.eltType = H;
+                temp.opt = H;
                 printf("To what x-axis do you want to draw a horizontal line ? \n");
                 printf("x-axis : ");
                 scanf("%f", &x);
                 printf("\n");
-                currentNode.elt.h.xpos = x;
+                temp.op.h.xpos = x;
                 printf("You drew a horizontal line to that axis !\n");
                 break;
             case 'V':
-                currentNode.eltType = V;
+                temp.opt = V;
                 printf("To what y-axis do you want to draw a vertical line? \n");
                 printf("y-axis : ");
                 scanf("%f", &y);
                 printf("\n");
-                currentNode.elt.v.ypos = y;
+                temp.op.v.ypos = y;
                 printf("You drew a vertical line to that axis !\n");
                 break;
             case 'Z':
-                currentNode.eltType = Z;
+                temp.opt = Z;
                 printf("You drew a line to the last unclosed point !\n");
-                currentNode.elt.z.verif = 0;
+                temp.op.z.verif = 0;
                 break;
             case 'C':
-                currentNode.eltType = C;
+                temp.opt = C;
                 printf("To what point do you want to create a cubic curve ?\n");
                 printf("x position : ");
                 scanf("%f", &x);
@@ -109,16 +108,16 @@ path_t createPath(void){
                 printf("y position : ");
                 scanf("%f", &ypent2);
                 printf("\n");
-                currentNode.elt.c.xend = x;
-                currentNode.elt.c.yend = y;
-                currentNode.elt.c.xpent1 = xpent1;
-                currentNode.elt.c.ypent1 = ypent1;
-                currentNode.elt.c.xpent2 = xpent2;
-                currentNode.elt.c.ypent2 = ypent2;
+                temp.op.c.xend = x;
+                temp.op.c.yend = y;
+                temp.op.c.xpent1 = xpent1;
+                temp.op.c.ypent1 = ypent1;
+                temp.op.c.xpent2 = xpent2;
+                temp.op.c.ypent2 = ypent2;
                 printf("You drew a cubic curve !\n");
                 break;
             case 'S':
-                currentNode.eltType = S;
+                temp.opt = S;
                 printf("To what point do you want to draw that cubic curve ?\n");
                 printf("x position : ");
                 scanf("%f", &x);
@@ -131,14 +130,14 @@ path_t createPath(void){
                 printf("y position : ");
                 scanf("%f", &ypent2);
                 printf("\n");
-                currentNode.elt.s.xend = x;
-                currentNode.elt.s.yend = y;
-                currentNode.elt.s.xpent2 = xpent2;
-                currentNode.elt.s.ypent2 = ypent2;
+                temp.op.s.xend = x;
+                temp.op.s.yend = y;
+                temp.op.s.xpent2 = xpent2;
+                temp.op.s.ypent2 = ypent2;
                 printf("You drew a cubic curve !\n");
                 break;
             case 'Q':
-                currentNode.eltType = Q;
+                temp.opt = Q;
                 printf("To what point do you want to create a quadratic curve ?\n");
                 printf("x position : ");
                 scanf("%f", &x);
@@ -151,26 +150,26 @@ path_t createPath(void){
                 printf("y position : ");
                 scanf("%f", &ypent1);
                 printf("\n");
-                currentNode.elt.q.xend = x;
-                currentNode.elt.q.yend = y;
-                currentNode.elt.q.xpent1 = xpent1;
-                currentNode.elt.q.ypent1 = ypent1;
+                temp.op.q.xend = x;
+                temp.op.q.yend = y;
+                temp.op.q.xpent1 = xpent1;
+                temp.op.q.ypent1 = ypent1;
                 printf("You drew a quadratic curve !\n");
                 break;
             case 'T':
-                currentNode.eltType = T;
+                temp.opt = T;
                 printf("To what point do you want to draw that quadratic curve ?\n");
                 printf("x position : ");
                 scanf("%f", &x);
                 printf("y position : ");
                 scanf("%f", &y);
                 printf("\n");
-                currentNode.elt.t.xend = x;
-                currentNode.elt.t.yend = y;
+                temp.op.t.xend = x;
+                temp.op.t.yend = y;
                 printf("You drew a quadratic curve ! \n");
                 break;
             case 'A':
-                currentNode.eltType = A;
+                temp.opt = A;
                 printf("First of all, to what point will your arc go ?\n");
                 printf("x position : ");
                 scanf("%f", &x);
@@ -200,19 +199,34 @@ path_t createPath(void){
                     drawingWay = 1;
                     printf("If a value other then 0 or 1 has been typed, it'll be considered as 1.\n");
                 }
-                currentNode.elt.a.xend = x;
-                currentNode.elt.a.yend = y;
-                currentNode.elt.a.xradius = xr;
-                currentNode.elt.a.yradius = yr;
-                currentNode.elt.a.rotation = rotation;
-                currentNode.elt.a.side = side;
-                currentNode.elt.a.drawingWay = drawingWay;
+                temp.op.a.xend = x;
+                temp.op.a.yend = y;
+                temp.op.a.xradius = xr;
+                temp.op.a.yradius = yr;
+                temp.op.a.rotation = rotation;
+                temp.op.a.side = side;
+                temp.op.a.drawingWay = drawingWay;
                 printf("You drew an arc !\n");
                 break;
             default:
                 printf("That operation is not recognized, please type again.\n");
                 unvalidOperation = 1;
                 break;
+        }
+        if(unvalidOperation == 0){
+            nb++;
+            if(t.size == 0){
+                t.list = malloc(nb * sizeof(operationComplete));
+                t.list[0] = temp;
+                t.size++;
+
+            }
+            else{
+                operationComplete *listTemp = realloc(t.list, nb * sizeof(operationComplete));
+                t.list = listTemp;
+                t.list[t.size] = temp;
+                t.size++;
+            }
         }
         
     }
