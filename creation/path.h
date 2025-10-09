@@ -89,11 +89,15 @@ typedef enum{
     D
 } operationType;
 
+typedef struct{
+    operation op;
+    operationType opt;
+
+} operationComplete;
 
 typedef struct{
     int size;
-    operation *opListe;
-    operationType *opTypeListe;
+    operationComplete *list;
 } path_t;
 
 path_t createPath(void);

@@ -233,5 +233,67 @@ path_t createPath(void){
     return t;
 }
 
+void getPath(path_t p){
+    operationComplete currentOp;
+    printf("Here's your path : \n");
+    for(int i = 0; i < p.size; i++){
+        currentOp = p.list[i];
 
-
+        switch(currentOp.opt){
+            case M:
+                printf("\t -Moved to the point %2f;%2f\n", currentOp.op.m.xpos, currentOp.op.m.ypos);
+                break;
+            case L:
+                printf("\t -Drew a line to the point %2f;%2f\n", currentOp.op.l.xpos,currentOp.op.l.ypos);
+                break;
+            case H:
+                printf("\t -Drew a horizontal line to the x-axis %2f\n", currentOp.op.h.xpos);
+                break;
+            case V:
+                printf("\t -Drew a vertical line to the y-axis %2f\n", currentOp.op.v.ypos);
+                break;
+            case Z:
+                printf("\t -Drew a line to the last unclosed point\n");
+                break;
+            case C:
+                printf("\t -Drew a cubic curve to the point %2f;%2f\n", currentOp.op.c.xpent1, currentOp.op.c.ypent1);
+                printf("\t with a first control point at %2f;%2f\n", currentOp.op.c.xpent1, currentOp.op.c.ypent1);
+                printf("\t and a second control point at %2f;%2f\n", currentOp.op.c.xpent2, currentOp.op.c.ypent2);
+                break;
+            case S:
+                printf("\t -Drew a mirror cubic curve to the previous one, to the point %2f;%2f\n",
+                currentOp.op.s.xend, currentOp.op.s.yend);
+                printf("\t with a second control point at %2f;%2f\n", currentOp.op.s.xpent2, currentOp.op.s.ypent2);
+                break;
+            case Q:
+                printf("\t -Drew a quadratic curve to the point %2f;%2f\n", currentOp.op.q.xend, currentOp.op.q.yend);
+                printf("\t with a control point at %2f;%2f\n", currentOp.op.q.xpent1, currentOp.op.q.ypent1);
+                break;
+            case T:
+                printf("\t -Drew a mirror quadratic curve to the previous one, to the point %2f;%2f\n",
+                currentOp.op.t.xend, currentOp.op.t.yend);
+                break;
+            case A:
+                printf("\t -Drew an arc to the point %2f;%2f\n", currentOp.op.a.xend, currentOp.op.a.yend);
+                printf("\t That arc was drawn with an ellipse, which : \n");
+                printf("\t \t ->has a x radius of %2f and an y radius of %2f\n", currentOp.op.a.xradius, currentOp.op.a.yradius);
+                printf("\t \t ->has a inclination of %2f\n", currentOp.op.a.rotation);
+                if(currentOp.op.a.side == 0){
+                    printf("\t \t ->little side has been drawn\n");
+                }
+                else{
+                    printf("\t \t ->big side has been drawn\n");
+                }
+                if(currentOp.op.a.drawingWay == 0){
+                    printf("\t \t ->has been drawn by the negative angles\n");
+                }
+                else{
+                    printf("\t \t ->has been drawn by the positive angles\n");
+                }
+                break;
+            default:
+                printf("error: unknown operation type\n");
+                break;
+        }
+    }
+}

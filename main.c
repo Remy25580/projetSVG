@@ -4,7 +4,7 @@
 #include "creation/path.h"
 
 int main(void){
-    path_t test = createPath();
-    getPath(test);
+    path_t pafpaf = createPath();
+    getPath(pafpaf);
     return EXIT_SUCCESS;
 }
