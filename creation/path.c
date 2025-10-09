@@ -209,19 +209,22 @@ path_t createPath(void){
                 break;
             default:
                 printf("That operation is not recognized, please type again.\n");
-                unvalidOperation = 0;
+                unvalidOperation = 1;
                 break;
         }
         if(unvalidOperation == 0){
             if (t.l.firstOperation == NULL){
+                printf("First adding\n");
                 t.l.firstOperation = &currentNode;
             }
             else{
                 prev = t.l.firstOperation;
                 while (prev->next != NULL){
+                    printf("going to the next node.\n");
                     prev = prev->next;
                 }
                 prev->next = &currentNode;
+                printf("Node added\n");
                 currentNode.previous = prev;
             }
         }
