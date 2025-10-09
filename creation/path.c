@@ -20,8 +20,6 @@ path_t createPath(void){
     path_t t;
     nodePath currentNode;
     t.l.firstOperation = NULL;
-    currentNode.next = NULL;
-    currentNode.previous = NULL;
     char op;
     printf("You are now creating a path.\n");
     int creating = 0;
@@ -30,7 +28,8 @@ path_t createPath(void){
         printf("What operation do you wanna use on your path? \n");
         printf("M, L, H, V, Z, C, S, Q, T, A, or D to stop.\n");
         unvalidOperation = 0;
-
+        currentNode.previous = NULL;
+        currentNode.next = NULL;
 
         
         scanf("%s", &op);
@@ -234,7 +233,7 @@ path_t createPath(void){
 
 
 void getPath(path_t p){
-    printf("Here's your path : ");
+    printf("Here's your path : \n");
     nodePath *currentnode;
     currentnode = p.l.firstOperation;
     while (currentnode != NULL){
