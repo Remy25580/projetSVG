@@ -67,7 +67,7 @@ path_t createPath(void){
                 printf("You drew a line to that point !\n");
                 break;
             case 'H':
-                currentNode.eltType = L;
+                currentNode.eltType = H;
                 printf("To what x-axis do you want to draw a horizontal line ? \n");
                 printf("x-axis : ");
                 scanf("%f", &x);
@@ -214,107 +214,10 @@ path_t createPath(void){
                 unvalidOperation = 1;
                 break;
         }
-        if(unvalidOperation == 0){
-            if (t.l.firstOperation == NULL){
-                printf("First adding\n");
-                t.l.firstOperation = &currentNode;
-            }
-            else{
-                prev = t.l.firstOperation;
-                while (prev->next != NULL){
-                    printf("going to the next node.\n");
-                    prev = prev->next;
-                }
-                temp = &currentNode;
-                printf("Node added\n");
-                prev->next = temp;
-                temp->previous = prev;
-            }
-        }
+        
     }
     return t;
 }
 
 
-void getPath(path_t p){
-    printf("Here's your path : \n");
-    printf("\n");
-    nodePath *current;
-    nodePath *temp;
-    current = p.l.firstOperation;
-    while (current != NULL){
-        temp = NULL;
-        operationType id = current->eltType;
-        switch (id){
-            case M:
-                printf("\t -Moved to the point %f;%f\n", current->elt.m.xpos, current->elt.m.ypos);
-                break;
-            
-            case L:
-                printf("\t -Drew a line to the point %f;%f\n", current->elt.l.xpos, current->elt.l.ypos);
-                break;
-            
-            case H:
-                printf("\t -Drew a horizontal line to the x-axis %f\n", current->elt.h.xpos);
-                break;
 
-            case V:
-                printf("\t -Drew a vertical line to the y-axis %f\n", current->elt.v.ypos);
-                break;
-
-            case Z:
-                printf("\t -Drew a line to the last unclosed point\n");
-                break;
-
-            case C:
-                printf("\t -Drew a cubic curve to the point %f;%f\n", current->elt.c.xend,current->elt.c.yend);
-                printf("\t with a first control point at %f;%f\n", current->elt.c.xpent1,current->elt.c.ypent1);
-                printf("\t and a second control point at %f;%f\n", current->elt.c.xpent2,current->elt.c.ypent2);
-                break;
-
-            case S:
-                printf("\t -Drew a mirror cubic curve to the precedent, to the point %f;%f\n",
-                current->elt.s.xend, current->elt.s.yend);
-                printf("\t with a second control point at %f;%f\n", current->elt.s.xpent2, current->elt.s.ypent2);
-                break;
-
-            case Q:
-                printf("\t -Drew a quadratic curve to the point %f;%f\n", current->elt.q.xend,current->elt.q.yend);
-                printf("\t with a control point at %f;%f\n", current->elt.q.xpent1, current->elt.q.ypent1);
-                break;
-
-            case T:
-                printf("\t -Drew a mirror quadratic curve to the precedent, to the point %f;%f\n",
-                current->elt.t.xend, current->elt.t.yend);
-                break;
-
-            case A:
-                printf("\t -Drew an arc to the point %f;%f\n",current->elt.a.xend,current->elt.a.yend);
-                printf("\t That arc was drawn with an ellipse which :\n");
-                printf("\t \t -Has an x radius of %f and an y radius of %f\n",current->elt.a.xradius, current->elt.a.yradius);
-                printf("\t \t -Has an inclination of %f\n", current->elt.a.rotation);
-                if(current->elt.a.side == 0){
-                    printf("\t \t -The little side has been taken\n");
-                }
-                else{
-                    printf("\t \t -The big side has been taken\n");
-                }
-                if(current->elt.a.drawingWay == 0){
-                    printf("\t \t -Has been drawn by the negative angles\n");
-                }
-                else{
-                    printf("\t \t -Has been drawn by the positive angles\n");
-                }
-                break;
-
-            default:
-                printf("Error: not recognized operation in the path\n");
-                break;
-
-        }
-        printf("Going to the next node \n");
-        temp = current->next;
-        current = temp;
-    }
-    
-}  
