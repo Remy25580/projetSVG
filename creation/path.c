@@ -19,6 +19,7 @@ path_t createPath(void){
     nodePath *prev;
     path_t t;
     nodePath currentNode;
+    nodePath *temp;
     t.l.firstOperation = NULL;
     char op;
     printf("You are now creating a path.\n");
@@ -30,6 +31,8 @@ path_t createPath(void){
         unvalidOperation = 0;
         currentNode.previous = NULL;
         currentNode.next = NULL;
+        temp = NULL;
+        prev = NULL;
 
         
         scanf("%s", &op);
@@ -222,9 +225,10 @@ path_t createPath(void){
                     printf("going to the next node.\n");
                     prev = prev->next;
                 }
-                prev->next = &currentNode;
+                temp = &currentNode;
                 printf("Node added\n");
-                currentNode.previous = prev;
+                prev->next = temp;
+                temp->previous = prev;
             }
         }
     }
