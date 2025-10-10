@@ -41,6 +41,6 @@ struct shapesElt_s{
 
 shapeGroup_t shapeCreation(shapeGroup_t s);
 
-void shapeDeletion(shapeGroup_t s);
+shapeGroup_t shapeDeletion(shapeGroup_t s);
 
 #endif
