@@ -4,6 +4,9 @@
 typedef struct shapesElt_s shapesElt;
 typedef struct shapeGroup_s shapeGroup_t;
 
+struct shapeGroup_s{
+    shapesElt *list;
+};
 
 typedef union{
     rectangle_t rectangle;
@@ -29,17 +32,11 @@ typedef enum{
     GROUPTYPE
 } shapesType;
 
-typedef struct{
+struct shapesElt_s{
     char *name;
     shapes shp;
     shapesType shpType;
-} shapeElt;
-
-typedef struct{
-    shapeElt *list;
-}shapeGroup_t;
-
-
+};
 
 shapeGroup_t shapeCreation(shapeGroup_t s);
 

@@ -19,8 +19,6 @@ int main(void){
 
         scanf("%d", &choice);
         switch (choice){
-            case(0):
-                break;
             case(1):
                 break;
             case(2):
@@ -30,6 +28,8 @@ int main(void){
             case(4):
                 break;
             case(5):
+                break;
+            case(0):
                 break;
             default:
                 break;
