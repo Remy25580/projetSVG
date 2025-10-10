@@ -8,6 +8,7 @@ int main(void){
     int end = 0;
     int choice = 1;
     int loaded = 0;
+    shapeGroup_t newCreation;
     printf("Welcome to that SVG editor.\n");
     while(end == 0){
         printf("What do you want to do ?\n");
@@ -25,7 +26,6 @@ int main(void){
             case(1):
                 if (loaded == 0){
                     loaded = 1;
-                    shapeGroup_t newCreation;
                     newCreation.nb = 0;
                     shapeCreation(newCreation);
                 }
@@ -46,7 +46,7 @@ int main(void){
                     printf("No shapes have been loaded yet, please create or load some.\n");
                 }
                 else{
-                    printf("THIS PRINT IS TO BE REMOVED (place the deletion function here)");
+                    shapeDeletion(newCreation);
                 }
                 break;
             case(0):
