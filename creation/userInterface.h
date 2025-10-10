@@ -40,7 +40,7 @@ typedef struct{
 }shapeGroup_t;
 
 
-int user(void);
+
 shapeGroup_t shapeCreation(void);
 
 #endif
