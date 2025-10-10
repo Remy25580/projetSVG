@@ -26,6 +26,7 @@ int main(void){
                 if (loaded == 0){
                     loaded = 1;
                     shapeGroup_t newCreation;
+                    newCreation.nb = 0;
                     shapeCreation(newCreation);
                 }
                 else{
