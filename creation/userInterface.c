@@ -119,6 +119,7 @@ shapeGroup_t shapeCreation(shapeGroup_t g){
 shapeGroup_t shapeDeletion(shapeGroup_t s){
     printf("What shape do you want to delete ?\n");
     for(int i = 0; i < s.nb; i++){
+        printf("%d\n", i);
         printf("\t %s\n", s.list[i].name);
     }
 
