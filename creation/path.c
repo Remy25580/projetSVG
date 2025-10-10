@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "creation.h"
 #include "path.h"
+#include "userInterface.h"
 
 path_t createPath(void){
     path_t t;
