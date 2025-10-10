@@ -56,9 +56,9 @@ rectangle_t createRectangle(void){
 void getRectangle(rectangle_t r){
     printf("Here's your rectangle: \n");
     printf("\n");
-    printf("\t Start postition : %f;%f\n", r.xpos, r.ypos);
-    printf("\t Height : %f  Width : %f\n", r.height, r.width);
-    printf("\t Radius of the corners : %fx and %fy \n", r.xradius,r.yradius);
+    printf("\t Start postition : %.2f;%.2f\n", r.xpos, r.ypos);
+    printf("\t Height : %.2f  Width : %.2f\n", r.height, r.width);
+    printf("\t Radius of the corners : %.2fx and %.2fy \n", r.xradius,r.yradius);
     printf("\n");
 }
 
@@ -99,9 +99,9 @@ square_t createSquare(void){
 void getSquare(square_t c){
     printf("Here's your square: \n");
     printf("\n");
-    printf("\t Start postition : %f;%f\n", c.xpos, c.ypos);
-    printf("\t Size : %fx%f", c.dimension, c.dimension);
-    printf("\t Radius of the corners : %fx and %fy \n", c.xradius,c.yradius);
+    printf("\t Start postition : %.2f;%.2f\n", c.xpos, c.ypos);
+    printf("\t Size : %.2f x %.2f", c.dimension, c.dimension);
+    printf("\t Radius of the corners : %.2fx and %.2fy \n", c.xradius,c.yradius);
     printf("\n");
 }
 
@@ -130,8 +130,8 @@ circle_t createCicrcle(void){
 void getCircle(circle_t c){
     printf("Here's your circle : \n");
     printf("\n");
-    printf("\t Position of your circle : %f;%f \n", c.xpos, c.ypos);
-    printf("\t Radius of the circle : %f \n", c.radius);
+    printf("\t Position of your circle : %.2f;%.2f \n", c.xpos, c.ypos);
+    printf("\t Radius of the circle : %.2f \n", c.radius);
     printf("\n");
 }
 
@@ -164,9 +164,9 @@ ellipse_t createEllipse(void){
 void getEllipse(ellipse_t e){
     printf("Here's your ellipse : \n");
     printf("\n");
-    printf("\t Position of your ellipse : %f;%f \n", e.xpos, e.ypos);
-    printf("\t Lenght of your ellipse(x radius) : %f \n", e.xradius);
-    printf("\t Height of your ellipse(y radius) : %f \n", e.yradius);
+    printf("\t Position of your ellipse : %.2f;%.2f \n", e.xpos, e.ypos);
+    printf("\t Lenght of your ellipse(x radius) : %.2f \n", e.xradius);
+    printf("\t Height of your ellipse(y radius) : %.2f \n", e.yradius);
     printf("\n");
 }
 
@@ -204,8 +204,8 @@ line_t createLine(void){
 void getLine(line_t l){
     printf("Here's your line : \n");
     printf("\n");
-    printf("\t Begining point : %f;%f \n", l.xstart, l.ystart);
-    printf("\t Ending point : %f;%f \n", l.xend,l.yend);
+    printf("\t Begining point : %.2f;%.2f \n", l.xstart, l.ystart);
+    printf("\t Ending point : %.2f;%.2f \n", l.xend,l.yend);
     printf("\n");
 }
 
@@ -256,8 +256,8 @@ void getPolyline(polyline_t pl){
     printf("Here's your polyline : \n");
     printf("\n");
     for (int i = 0; i < pl.nbLines; i++){
-        printf("\t Line n %d :  Start: %f;%f  End: %f;%f \n", i+1, pl.lines[i].xstart,
-        pl.lines[i].ystart, pl.lines[i].xend, pl.lines[i].yend);
+        printf("\t Line n %d :  Start: %.2f;%.2f\n", i+1, pl.lines[i].xstart,pl.lines[i].ystart);
+        printf("\t            End: %.2f;%.2f\n",pl.lines[i].xend, pl.lines[i].yend);
 
     }
     printf("\n");
@@ -315,7 +315,7 @@ void getPolygon(polygon_t pg){
     printf("Here's your polygon : \n");
     printf("\n");
     for (int i = 0; i < pg.nbSides; i++){
-        printf("\t Point n %d: %f;%f \n", i+1, pg.lines[i].xstart, pg.lines[i].ystart);
+        printf("\t Point n %d: %.2f;%.2f \n", i+1, pg.lines[i].xstart, pg.lines[i].ystart);
     }
     printf("\n");
 }
