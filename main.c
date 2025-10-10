@@ -47,7 +47,7 @@ int main(void){
                     printf("No shapes have been loaded yet, please create or load some.\n");
                 }
                 else{
-                    shapeDeletion(newCreation);
+                    newCreation = shapeDeletion(newCreation);
                 }
                 break;
             case(0):

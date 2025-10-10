@@ -111,32 +111,36 @@ shapeGroup_t shapeCreation(shapeGroup_t g){
 
         }
         if (end ==0 && err == 0){
-            g.nb++;
+            g.nb = g.nb + 1;
             if (g.nb == 1){
                 g.list = malloc(1 * sizeof(shapesElt));
                 g.list[0] = temp;
             }
-        }
-        else{
-            g.list = realloc(g.list, g.nb * sizeof(shapesElt));
-            g.list[g.nb-1] = temp;
+        
+            else{
+                g.list = realloc(g.list, g.nb * sizeof(shapesElt));
+                g.list[g.nb - 1] = temp;
+            }
         }
         
         
+    }
+    for(int i = 0; i < g.nb; i++){
+        printf("%d\n", i);
+        printf("\t %s\n", g.list[i].name);
     }
     return g;
 }
 
 shapeGroup_t shapeDeletion(shapeGroup_t s){
-    printf("What shape do you want to delete ?\n");
     for(int i = 0; i < s.nb; i++){
         printf("%d\n", i);
         printf("\t %s\n", s.list[i].name);
     }
-
     char *name = malloc(sizeof(char) * 20);
     int chosen = 0;
     while(chosen == 0){
+        printf("What shape do you want to delete ?\n");
         scanf("%s", name);
         for(int j = 0; j < s.nb; j++){
             if (name == s.list[j].name){
