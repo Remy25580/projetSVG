@@ -41,6 +41,6 @@ typedef struct{
 
 
 
-shapeGroup_t shapeCreation(void);
+shapeGroup_t shapeCreation(shapeGroup_t s);
 
 #endif
