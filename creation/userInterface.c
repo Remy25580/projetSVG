@@ -22,7 +22,7 @@ shapeGroup_t shapeCreation(shapeGroup_t g){
         printf("6 - polyline\n");
         printf("7 - polygon\n");
         printf("8 - path\n");
-        printf("9 - group of shapes");
+        printf("9 - group of shapes\n");
         printf("0 - exit the shapes creation\n");
         printf("\n");
         scanf("%d", &creation);
