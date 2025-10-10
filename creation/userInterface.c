@@ -6,6 +6,7 @@
 
 shapeGroup_t shapeCreation(shapeGroup_t g){
     int end = 0;
+    int err;
     int creation = 0;
     char *name = malloc(sizeof(char) * 20);
 
@@ -13,6 +14,7 @@ shapeGroup_t shapeCreation(shapeGroup_t g){
         g.list = malloc(1 * sizeof(shapesElt));
     }
     while(end == 0){
+        err = 0;
         printf("What shape do you want to make ?\n");
         printf("1 - rectangle\n");
         printf("2 - square\n");
@@ -103,15 +105,17 @@ shapeGroup_t shapeCreation(shapeGroup_t g){
                 end = 1;
                 break;
             default:
+                err = 1;
                 printf("That shape can't be created, please type again.\n");
                 break;
             
 
         }
-        g.nb++;
-        shapesElt *temp = realloc(g.list, g.nb+1 * sizeof(shapesElt));
-        g.list = temp;
-        
+        if (end ==0 && err == 0){
+            g.nb++;
+            shapesElt *temp = realloc(g.list, g.nb+1 * sizeof(shapesElt));
+            g.list = temp;
+        }
     }
     return g;
 }
