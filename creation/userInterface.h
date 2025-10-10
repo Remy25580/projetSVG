@@ -5,6 +5,7 @@ typedef struct shapesElt_s shapesElt;
 typedef struct shapeGroup_s shapeGroup_t;
 
 struct shapeGroup_s{
+    int nb;
     shapesElt *list;
 };
 

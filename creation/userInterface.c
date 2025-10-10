@@ -4,11 +4,9 @@
 #include "path.h"
 #include "userInterface.h"
 
-shapeGroup_t shapeCreation(shapeGroup_t s){
-    shapeGroup_t g;
+shapeGroup_t shapeCreation(shapeGroup_t g){
     int end = 0;
     int creation = 0;
-    int i = 0;
     char name[20];
     while(end == 0){
         printf("What shape do you want to make ?\n");
@@ -25,84 +23,84 @@ shapeGroup_t shapeCreation(shapeGroup_t s){
         printf("\n");
         scanf("%d", &creation);
         switch (creation){
-            if (i == 0){
+            if (g.nb == 0){
                 g.list = malloc(1 * sizeof(shapesElt));
             }
             else{
-                shapesElt *temp = realloc(g.list, i+1 * sizeof(shapesElt));
+                shapesElt *temp = realloc(g.list, g.nb+1 * sizeof(shapesElt));
                 g.list = temp;
             }
 
             case(1):
-                g.list[i].shpType = RECTANGLETYPE;
-                g.list[i].shp.rectangle = createRectangle();
+                g.list[g.nb].shpType = RECTANGLETYPE;
+                g.list[g.nb].shp.rectangle = createRectangle();
                 printf("How do you want to name your rectangle ?(20 characters maximum)\n");
                 scanf("%19s", &name);
-                g.list[i].name = name;
+                g.list[g.nb].name = name;
                 printf("\n");
                 break;
             case(2):
-                g.list[i].shpType = SQUARETYPE;
-                g.list[i].shp.square = createSquare();
+                g.list[g.nb].shpType = SQUARETYPE;
+                g.list[g.nb].shp.square = createSquare();
                 printf("How do you want to name your square ?(20 characters maximum)\n");
                 scanf("%19s", &name);
-                g.list[i].name = name;
+                g.list[g.nb].name = name;
                 printf("\n");
                 break;
             case(3):
-                g.list[i].shpType = CIRCLETYPE;
-                g.list[i].shp.circle = createCicrcle();
+                g.list[g.nb].shpType = CIRCLETYPE;
+                g.list[g.nb].shp.circle = createCicrcle();
                 printf("How do you want to name your circle ?(20 characters maximum)\n");
                 scanf("%19s", &name);
-                g.list[i].name = name;
+                g.list[g.nb].name = name;
                 printf("\n");
                 break;
             case(4):
-                g.list[i].shpType = ELLIPSETYPE;
-                g.list[i].shp.ellipse = createEllipse();
+                g.list[g.nb].shpType = ELLIPSETYPE;
+                g.list[g.nb].shp.ellipse = createEllipse();
                 printf("How do you want to name your ellipse ?(20 characters maximum)\n");
                 scanf("%19s", &name);
-                g.list[i].name = name;
+                g.list[g.nb].name = name;
                 printf("\n");
                 break;
             case(5):
-                g.list[i].shpType = LINETYPE;
-                g.list[i].shp.line = createLine();
+                g.list[g.nb].shpType = LINETYPE;
+                g.list[g.nb].shp.line = createLine();
                 printf("How do you want to name your line ?(20 characters maximum)\n");
                 scanf("%19s", &name);
-                g.list[i].name = name;
+                g.list[g.nb].name = name;
                 printf("\n");
                 break;
             case(6):
-                g.list[i].shpType = POLYLINETYPE;
-                g.list[i].shp.polyline = createPolyline();
+                g.list[g.nb].shpType = POLYLINETYPE;
+                g.list[g.nb].shp.polyline = createPolyline();
                 printf("How do you want to name your polyline ?(20 characters maximum)\n");
                 scanf("%19s", &name);
-                g.list[i].name = name;
+                g.list[g.nb].name = name;
                 printf("\n");
                 break;
             case(7):
-                g.list[i].shpType = POLYGONTYPE;
-                g.list[i].shp.polygon = createPolygon();
+                g.list[g.nb].shpType = POLYGONTYPE;
+                g.list[g.nb].shp.polygon = createPolygon();
                 printf("How do you want to name your polygon ?(20 characters maximum)\n");
                 scanf("%19s", &name);
-                g.list[i].name = name;
+                g.list[g.nb].name = name;
                 printf("\n");
                 break;
             case(8):
-                g.list[i].shpType = PATHTYPE;
-                g.list[i].shp.path = createPath();
+                g.list[g.nb].shpType = PATHTYPE;
+                g.list[g.nb].shp.path = createPath();
                 printf("How do you want to name your path ?(20 characters maximum)\n");
                 scanf("%19s", &name);
-                g.list[i].name = name;
+                g.list[g.nb].name = name;
                 printf("\n");
                 break;
             case(9):
-                g.list[i].shpType = GROUPTYPE;
-                g.list[i].shp.group = shapeCreation(g);
+                g.list[g.nb].shpType = GROUPTYPE;
+                g.list[g.nb].shp.group = shapeCreation(g);
                 printf("How do you want to name your group ?(20 characters maximum)\n");
                 scanf("%19s", &name);
-                g.list[i].name = name;
+                g.list[g.nb].name = name;
                 printf("\n");
                 break;
             case(0):
@@ -111,8 +109,11 @@ shapeGroup_t shapeCreation(shapeGroup_t s){
             default:
                 printf("That shape can't be created, please type again.\n");
                 break;
+            
 
         }
+        g.nb++;
         
     }
+    return g;
 }
