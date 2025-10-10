@@ -138,4 +138,5 @@ shapeGroup_t shapeDeletion(shapeGroup_t s){
         }
         printf("No shape of yours has this name. Please type again.\n");
     }
+    return s;
 }
