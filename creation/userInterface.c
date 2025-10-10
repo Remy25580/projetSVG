@@ -115,3 +115,7 @@ shapeGroup_t shapeCreation(shapeGroup_t g){
     }
     return g;
 }
+
+void shapeDeletion(shapeGroup_t s){
+    
+}

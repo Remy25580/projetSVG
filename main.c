@@ -42,6 +42,12 @@ int main(void){
             case(5):
                 break;
             case(6):
+                if(loaded == 0){
+                    printf("No shapes have been loaded yet, please create or load some.\n");
+                }
+                else{
+                    printf("THIS PRINT IS TO BE REMOVED (place the deletion function here)");
+                }
                 break;
             case(0):
                 end =1;
