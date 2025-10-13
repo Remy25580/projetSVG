@@ -4,9 +4,9 @@
 #include "path.h"
 #include "userInterface.h"
 
-path_t createPath(void){
-    path_t t;
-    t.size = 0;
+path_t *createPath(void){
+    path_t *t = malloc(1 * sizeof(path_t));
+    t->size = 0;
     int nb = 0;
 
     float x;
@@ -216,17 +216,17 @@ path_t createPath(void){
         }
         if(unvalidOperation == 0){
             nb++;
-            if(t.size == 0){
-                t.list = malloc(nb * sizeof(operationComplete));
-                t.list[0] = temp;
-                t.size++;
+            if(t->size == 0){
+                t->list = malloc(nb * sizeof(operationComplete));
+                t->list[0] = temp;
+                t->size = t->size + 1;
 
             }
             else{
-                operationComplete *listTemp = realloc(t.list, nb * sizeof(operationComplete));
-                t.list = listTemp;
-                t.list[t.size] = temp;
-                t.size++;
+                operationComplete *listTemp = realloc(t->list, nb * sizeof(operationComplete));
+                t->list = listTemp;
+                t->list[t->size] = temp;
+                t->size = t->size + 1;
             }
         }
         
@@ -234,11 +234,11 @@ path_t createPath(void){
     return t;
 }
 
-void getPath(path_t p){
+void getPath(path_t *p){
     operationComplete currentOp;
     printf("Here's your path : \n");
-    for(int i = 0; i < p.size; i++){
-        currentOp = p.list[i];
+    for(int i = 0; i < p->size; i++){
+        currentOp = p->list[i];
 
         switch(currentOp.opt){
             case M:
