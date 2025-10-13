@@ -125,13 +125,15 @@ shapeGroup_t shapeCreation(shapeGroup_t g){
                 printf("nouvel ajout");
             }
         }
+
+        for(int i = 0; i < g.nb; i++){
+            printf("%d\n", i);
+            printf("\t %s\n", g.list[i].name);
+        }
         
         
     }
-    for(int i = 0; i < g.nb; i++){
-        printf("%d\n", i);
-        printf("\t %s\n", g.list[i].name);
-    }
+    
     return g;
 }
 
