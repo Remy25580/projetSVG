@@ -3,6 +3,7 @@
 #include "creation.h"
 #include "path.h"
 #include "userInterface.h"
+#include "deletion.h"
 
 shapeGroup_t *shapeCreation(shapeGroup_t *g){
     int end = 0;

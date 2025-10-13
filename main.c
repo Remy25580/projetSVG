@@ -3,6 +3,7 @@
 #include "creation/creation.h"
 #include "creation/path.h"
 #include "creation/userInterface.h"
+#include "creation/deletion.h"
 
 int main(void){
     int end = 0;
