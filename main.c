@@ -28,6 +28,7 @@ int main(void){
                 if (loaded == 0){
                     loaded = 1;
                     newCreation->nb = 0;
+                    newCreation->list = NULL;
                 }
                 newCreation = shapeCreation(newCreation);
                 printf("%d\n", newCreation->nb);

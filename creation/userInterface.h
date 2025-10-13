@@ -37,6 +37,9 @@ struct shapesElt_s{
     char *name;
     shapes shp;
     shapesType shpType;
+    shapesElt *next;
+    shapesElt *previous;
+    
 };
 
 shapeGroup_t *shapeCreation(shapeGroup_t *s);

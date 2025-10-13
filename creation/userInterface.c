@@ -9,12 +9,22 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
     int end = 0;
     int err;
     int creation = 0;
-    shapesElt *temp;
+    shapesElt *temp = malloc(1* sizeof(shapesElt));
     char *name = malloc(sizeof(char) * 20);
+    shapesElt *current;
 
+    if(g->list == NULL){
+        g->list = malloc(1*sizeof(shapesElt));
+        current = NULL;
+    }
+    else{
+        current = g->list;
+        while(current->next != NULL){
+            current = current->next;
+        }
+    }
     
     while(end == 0){
-        temp = malloc(1* sizeof(shapesElt));
         err = 0;
         printf("What shape do you want to make ?\n");
         printf("1 - rectangle\n");
@@ -115,28 +125,23 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
         if (end ==0 && err == 0){
             g->nb = g->nb + 1;
             printf("nb de formes incremente\n");
-            if (g->nb == 1){
-                g->list = malloc(1 * sizeof(shapesElt));
-                g->list[0] = *temp;
-                printf("premier ajout");
+            if (current == NULL){
+                g->list = temp;
+                g->list->previous = NULL;
+                g->list->next = NULL;
+                current = temp;
             }
         
             else{
-                g->list = realloc(g->list, g->nb * sizeof(shapesElt));
-                g->list[g->nb - 1] = *temp;
+                current->next = temp;
+                temp->previous = current;
+                temp->next = NULL;
+                current = temp;
+                
                 printf("nouvel ajout");
             }
         }
 
-        for(int i = 0; i < g->nb; i++){
-            printf("%d\n", i);
-            printf("\t %s\n", g->list[i].name);
-
-        }
-
-        free(temp);
-        
-        
     }
     
     return g;
