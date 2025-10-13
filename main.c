@@ -54,7 +54,7 @@ int main(void){
                     printf("No shapes have been loaded yet, please create or load some.\n");
                 }
                 else{
-                    printf("You can delete shapes but the function doesnt exist yet\n");
+                    deleteShape(newCreation);
                 }
                 break;
             case(0):
