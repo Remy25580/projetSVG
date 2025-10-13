@@ -202,73 +202,46 @@ void getShapes(shapeGroup_t *s){
 void deleteShape(shapeGroup_t *s){
     int deleted = 0;
     int i;
-    shapesElt *current = s->head;
+    shapesElt *printingElt;
+    shapesElt *current;
     int choice;
     while(deleted == 0){
-        current = s->head;
+        printingElt = s->head;
         i = 1;
-        while(current != NULL){
-            printf("%d - %s\n", i, current->name);
+        while(printingElt != NULL){
+            printf("%d - %s\n", i, printingElt->name);
             i++;
-            current = current->next;
+            printingElt = printingElt->next;
         }
         printf("What shape do you want to delete ? Please enter its number (0 to cancel)\n");
 
         scanf("%d", &choice);
-        if(choice > s->nb){
-            printf("No shape of yours is attributed to this number, please type again");
-            break;
-        }
-        if(choice == 0){
+
+        if(choice < 1){
             deleted = 1;
             break;
         }
-        if(choice == 1){
-            current = s->head;
-            s->head->previous = NULL;
+
+        if(choice > s->nb){
+            printf("No shape of yours is attributed to this number, please type again\n");
         }
+
         else{
-            choice = choice - 1;
             current = s->head;
-            while(choice > 0){
-                current = current->next;
-                choice = choice - 1;
+            if(choice == 1){
+                s->head = s->head->next;
+                s->head->previous = NULL;
+                freeShape(current);
             }
-            current->next->previous = current->previous;
-            current->previous->next = current->next;
+            else{
+                while(choice < 1){
+                    current = current->next;
+                    choice--;
+                }
+                current->next->previous = current->previous;
+                current->previous->next = current->next;
+                freeShape(current);
+            }
         }
-
-        switch(current->shpType){
-            case(RECTANGLETYPE):
-                freeRectangle(current->shp.rectangle);
-                break;
-            case(SQUARETYPE):
-                freeSquare(current->shp.square);
-                break;
-            case(CIRCLETYPE):
-                freeCircle(current->shp.circle);
-                break;
-            case(ELLIPSETYPE):
-                freeEllipse(current->shp.ellipse);
-                break;
-            case(LINETYPE):
-                freeLine(current->shp.line);
-                break;
-            case(POLYLINETYPE):
-                freePolyline(current->shp.polyline);
-                break;
-            case(POLYGONTYPE):
-                freePolygon(current->shp.polygon);
-                break;
-            case(PATHTYPE):
-                freePath(current->shp.path);
-                break;
-            case(GROUPTYPE):
-                freeGroup(current->shp.group);
-                break;
-            default:
-                break;
-        }
-
     }
 }

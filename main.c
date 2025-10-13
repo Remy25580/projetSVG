@@ -31,7 +31,6 @@ int main(void){
                     newCreation->head = NULL;
                 }
                 newCreation = shapeCreation(newCreation);
-                printf("%d\n", newCreation->nb);
                 break;
             case(2):
                 break;
