@@ -42,33 +42,33 @@ void freePath(path_t *path){
 
 void freeGroup(shapeGroup_t *group){
     for (int i = 0; i<group->nb; i++){
-        switch(group->list[i].shpType){
+        switch(group->head[i].shpType){
             case(RECTANGLETYPE):
-                freeRectangle(&(group->list[i].shp));
+                freeRectangle(group->head[i].shp.rectangle);
                 break;
             case(SQUARETYPE):
-                freeSquare(&(group->list[i].shp));
+                freeSquare(group->head[i].shp.square);
                 break;
             case(CIRCLETYPE):
-                freeCircle(&(group->list[i].shp));
+                freeCircle(group->head[i].shp.circle);
                 break;
             case(ELLIPSETYPE):
-                freeEllipse(&(group->list[i].shp));
+                freeEllipse(group->head[i].shp.ellipse);
                 break;
             case(LINETYPE):
-                freeLine(&(group->list[i].shp));
+                freeLine(group->head[i].shp.line);
                 break;
             case(POLYLINETYPE):
-                freePolyline(&(group->list[i].shp));
+                freePolyline(group->head[i].shp.polyline);
                 break;
             case(POLYGONTYPE):
-                freePolygon(&(group->list[i].shp));
+                freePolygon(group->head[i].shp.polygon);
                 break;
             case(PATHTYPE):
-                freePath(&(group->list[i].shp));
+                freePath(group->head[i].shp.path);
                 break;
             case(GROUPTYPE):
-                freeGroup(&(group->list[i].shp));
+                freeGroup(group->head[i].shp.group);
                 break;
             default:
                 break;

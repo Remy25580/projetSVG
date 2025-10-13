@@ -6,7 +6,7 @@ typedef struct shapeGroup_s shapeGroup_t;
 
 struct shapeGroup_s{
     int nb;
-    shapesElt *list;
+    shapesElt *head;
 };
 
 typedef union{
@@ -44,6 +44,7 @@ struct shapesElt_s{
 
 shapeGroup_t *shapeCreation(shapeGroup_t *s);
 void getShapes(shapeGroup_t *s);
+void addInList(shapeGroup_t *list, shapesElt *elt);
 
 
 #endif
