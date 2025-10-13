@@ -132,6 +132,8 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
             printf("\t %s\n", g->list[i].name);
 
         }
+
+        free(temp);
         
         
     }
