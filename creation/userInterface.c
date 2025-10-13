@@ -172,6 +172,7 @@ void getShapes(shapeGroup_t *s){
                 getPath(current.shp.path);
                 break;
             case(GROUPTYPE):
+                printf("Here's your shape group : \n");
                 getShapes(current.shp.group);
                 break;
             default:
