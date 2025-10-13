@@ -77,6 +77,7 @@ void freeGroup(shapeGroup_t *group){
 }
 
 void freeShape(shapesElt *shape){
+    printf("initializing deletion\n");
     switch(shape->shpType){
         case(RECTANGLETYPE):
             printf("Deleting %s . . .\n", shape->name);
@@ -84,35 +85,35 @@ void freeShape(shapesElt *shape){
             break;
         case(SQUARETYPE):
             printf("Deleting %s . . .\n", shape->name);
-            freeRectangle(shape->shp.square);
+            freeSquare(shape->shp.square);
             break;
         case(CIRCLETYPE):
             printf("Deleting %s . . .\n", shape->name);
-            freeRectangle(shape->shp.circle);
+            freeCircle(shape->shp.circle);
             break;
         case(ELLIPSETYPE):
             printf("Deleting %s . . .\n", shape->name);
-            freeRectangle(shape->shp.ellipse);
+            freeEllipse(shape->shp.ellipse);
             break;
         case(LINETYPE):
             printf("Deleting %s . . .\n", shape->name);
-            freeRectangle(shape->shp.line);
+            freeLine(shape->shp.line);
             break;
         case(POLYLINETYPE):
             printf("Deleting %s . . .\n", shape->name);
-            freeRectangle(shape->shp.polyline);
+            freePolyline(shape->shp.polyline);
             break;
         case(POLYGONTYPE):
             printf("Deleting %s . . .\n", shape->name);
-            freeRectangle(shape->shp.polygon);
+            freePolygon(shape->shp.polygon);
             break;
         case(PATHTYPE):
             printf("Deleting %s . . .\n", shape->name);
-            freeRectangle(shape->shp.path);
+            freePath(shape->shp.path);
             break;
         case(GROUPTYPE):
             printf("Deleting %s . . .\n", shape->name);
-            freeRectangle(shape->shp.group);
+            freeGroup(shape->shp.group);
             break;
         default:
             break;

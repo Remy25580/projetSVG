@@ -11,4 +11,5 @@ void freePolygon(polygon_t *polygon);
 void freePath(path_t *path);
 void freeGroup(shapeGroup_t *group);
 
+void freeShape(shapesElt *shape);
 #endif
