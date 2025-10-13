@@ -41,13 +41,21 @@ int main(void){
             case(4):
                 break;
             case(5):
+                if (loaded == 0){
+                    printf("No shapes have been loaded yet, please create or load some.\n");
+                    break;
+                }
+                else{
+                    getShapes(newCreation);
+                    break;
+                }
                 break;
             case(6):
                 if(loaded == 0){
                     printf("No shapes have been loaded yet, please create or load some.\n");
                 }
                 else{
-                    newCreation = shapeDeletion(newCreation);
+                    printf("You can delete shapes but the function doesnt exist yet\n");
                 }
                 break;
             case(0):

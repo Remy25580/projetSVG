@@ -129,6 +129,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
         for(int i = 0; i < g->nb; i++){
             printf("%d\n", i);
             printf("\t %s\n", g->list[i].name);
+
         }
         
         
@@ -137,3 +138,42 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
     return g;
 }
 
+void getShapes(shapeGroup_t *s){
+    shapesElt current;
+    for(int i = 0; i < s->nb; i++){
+        current = s->list[i];
+        printf("%s : \n", current.name);
+        switch (current.shpType){
+            case(RECTANGLETYPE):
+                getRectangle(current.shp.rectangle);
+                break;
+            case(SQUARETYPE):
+                getSquare(current.shp.square);
+                break;
+            case(CIRCLETYPE):
+                getCircle(current.shp.circle);
+                break;
+            case(ELLIPSETYPE):
+                getEllipse(current.shp.ellipse);
+                break;
+            case(LINETYPE):
+                getLine(current.shp.line);
+                break;
+            case(POLYLINETYPE):
+                getPolyline(current.shp.polyline);
+                break;
+            case(POLYGONTYPE):
+                getPolygon(current.shp.polygon);
+                break;
+            case(PATHTYPE):
+                getPath(current.shp.path);
+                break;
+            case(GROUPTYPE):
+                getShapes(current.shp.group);
+                break;
+            default:
+                break;
+        }
+        printf("\n");       
+    }
+}
