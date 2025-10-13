@@ -56,6 +56,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 scanf("%19s", name);
                 current->name = name;
                 printf("\n");
+                end = 1;
                 break;
             case(2):
                 current->shpType = SQUARETYPE;
@@ -64,6 +65,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 scanf("%19s", name);
                 current->name = name;
                 printf("\n");
+                end = 1;
                 break;
             case(3):
                 current->shpType = CIRCLETYPE;
@@ -72,6 +74,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 scanf("%19s", name);
                 current->name = name;
                 printf("\n");
+                end = 1;
                 break;
             case(4):
                 current->shpType = ELLIPSETYPE;
@@ -80,6 +83,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 scanf("%19s", name);
                 current->name = name;
                 printf("\n");
+                end = 1;
                 break;
             case(5):
                 current->shpType = LINETYPE;
@@ -88,6 +92,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 scanf("%19s", name);
                 current->name = name;
                 printf("\n");
+                end = 1;
                 break;
             case(6):
                 current->shpType = POLYLINETYPE;
@@ -96,6 +101,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 scanf("%19s", name);
                 current->name = name;
                 printf("\n");
+                end = 1;
                 break;
             case(7):
                 current->shpType = POLYGONTYPE;
@@ -104,6 +110,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 scanf("%19s", name);
                 current->name = name;
                 printf("\n");
+                end = 1;
                 break;
             case(8):
                 current->shpType = PATHTYPE;
@@ -112,6 +119,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 scanf("%19s", name);
                 current->name = name;
                 printf("\n");
+                end = 1;
                 break;
             case(9):
                 current->shpType = GROUPTYPE;
@@ -120,9 +128,11 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 scanf("%19s", name);
                 current->name = name;
                 printf("\n");
+                end = 1;
                 break;
             case(0):
                 end = 1;
+                err = 1;
                 break;
             default:
                 err = 1;
@@ -131,7 +141,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
             
 
         }
-        if (end ==0 && err == 0){
+        if (end ==1 && err == 0){
             addInList(g, current);
         }
 
@@ -147,27 +157,35 @@ void getShapes(shapeGroup_t *s){
         printf("%s : \n", current->name);
         switch(current->shpType){
             case(RECTANGLETYPE):
+                printf("Here's your rectangle, %s : \n", current->name);
                 getRectangle(current->shp.rectangle);
                 break;
             case(SQUARETYPE):
+            printf("Here's your square, %s : \n", current->name);
                 getSquare(current->shp.square);
                 break;
             case(CIRCLETYPE):
+            printf("Here's your circle, %s : \n", current->name);
                 getCircle(current->shp.circle);
                 break;
             case(ELLIPSETYPE):
+            printf("Here's your ellipse, %s : \n", current->name);
                 getEllipse(current->shp.ellipse);
                 break;
             case(LINETYPE):
+                printf("Here's your line, %s : \n", current->name);
                 getLine(current->shp.line);
                 break;
             case(POLYLINETYPE):
+            printf("Here's your polyline, %s : \n", current->name);
                 getPolyline(current->shp.polyline);
                 break;
             case(POLYGONTYPE):
+            printf("Here's your polygon, %s : \n", current->name);
                 getPolygon(current->shp.polygon);
                 break;
             case(PATHTYPE):
+                printf("Here's your path, %s : \n", current->name);
                 getPath(current->shp.path);
                 break;
             case(GROUPTYPE):

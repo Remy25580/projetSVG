@@ -237,7 +237,6 @@ path_t *createPath(void){
 
 void getPath(path_t *p){
     operationComplete currentOp;
-    printf("Here's your path : \n");
     for(int i = 0; i < p->size; i++){
         currentOp = p->list[i];
 
