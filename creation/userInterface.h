@@ -10,15 +10,15 @@ struct shapeGroup_s{
 };
 
 typedef union{
-    rectangle_t rectangle;
-    square_t square;
-    circle_t circle;
-    ellipse_t ellipse;
-    line_t line;
-    polyline_t polyline;
-    polygon_t polygon;
-    path_t path;
-    shapeGroup_t group;
+    rectangle_t *rectangle;
+    square_t *square;
+    circle_t *circle;
+    ellipse_t *ellipse;
+    line_t *line;
+    polyline_t *polyline;
+    polygon_t *polygon;
+    path_t *path;
+    shapeGroup_t *group;
 } shapes;
 
 typedef enum{
@@ -39,8 +39,8 @@ struct shapesElt_s{
     shapesType shpType;
 };
 
-shapeGroup_t shapeCreation(shapeGroup_t s);
+shapeGroup_t *shapeCreation(shapeGroup_t *s);
 
-shapeGroup_t shapeDeletion(shapeGroup_t s);
+shapeGroup_t *shapeDeletion(shapeGroup_t *s);
 
 #endif

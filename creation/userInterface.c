@@ -4,7 +4,7 @@
 #include "path.h"
 #include "userInterface.h"
 
-shapeGroup_t shapeCreation(shapeGroup_t g){
+shapeGroup_t *shapeCreation(shapeGroup_t *g){
     int end = 0;
     int err;
     int creation = 0;
@@ -111,24 +111,24 @@ shapeGroup_t shapeCreation(shapeGroup_t g){
 
         }
         if (end ==0 && err == 0){
-            g.nb = g.nb + 1;
+            g->nb = g->nb + 1;
             printf("nb de formes incremente\n");
-            if (g.nb == 1){
-                g.list = malloc(1 * sizeof(shapesElt));
-                g.list[0] = temp;
+            if (g->nb == 1){
+                g->list = malloc(1 * sizeof(shapesElt));
+                g->list[0] = temp;
                 printf("premier ajout");
             }
         
             else{
-                g.list = realloc(g.list, g.nb * sizeof(shapesElt));
-                g.list[g.nb - 1] = temp;
+                g->list = realloc(g->list, g->nb * sizeof(shapesElt));
+                g->list[g->nb - 1] = temp;
                 printf("nouvel ajout");
             }
         }
 
-        for(int i = 0; i < g.nb; i++){
+        for(int i = 0; i < g->nb; i++){
             printf("%d\n", i);
-            printf("\t %s\n", g.list[i].name);
+            printf("\t %s\n", g->list[i].name);
         }
         
         

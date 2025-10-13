@@ -8,7 +8,7 @@ int main(void){
     int end = 0;
     int choice = 1;
     int loaded = 0;
-    shapeGroup_t newCreation;
+    shapeGroup_t *newCreation = malloc(1 * sizeof(shapeGroup_t));
     printf("Welcome to that SVG editor.\n");
     while(end == 0){
         printf("What do you want to do ?\n");
@@ -26,9 +26,9 @@ int main(void){
             case(1):
                 if (loaded == 0){
                     loaded = 1;
-                    newCreation.nb = 0;
+                    newCreation->nb = 0;
                     newCreation = shapeCreation(newCreation);
-                    printf("%d", newCreation.nb);
+                    printf("%d", newCreation->nb);
                 }
                 else{
                     printf("A creation space has already been created or loaded\n");
