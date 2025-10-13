@@ -27,12 +27,9 @@ int main(void){
                 if (loaded == 0){
                     loaded = 1;
                     newCreation->nb = 0;
-                    newCreation = shapeCreation(newCreation);
-                    printf("%d", newCreation->nb);
                 }
-                else{
-                    printf("A creation space has already been created or loaded\n");
-                }
+                newCreation = shapeCreation(newCreation);
+                printf("%d\n", newCreation->nb);
                 break;
             case(2):
                 break;
