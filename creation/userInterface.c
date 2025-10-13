@@ -112,14 +112,17 @@ shapeGroup_t shapeCreation(shapeGroup_t g){
         }
         if (end ==0 && err == 0){
             g.nb = g.nb + 1;
+            printf("nb de formes incremente\n");
             if (g.nb == 1){
                 g.list = malloc(1 * sizeof(shapesElt));
                 g.list[0] = temp;
+                printf("premier ajout");
             }
         
             else{
                 g.list = realloc(g.list, g.nb * sizeof(shapesElt));
                 g.list[g.nb - 1] = temp;
+                printf("nouvel ajout");
             }
         }
         
@@ -134,25 +137,25 @@ shapeGroup_t shapeCreation(shapeGroup_t g){
 
 shapeGroup_t shapeDeletion(shapeGroup_t s){
     for(int i = 0; i < s.nb; i++){
-        printf("%d\n", i);
-        printf("\t %s\n", s.list[i].name);
+        printf("%d - %s", i, s.list[i].name);
     }
-    char *name = malloc(sizeof(char) * 20);
+    int choice;
     int chosen = 0;
     while(chosen == 0){
         printf("What shape do you want to delete ?\n");
-        scanf("%s", name);
-        for(int j = 0; j < s.nb; j++){
-            if (name == s.list[j].name){
-                for(int k = 0; k < s.nb-j-1; k++){
-                    s.list[j+k] = s.list[j+k+1];
-                }
-                s.list = realloc(s.list, s.nb-1 * sizeof(shapesElt));
-                s.nb--;
-                return s;
-            }
+        scanf("%d", &choice);
+        if (choice >= s.nb || choice < 0){
+            printf("No shape of yours has this name. Please type again.\n");
         }
-        printf("No shape of yours has this name. Please type again.\n");
+        else{
+            int i = choice+1;
+            while(i < s.nb){
+                s.list[i-1] = s.list[i];
+
+            }
+            s.nb = s.nb - 1;
+            s.list = realloc(s.list, s.nb * sizeof(shapesElt));
+        }  
     }
     return s;
 }
