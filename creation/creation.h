@@ -63,7 +63,7 @@ void getCircle(circle_t *c);
 ellipse_t *createEllipse(void);
 void getEllipse(ellipse_t *e);
 line_t *createLine(void);
-void getLine(line_t l);
+void getLine(line_t *l);
 polyline_t *createPolyline(void);
 void getPolyline(polyline_t *pl);
 polygon_t *createPolygon(void);

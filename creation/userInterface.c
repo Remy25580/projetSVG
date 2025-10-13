@@ -137,27 +137,3 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
     return g;
 }
 
-shapeGroup_t shapeDeletion(shapeGroup_t s){
-    for(int i = 0; i < s.nb; i++){
-        printf("%d - %s", i, s.list[i].name);
-    }
-    int choice;
-    int chosen = 0;
-    while(chosen == 0){
-        printf("What shape do you want to delete ?\n");
-        scanf("%d", &choice);
-        if (choice >= s.nb || choice < 0){
-            printf("No shape of yours has this name. Please type again.\n");
-        }
-        else{
-            int i = choice+1;
-            while(i < s.nb){
-                s.list[i-1] = s.list[i];
-
-            }
-            s.nb = s.nb - 1;
-            s.list = realloc(s.list, s.nb * sizeof(shapesElt));
-        }  
-    }
-    return s;
-}
