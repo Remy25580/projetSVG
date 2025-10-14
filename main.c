@@ -40,7 +40,7 @@ int main(void){
                     printf("No shapes have been loaded yet, please create or load some.\n");
                 }
                 else{
-                    //fonction edited
+                    editShapes(newCreation);
                 }
                 break;
             case(3):
