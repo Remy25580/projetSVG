@@ -16,9 +16,11 @@
 
 //Définitions de fonctions
 
-rectangle_t *createRectangle(void){
-    rectangle_t *r = malloc(1 * sizeof(rectangle_t));
-    printf("You are now creating a rectangle.\n");
+rectangle_t *createRectangle(rectangle_t *r, int editing){
+    if(editing == 0){
+        r = malloc(1 * sizeof(rectangle_t));
+        printf("You are now creating a rectangle.\n");
+    }
     printf("Where does your rectangle start ?\n");
     printf("\n");
     float x;
@@ -63,9 +65,11 @@ void getRectangle(rectangle_t *r){
     printf("\n");
 }
 
-square_t *createSquare(void){
-    square_t *c = malloc(1 * sizeof(square_t));
-    printf("You are now creating a square.\n");
+square_t *createSquare(square_t *c, int editing){
+    if(editing == 0){
+        c = malloc(1 * sizeof(square_t));
+        printf("You are now creating a square.\n");
+    }
     printf("Where does your square start ?\n");
     printf("\n");
     float x;
@@ -105,9 +109,11 @@ void getSquare(square_t *c){
     printf("\n");
 }
 
-circle_t *createCicrcle(void){
-    circle_t *c = malloc(1 * sizeof(circle_t));
-    printf("You are now creating a circle.\n");
+circle_t *createCicrcle(circle_t *c, int editing){
+    if(editing == 0){
+        c = malloc(1 * sizeof(circle_t));
+        printf("You are now creating a circle.\n");
+    }
     printf("Where's the center of your circle ?\n");
     printf("\n");
     float x;
@@ -134,9 +140,11 @@ void getCircle(circle_t *c){
     printf("\n");
 }
 
-ellipse_t *createEllipse(void){
-    ellipse_t *e  = malloc(1 * sizeof(ellipse_t));
-    printf("You are now creating an ellipse.\n");
+ellipse_t *createEllipse(ellipse_t *e, int editing){
+    if(editing == 0){
+        e  = malloc(1 * sizeof(ellipse_t));
+        printf("You are now creating an ellipse.\n");
+    }
     printf("Where's the center of your ellipse ?\n");
     printf("\n");
     float x;
@@ -168,9 +176,11 @@ void getEllipse(ellipse_t *e){
     printf("\n");
 }
 
-line_t *createLine(void){
-    line_t *l = malloc(1 * sizeof(line_t));
-    printf("You are now creating a line.\n");
+line_t *createLine(line_t *l, int editing){
+    if(editing == 0){
+        l = malloc(1 * sizeof(line_t));
+        printf("You are now creating a line.\n");
+    }
     printf("What is the position of the begining of your line ?\n");
     printf("\n");
     float xs;
@@ -206,9 +216,11 @@ void getLine(line_t *l){
     printf("\n");
 }
 
-polyline_t *createPolyline(void){
-    polyline_t *pl = malloc(1 * sizeof(polyline_t));
-    printf("You are now creating a polyline.\n");
+polyline_t *createPolyline(polyline_t *pl, int editing){
+    if(editing == 0){
+        pl = malloc(1 * sizeof(polyline_t));
+        printf("You are now creating a polyline.\n");
+    }
     int nb;
     printf("First of all, how many lines do you want to connect ? \n");
     scanf("%d", &nb);
@@ -259,9 +271,11 @@ void getPolyline(polyline_t *pl){
     printf("\n");
 }
 
-polygon_t *createPolygon(void){
-    polygon_t *pg = malloc(1 * sizeof(polygon_t));
-    printf("You are now creating a polygon.\n");
+polygon_t *createPolygon(polygon_t *pg, int editing){
+    if(editing == 0){
+        pg = malloc(1 * sizeof(polygon_t));
+        printf("You are now creating a polygon.\n");
+    }
     int nb;
     printf("First of all, how many sides will your polygon have ? \n");
     scanf("%d", &nb);

@@ -100,6 +100,6 @@ typedef struct{
     operationComplete *list;
 } path_t;
 
-path_t *createPath(void);
+path_t *createPath(path_t *t, int editing);
 void getPath(path_t *p);
 #endif

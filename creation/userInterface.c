@@ -53,7 +53,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
         switch (creation){
             case(1):
                 current->shpType = RECTANGLETYPE;
-                current->shp.rectangle = createRectangle();
+                current->shp.rectangle = createRectangle(NULL, 0);
                 printf("How do you want to name your rectangle ?(20 characters maximum)\n");
                 scanf("%19s", name);
                 current->name = name;
@@ -63,7 +63,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 break;
             case(2):
                 current->shpType = SQUARETYPE;
-                current->shp.square = createSquare();
+                current->shp.square = createSquare(NULL, 0);
                 printf("How do you want to name your square ?(20 characters maximum)\n");
                 scanf("%19s", name);
                 current->name = name;
@@ -73,7 +73,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 break;
             case(3):
                 current->shpType = CIRCLETYPE;
-                current->shp.circle = createCicrcle();
+                current->shp.circle = createCicrcle(NULL, 0);
                 printf("How do you want to name your circle ?(20 characters maximum)\n");
                 scanf("%19s", name);
                 current->name = name;
@@ -83,7 +83,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 break;
             case(4):
                 current->shpType = ELLIPSETYPE;
-                current->shp.ellipse = createEllipse();
+                current->shp.ellipse = createEllipse(NULL, 0);
                 printf("How do you want to name your ellipse ?(20 characters maximum)\n");
                 scanf("%19s", name);
                 current->name = name;
@@ -93,7 +93,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 break;
             case(5):
                 current->shpType = LINETYPE;
-                current->shp.line = createLine();
+                current->shp.line = createLine(NULL, 0);
                 printf("How do you want to name your line ?(20 characters maximum)\n");
                 scanf("%19s", name);
                 current->name = name;
@@ -103,7 +103,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 break;
             case(6):
                 current->shpType = POLYLINETYPE;
-                current->shp.polyline = createPolyline();
+                current->shp.polyline = createPolyline(NULL, 0);
                 printf("How do you want to name your polyline ?(20 characters maximum)\n");
                 scanf("%19s", name);
                 current->name = name;
@@ -113,7 +113,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 break;
             case(7):
                 current->shpType = POLYGONTYPE;
-                current->shp.polygon = createPolygon();
+                current->shp.polygon = createPolygon(NULL, 0);
                 printf("How do you want to name your polygon ?(20 characters maximum)\n");
                 scanf("%19s", name);
                 current->name = name;
@@ -123,7 +123,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 break;
             case(8):
                 current->shpType = PATHTYPE;
-                current->shp.path = createPath();
+                current->shp.path = createPath(NULL, 0);
                 printf("How do you want to name your path ?(20 characters maximum)\n");
                 scanf("%19s", name);
                 current->name = name;
@@ -413,4 +413,9 @@ void stylishShapes(shapeGroup_t *s){
             }
         }
     }
+}
+
+void editShapes(shapeGroup_t *s){
+    int edited = 0;
+
 }

@@ -7,8 +7,12 @@
 #include "deletion.h"
 #include "color.h"
 
-path_t *createPath(void){
-    path_t *t = malloc(1 * sizeof(path_t));
+path_t *createPath(path_t *t, int editing){
+    if(editing == 0){
+        t = malloc(1 * sizeof(path_t));
+        printf("You are now creating a path.\n");
+    }
+    
     t->size = 0;
     int nb = 0;
 
@@ -27,7 +31,7 @@ path_t *createPath(void){
     operationComplete temp;
 
     char op;
-    printf("You are now creating a path.\n");
+    
     int creating = 0;
     int unvalidOperation;
     while(creating == 0){        

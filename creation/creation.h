@@ -54,19 +54,19 @@ typedef struct polygon_s{
 
 //Prototypes fonctions
 
-rectangle_t *createRectangle(void);
+rectangle_t *createRectangle(rectangle_t *r, int editing);
 void getRectangle(rectangle_t *r);
-square_t *createSquare(void);
+square_t *createSquare(square_t *c, int editing);
 void getSquare(square_t *c);
-circle_t *createCicrcle(void);
+circle_t *createCicrcle(circle_t *c, int editing);
 void getCircle(circle_t *c);
-ellipse_t *createEllipse(void);
+ellipse_t *createEllipse(ellipse_t *e, int editing);
 void getEllipse(ellipse_t *e);
-line_t *createLine(void);
+line_t *createLine(line_t *l, int editing);
 void getLine(line_t *l);
-polyline_t *createPolyline(void);
+polyline_t *createPolyline(polyline_t *pl, int editing);
 void getPolyline(polyline_t *pl);
-polygon_t *createPolygon(void);
+polygon_t *createPolygon(polygon_t *pg, int editing);
 void getPolygon(polygon_t *pg);
 
 #endif
