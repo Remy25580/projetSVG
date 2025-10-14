@@ -59,7 +59,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *s);
 void getShapes(shapeGroup_t *s);
 void addInList(shapeGroup_t *list, shapesElt *elt);
 void deleteShape(shapeGroup_t *s);
-void editShapes(shapeGroup_t *s);
+void stylishShapes(shapeGroup_t *s);
 
 
 #endif

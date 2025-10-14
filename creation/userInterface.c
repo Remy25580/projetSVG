@@ -289,7 +289,7 @@ void deleteShape(shapeGroup_t *s){
     }
 }
 
-void editShapes(shapeGroup_t *s){
+void stylishShapes(shapeGroup_t *s){
     int edited = 0;
     shapesElt *printingElt;
     int i;

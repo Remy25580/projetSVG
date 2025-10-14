@@ -16,11 +16,12 @@ int main(void){
     while(end == 0){
         printf("What do you want to do ?\n");
         printf("1 - Create new shapes\n");
-        printf("2 - Edit shapes\n");
-        printf("3 - Save shapes\n");
-        printf("4 - Load shapes\n");
-        printf("5 - View your shapes\n");
-        printf("6 - Delete a shape\n");
+        printf("2 - Stylish shapes\n");
+        printf("3 - Edit shapes");
+        printf("4 - Save shapes\n");
+        printf("5 - Load shapes\n");
+        printf("6 - View your shapes\n");
+        printf("7 - Delete a shape\n");
         printf("0 - Exit\n");
         printf("\n");
 
@@ -35,18 +36,20 @@ int main(void){
                 newCreation = shapeCreation(newCreation);
                 break;
             case(2):
+                break;
+            case(3):
                 if(loaded == 0){
                     printf("No shapes have been loaded yet, please create or load some.\n");
                 }
                 else{
-                    editShapes(newCreation);
+                    stylishShapes(newCreation);
                 }
-                break;
-            case(3):
                 break;
             case(4):
                 break;
             case(5):
+                break;
+            case(6):
                 if (loaded == 0){
                     printf("No shapes have been loaded yet, please create or load some.\n");
                     break;
@@ -56,7 +59,7 @@ int main(void){
                     break;
                 }
                 break;
-            case(6):
+            case(7):
                 if(loaded == 0){
                     printf("No shapes have been loaded yet, please create or load some.\n");
                 }
