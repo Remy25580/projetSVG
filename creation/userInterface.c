@@ -318,7 +318,7 @@ void stylishShapes(shapeGroup_t *s){
             i++;
             printingElt = printingElt->next;
         }
-        printf("What shape do you want to edit ? Please enter its number (0 to cancel)\n");
+        printf("What shape do you want to stylish ? Please enter its number (0 to cancel)\n");
         scanf("%d", &choice);
 
         if(choice < 0 || choice > s->nb){
@@ -417,5 +417,74 @@ void stylishShapes(shapeGroup_t *s){
 
 void editShapes(shapeGroup_t *s){
     int edited = 0;
+    int i;
+    shapesElt *printingElt;
+    int choice;
+    shapesElt *current;
 
+    while(edited == 0){
+        printingElt = s->head;
+        i = 1;
+        while(printingElt != NULL){
+            printf("%d - %s\n", i, printingElt->name);
+            i++;
+            printingElt = printingElt->next;
+        }
+
+        printf("What shape do you want to edit ? Please enter its number (0 to cancel)\n");
+        scanf("%d", &choice);
+
+        if(choice < 1){
+            edited = 1;
+            break;
+        }
+
+        if (choice > s->nb){
+            printf("No shape of yours is attributed to this number. Please type again\n");
+        }
+
+        else{
+            current = s->head;
+            while(choice > 1){
+                current = current->next;
+                choice--;
+            }
+            switch(current->shpType){
+                case(RECTANGLETYPE):
+                    current->shp.rectangle = createRectangle(current->shp.rectangle, 1);
+                    edited = 1;
+                    break;
+                case(SQUARETYPE):
+                    current->shp.square = createSquare(current->shp.square, 1);
+                    edited = 1;
+                    break;
+                case(CIRCLETYPE):
+                    current->shp.circle = createCicrcle(current->shp.circle, 1);
+                    edited = 1;
+                    break;
+                case(ELLIPSETYPE):
+                    current->shp.ellipse = createEllipse(current->shp.ellipse, 1);
+                    edited = 1;
+                    break;
+                case(LINETYPE):
+                    current->shp.line = createLine(current->shp.line, 1);
+                    edited = 1;
+                    break;
+                case(POLYLINETYPE):
+                    current->shp.polyline = createPolyline(current->shp.polyline, 1);
+                    edited = 1;
+                    break;
+                case(POLYGONTYPE):
+                    current->shp.polygon = createPolygon(current->shp.polygon, 1);
+                    edited = 1;
+                    break;
+                case(PATHTYPE):
+                    current->shp.path = createPath(current->shp.path, 1);
+                    edited = 1;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
 }
