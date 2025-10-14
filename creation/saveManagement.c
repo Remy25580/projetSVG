@@ -38,7 +38,7 @@ void saveShapes(shapeGroup_t *s){
             }
         }
         strcat(fileNametext, ".txt");
-        strcar(fileNameSvg, ".svg");
+        strcat(fileNameSvg, ".svg");
 
         FILE *ft = fopen(fileNametext, "w");
         FILE *fs = fopen(fileNameSvg, "w");
