@@ -5,12 +5,13 @@ EXE := projetSvg
 build:
 	del *.o
 	del *.exe
-	
+
 	$(CC) $(FLAGS) -c main.c
 	$(CC) $(FLAGS) -c creation/creation.c
 	$(CC) $(FLAGS) -c creation/path.c
 	$(CC) $(FLAGS) -c creation/userInterface.c
 	$(CC) $(FLAGS) -c creation/deletion.c
+	$(CC) $(FLAGS) -c creation/color.c
 	$(CC) *.o -o $(EXE)
 
 clean:

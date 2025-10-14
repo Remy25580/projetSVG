@@ -5,6 +5,7 @@
 #include "path.h"
 #include "userInterface.h"
 #include "deletion.h"
+#include "color.h"
 
 void addInList(shapeGroup_t *list, shapesElt *elt){
     if(list->nb == 0){

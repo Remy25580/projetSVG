@@ -5,6 +5,7 @@
 #include "path.h"
 #include "userInterface.h"
 #include "deletion.h"
+#include "color.h"
 
 path_t *createPath(void){
     path_t *t = malloc(1 * sizeof(path_t));

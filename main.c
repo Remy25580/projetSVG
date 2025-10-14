@@ -5,6 +5,7 @@
 #include "creation/path.h"
 #include "creation/userInterface.h"
 #include "creation/deletion.h"
+#include "creation/color.h"
 
 int main(void){
     int end = 0;
