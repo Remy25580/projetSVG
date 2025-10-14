@@ -6,6 +6,7 @@
 #include "userInterface.h"
 #include "deletion.h"
 #include "color.h"
+#include "saveManagement.h"
 
 void setColor(shapeStyle *s, int fillOrContour){
     int finished = 0;

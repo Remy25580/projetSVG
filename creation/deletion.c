@@ -6,6 +6,7 @@
 #include "userInterface.h"
 #include "deletion.h"
 #include "color.h"
+#include "saveManagement.h"
 
 void freeRectangle(rectangle_t *rectangle){
     free(rectangle);

@@ -6,6 +6,7 @@
 #include "userInterface.h"
 #include "deletion.h"
 #include "color.h"
+#include "saveManagement.h"
 
 path_t *createPath(path_t *t, int editing){
     if(editing == 0){

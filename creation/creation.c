@@ -5,6 +5,7 @@
 #include "path.h"
 #include "userInterface.h"
 #include "deletion.h"
+#include "saveManagement.h"
 
 
 // Définitions d'unions
