@@ -304,7 +304,6 @@ void editShapes(shapeGroup_t *s){
     st->xinvert = 0;
     st->yinvert = 0;
 
-    char col[20];
     float x;
     float y;
     float r;
@@ -323,93 +322,95 @@ void editShapes(shapeGroup_t *s){
         scanf("%d", &choice);
 
         if(choice < 0 || choice > s->nb){
-            printf("No shape of yours is attributed to this number, please type again");
+            printf("No shape of yours is attributed to this number, please type again\n");
         }
-        if(choice == 0){
-            edited = 1;
-        }
-
         else{
-            editing = s->head;
-            if(choice > 1){
-                editing = editing->next;
-                choice--;
-            }
-            if(editing->style != NULL){
-                st = editing->style;
+            if(choice == 0){
+                edited = 1;
             }
 
-            while(edited == 0){
-                printf("1 - Change its contour's color\n");
-                printf("2 - Change its filling color\n");
-                printf("3 - Move it to a x;y popsition\n");
-                printf("4 - Rotate it with a angle\n");
-                printf("5 - Invert it on x-axis\n");
-                printf("6 - Invert it on y-axis\n");
-                printf("0 - Cancel\n");
-                printf("How do you want to edit it ?\n");
-                scanf("%d", &choice2);
-
-                if(choice < 0 || choice > s->nb){
-                    printf("No shape of yours is attributed to this number, please type again");
+            else{
+                editing = s->head;
+                if(choice > 1){
+                    editing = editing->next;
+                    choice--;
                 }
-                if(choice == 0){
-                    edited = 1;
+                if(editing->style != NULL){
+                    st = editing->style;
                 }
 
-                else{
-                    switch(choice2){
-                        case(1):
-                            setColor(s, 0);
-                            edited = 1;
-                            break;
-                        case(2):
-                            setColor(s, 1);
-                            edited = 1;
-                            break;
-                        case(3):
-                            printf("At what point do you want to move it ?\n");
-                            printf("x position : ");
-                            scanf("%f", &x);
-                            printf("y position : ");
-                            scanf("%f", &y);
-                            st->xtranslate = x;
-                            st->ytranslate = y;
-                            edited = 1;
-                            break;
-                        case(4):
-                            printf("To what angle do you want it to rotate ?\n");
-                            scanf("%f", &r);
-                            st->rotate = r;
-                            edited = 1;
-                            break;
-                        case(5):
-                            if(st->xinvert == 0){
-                                st->xinvert = 1;
-                            }
-                            else{
-                                st->xinvert = 0;
-                            }
-                            printf("Shape inverted by the x-axis\n");
-                            edited = 1;
-                            break;
-                        case(6):
-                            if(st->yinvert == 0){
-                                st->yinvert = 1;
-                            }
-                            else{
-                                st->yinvert = 0;
-                            }
-                            printf("Shape inverted by the y-axis\n");
-                            edited = 1;
-                            break;
-                        default:
-                            printf("Invalid action, please type again\n");
-                            break;
+                while(edited == 0){
+                    printf("1 - Change its contour's color\n");
+                    printf("2 - Change its filling color\n");
+                    printf("3 - Move it to a x;y popsition\n");
+                    printf("4 - Rotate it with a angle\n");
+                    printf("5 - Invert it on x-axis\n");
+                    printf("6 - Invert it on y-axis\n");
+                    printf("0 - Cancel\n");
+                    printf("How do you want to edit it ?\n");
+                    scanf("%d", &choice2);
+
+                    if(choice < 0 || choice > s->nb){
+                        printf("No shape of yours is attributed to this number, please type again");
+                    }
+                    if(choice == 0){
+                        edited = 1;
+                    }
+
+                    else{
+                        switch(choice2){
+                            case(1):
+                                setColor(st, 0);
+                                edited = 1;
+                                break;
+                            case(2):
+                                setColor(st, 1);
+                                edited = 1;
+                                break;
+                            case(3):
+                                printf("At what point do you want to move it ?\n");
+                                printf("x position : ");
+                                scanf("%f", &x);
+                                printf("y position : ");
+                                scanf("%f", &y);
+                                st->xtranslate = x;
+                                st->ytranslate = y;
+                                edited = 1;
+                                break;
+                            case(4):
+                                printf("To what angle do you want it to rotate ?\n");
+                                scanf("%f", &r);
+                                st->rotate = r;
+                                edited = 1;
+                                break;
+                            case(5):
+                                if(st->xinvert == 0){
+                                    st->xinvert = 1;
+                                }
+                                else{
+                                    st->xinvert = 0;
+                                }
+                                printf("Shape inverted by the x-axis\n");
+                                edited = 1;
+                                break;
+                            case(6):
+                                if(st->yinvert == 0){
+                                    st->yinvert = 1;
+                                }
+                                else{
+                                    st->yinvert = 0;
+                                }
+                                printf("Shape inverted by the y-axis\n");
+                                edited = 1;
+                                break;
+                            default:
+                                printf("Invalid action, please type again\n");
+                                break;
+                        }
                     }
                 }
+                editing->style = st;
             }
-            editing->style = st;
         }
     }
 }
