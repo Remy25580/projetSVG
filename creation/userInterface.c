@@ -242,6 +242,7 @@ void deleteShape(shapeGroup_t *s){
                 current->previous->next = current->next;
                 freeShape(current);
             }
+            s->nb = s->nb - 1;
         }
     }
 }
