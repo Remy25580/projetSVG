@@ -234,7 +234,7 @@ void deleteShape(shapeGroup_t *s){
                 freeShape(current);
             }
             else{
-                while(choice < 1){
+                while(choice > 1){
                     current = current->next;
                     choice--;
                 }
