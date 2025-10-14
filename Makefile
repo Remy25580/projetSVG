@@ -12,6 +12,7 @@ build:
 	$(CC) $(FLAGS) -c creation/userInterface.c
 	$(CC) $(FLAGS) -c creation/deletion.c
 	$(CC) $(FLAGS) -c creation/color.c
+	$(CC) $(FLAGS) -c creation/saveManagement.c
 	$(CC) *.o -o $(EXE)
 
 clean:
