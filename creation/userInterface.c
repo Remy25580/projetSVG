@@ -212,10 +212,10 @@ void getShapes(shapeGroup_t *s){
                 printf("Filling color of the shape : %s\n", current->style->fillColor);
             }
             if(current->style->rotate != 0){
-                printf("Rotation of the shape : %f degrees\n", current->style->rotate);
+                printf("Rotation of the shape : %.2f degrees\n", current->style->rotate);
             }
             if(current->style->xtranslate !=0 || current->style->ytranslate != 0){
-                printf("Shape translated to %f;%f\n", current->style->xtranslate, current->style->ytranslate);
+                printf("Shape translated to %.2f;%.2f\n", current->style->xtranslate, current->style->ytranslate);
             }
             if(current->style->xinvert == 1){
                 printf("Shape inverted on the x-axis\n");
