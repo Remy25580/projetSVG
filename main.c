@@ -16,8 +16,8 @@ int main(void){
     while(end == 0){
         printf("What do you want to do ?\n");
         printf("1 - Create new shapes\n");
-        printf("2 - Stylish shapes\n");
-        printf("3 - Edit shapes");
+        printf("2 - Edit shapes\n");
+        printf("3 - Stylish shapes\n");
         printf("4 - Save shapes\n");
         printf("5 - Load shapes\n");
         printf("6 - View your shapes\n");
