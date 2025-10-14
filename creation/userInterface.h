@@ -3,6 +3,7 @@
 
 typedef struct shapesElt_s shapesElt;
 typedef struct shapeGroup_s shapeGroup_t;
+typedef struct style shapeStyle;
 
 struct shapeGroup_s{
     int nb;
@@ -39,13 +40,26 @@ struct shapesElt_s{
     shapesType shpType;
     shapesElt *next;
     shapesElt *previous;
+    shapeStyle *style;
     
+};
+
+struct style{
+    char *color;
+    char *fillColor;
+    float xtranslate;
+    float ytranslate;
+    float rotate;
+    int xinvert;
+    int yinvert;
+
 };
 
 shapeGroup_t *shapeCreation(shapeGroup_t *s);
 void getShapes(shapeGroup_t *s);
 void addInList(shapeGroup_t *list, shapesElt *elt);
 void deleteShape(shapeGroup_t *s);
+void editShapes(shapeGroup_t *s);
 
 
 #endif

@@ -55,6 +55,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 printf("How do you want to name your rectangle ?(20 characters maximum)\n");
                 scanf("%19s", name);
                 current->name = name;
+                current->style = NULL;
                 printf("\n");
                 end = 1;
                 break;
@@ -64,6 +65,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 printf("How do you want to name your square ?(20 characters maximum)\n");
                 scanf("%19s", name);
                 current->name = name;
+                current->style = NULL;
                 printf("\n");
                 end = 1;
                 break;
@@ -73,6 +75,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 printf("How do you want to name your circle ?(20 characters maximum)\n");
                 scanf("%19s", name);
                 current->name = name;
+                current->style = NULL;
                 printf("\n");
                 end = 1;
                 break;
@@ -82,6 +85,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 printf("How do you want to name your ellipse ?(20 characters maximum)\n");
                 scanf("%19s", name);
                 current->name = name;
+                current->style = NULL;
                 printf("\n");
                 end = 1;
                 break;
@@ -91,6 +95,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 printf("How do you want to name your line ?(20 characters maximum)\n");
                 scanf("%19s", name);
                 current->name = name;
+                current->style = NULL;
                 printf("\n");
                 end = 1;
                 break;
@@ -100,6 +105,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 printf("How do you want to name your polyline ?(20 characters maximum)\n");
                 scanf("%19s", name);
                 current->name = name;
+                current->style = NULL;
                 printf("\n");
                 end = 1;
                 break;
@@ -109,6 +115,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 printf("How do you want to name your polygon ?(20 characters maximum)\n");
                 scanf("%19s", name);
                 current->name = name;
+                current->style = NULL;
                 printf("\n");
                 end = 1;
                 break;
@@ -118,6 +125,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 printf("How do you want to name your path ?(20 characters maximum)\n");
                 scanf("%19s", name);
                 current->name = name;
+                current->style = NULL;
                 printf("\n");
                 end = 1;
                 break;
@@ -138,6 +146,7 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 err = 1;
                 printf("That shape can't be created, please type again.\n");
                 break;
+
             
 
         }
@@ -193,6 +202,26 @@ void getShapes(shapeGroup_t *s){
                 break;
             default:
                 break;
+        }
+        if(current->style !=NULL){
+            if(current->style->color != " "){
+                printf("Color of the contour : %s\n", current->style->color);
+            }
+            if(current->style->fillColor != " "){
+                printf("Filling color of the shape : %s\n", current->style->fillColor);
+            }
+            if(current->style->rotate != 0){
+                printf("Rotation of the shape : %f degrees\n", current->style->rotate);
+            }
+            if(current->style->xtranslate !=0 || current->style->ytranslate != 0){
+                printf("Shape translated to %f;%f\n", current->style->xtranslate, current->style->ytranslate);
+            }
+            if(current->style->xinvert == 1){
+                printf("Shape inverted on the x-axis\n");
+            }
+            if(current->style->yinvert == 1){
+                printf("Shape inverted on the y-axis\n");
+            }
         }
         current = current->next;
     }
@@ -254,6 +283,135 @@ void deleteShape(shapeGroup_t *s){
                 freeShape(current);
             }
             deleted = 1;
+        }
+    }
+}
+
+void editShapes(shapeGroup_t *s){
+    int edited = 0;
+    shapesElt *printingElt;
+    int i;
+    int choice;
+    int choice2;
+    shapeStyle *st;
+    st->color = " ";
+    st->fillColor = " ";
+    st->rotate = 0;
+    st->xtranslate = 0;
+    st->ytranslate = 0;
+    st->xinvert = 0;
+    st->yinvert = 0;
+
+    char *col;
+    float x;
+    float y;
+    float r;
+    shapesElt *editing;
+
+
+    while(edited == 0){
+        printingElt = s->head;
+        i = 1;
+        while(printingElt != NULL){
+            printf("%d - %s\n", i, printingElt->name);
+            i++;
+            printingElt = printingElt->next;
+        }
+        printf("What shape do you want to edit ? Please enter its number (0 to cancel)\n");
+        scanf("%d", &choice);
+
+        if(choice < 0 || choice > s->nb){
+            printf("No shape of yours is attributed to this number, please type again");
+        }
+        if(choice == 0){
+            edited = 1;
+        }
+
+        else{
+            editing = s->head;
+            if(choice > 1){
+                editing = editing->next;
+                choice--;
+            }
+            if(editing->style != NULL){
+                st = editing->style;
+            }
+
+            while(edited == 0){
+                printf("1 - Change its contour's color\n");
+                printf("2 - Change its filling color\n");
+                printf("3 - Move it to a x;y popsition\n");
+                printf("4 - Rotate it with a angle\n");
+                printf("5 - Invert it on x-axis\n");
+                printf("6 - Invert it on y-axis\n");
+                printf("0 - Cancel\n");
+                printf("How do you want to edit it ?\n");
+                scanf("%d", choice2);
+
+                if(choice < 0 || choice > s->nb){
+                    printf("No shape of yours is attributed to this number, please type again");
+                }
+                if(choice == 0){
+                    edited = 1;
+                }
+
+                else{
+                    switch(choice2){
+                        case(1):
+                            printf("What color do you want to apply for the contour ?\n");
+                            scanf("%s", col);
+                            st->color = col;
+                            edited = 1;
+                            break;
+                        case(2):
+                            printf("What filling color do you want to apply ?\n");
+                            scanf("%s", col);
+                            st->fillColor = col;
+                            edited = 1;
+                            break;
+                        case(3):
+                            printf("At what point do you want to move it ?\n");
+                            printf("x position : ");
+                            scanf("%f", &x);
+                            printf("y position : ");
+                            scanf("%f", &y);
+                            st->xtranslate = x;
+                            st->ytranslate = y;
+                            edited = 1;
+                            break;
+                        case(4):
+                            printf("To what angle do you want it to rotate ?\n");
+                            scanf("%f", &r);
+                            st->rotate = r;
+                            edited = 1;
+                            break;
+                        case(5):
+                            if(st->xinvert == 0){
+                                st->xinvert = 1;
+                            }
+                            else{
+                                st->xinvert = 0;
+                            }
+                            printf("Shape inverted by the x-axis\n");
+                            edited = 1;
+                            break;
+                        case(6):
+                            if(st->yinvert == 0){
+                                st->yinvert = 1;
+                            }
+                            else{
+                                st->yinvert = 0;
+                            }
+                            printf("Shape inverted by the y-axis\n");
+                            edited = 1;
+                            break;
+                        default:
+                            printf("Invalid action, please type again\n");
+                            break;
+                    }
+                }
+            }
+            editing->style = st;
         }
     }
 }
