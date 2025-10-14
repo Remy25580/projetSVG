@@ -53,6 +53,12 @@ int main(void){
                 }
                 break;
             case(4):
+                if (loaded == 0){
+                    printf("No shapes have been loaded yet, please create or load some.\n");
+                }
+                else{
+                    saveShapes(newCreation);
+                }
                 break;
             case(5):
                 break;

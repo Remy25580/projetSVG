@@ -7,3 +7,7 @@
 #include "deletion.h"
 #include "color.h"
 #include "saveManagement.h"
+
+void saveShapes(shapeGroup_t *s){
+    
+}
