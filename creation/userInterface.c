@@ -213,7 +213,7 @@ void getShapes(shapeGroup_t *s){
                 printf("Filling color of the shape : %s\n", current->style->fillColor);
             }
             if(current->style->rotate != 0){
-                printf("Rotation of the shape : %.2f degrees\n", current->style->rotate);
+                printf("Rotation of the shape with an angle of : %.2f\n", current->style->rotate);
             }
             if(current->style->xtranslate !=0 || current->style->ytranslate != 0){
                 printf("Shape translated to %.2f;%.2f\n", current->style->xtranslate, current->style->ytranslate);
@@ -360,15 +360,11 @@ void editShapes(shapeGroup_t *s){
                 else{
                     switch(choice2){
                         case(1):
-                            printf("What color do you want to apply for the contour ?\n");
-                            scanf("%19s", col);
-                            st->color = col;
+                            setColor(s, 0);
                             edited = 1;
                             break;
                         case(2):
-                            printf("What filling color do you want to apply ?\n");
-                            scanf("%s", col);
-                            st->fillColor = col;
+                            setColor(s, 1);
                             edited = 1;
                             break;
                         case(3):
