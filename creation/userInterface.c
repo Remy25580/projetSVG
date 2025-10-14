@@ -172,15 +172,15 @@ void getShapes(shapeGroup_t *s){
                 getRectangle(current->shp.rectangle);
                 break;
             case(SQUARETYPE):
-            printf("Here's your square, %s : \n", current->name);
+                printf("Here's your square, %s : \n", current->name);
                 getSquare(current->shp.square);
                 break;
             case(CIRCLETYPE):
-            printf("Here's your circle, %s : \n", current->name);
+                printf("Here's your circle, %s : \n", current->name);
                 getCircle(current->shp.circle);
                 break;
             case(ELLIPSETYPE):
-            printf("Here's your ellipse, %s : \n", current->name);
+                printf("Here's your ellipse, %s : \n", current->name);
                 getEllipse(current->shp.ellipse);
                 break;
             case(LINETYPE):
@@ -188,11 +188,11 @@ void getShapes(shapeGroup_t *s){
                 getLine(current->shp.line);
                 break;
             case(POLYLINETYPE):
-            printf("Here's your polyline, %s : \n", current->name);
+                printf("Here's your polyline, %s : \n", current->name);
                 getPolyline(current->shp.polyline);
                 break;
             case(POLYGONTYPE):
-            printf("Here's your polygon, %s : \n", current->name);
+                printf("Here's your polygon, %s : \n", current->name);
                 getPolygon(current->shp.polygon);
                 break;
             case(PATHTYPE):

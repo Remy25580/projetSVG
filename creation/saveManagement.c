@@ -13,6 +13,8 @@ void saveShapes(shapeGroup_t *s){
     char fileNameSvg[20];
     int choice = 2;
     int valid = 0;
+    shapesElt *current;
+    int existStyle;
 
     while(choice != 0 || choice != 1){
         printf("Are you sure you want to save now ? 0 for no, 1 for yes\n");
@@ -24,13 +26,11 @@ void saveShapes(shapeGroup_t *s){
 
     if(choice == 1){
         while(valid == 0){
-            printf("How do you want to name your save files ?\n");
+            printf("How do you want to name your save file ?\n");
             printf("The text file : ");
             scanf("%19s", fileNametext);
-            printf("The svg file : ");
-            scanf("%19s", fileNameSvg);
 
-            if(strstr(fileNametext, ".") != NULL || strstr(fileNameSvg, ".") != NULL){
+            if(strstr(fileNametext, ".") != NULL){
                 printf("Invalid file name, you must not put a dot.\n");
             }
             else{
@@ -38,10 +38,56 @@ void saveShapes(shapeGroup_t *s){
             }
         }
         strcat(fileNametext, ".txt");
-        strcat(fileNameSvg, ".svg");
-
         FILE *ft = fopen(fileNametext, "w");
-        FILE *fs = fopen(fileNameSvg, "w");
 
+        current = s->head;
+
+        while(current != NULL){
+            fprintf(ft, "%s\n", current->name);
+            existStyle = 0;
+            switch(current->shpType){
+                case(RECTANGLETYPE):
+                    fprintf(ft, "RECTANGLETYPE\n");
+                    fprintf(ft, "%f\n", current->shp.rectangle->xpos);
+                    fprintf(ft, "%f\n", current->shp.rectangle->ypos);
+                    fprintf(ft, "%f\n", current->shp.rectangle->height);
+                    fprintf(ft, "%f\n", current->shp.rectangle->width);
+                    fprintf(ft, "%f\n", current->shp.rectangle->xradius);
+                    fprintf(ft, "%f\n", current->shp.rectangle->yradius);
+                    if(current->style != NULL){
+                        fprintf(ft, "1\n");
+                        existStyle = 1;
+                    }
+                    else{
+                        fprintf(ft, "0\n");
+                    }
+                    break;
+                case(SQUARETYPE):
+                    break;
+                case(CIRCLETYPE):
+                    break;
+                case(ELLIPSETYPE):
+                    break;
+                case(LINETYPE):
+                    break;
+                case(POLYLINETYPE):
+                    break;
+                case(POLYGONTYPE):
+                    break;
+                case(PATHTYPE):
+                    break;
+                case(GROUPTYPE):
+                    break;
+                default:
+                    break;
+            }
+            if(existStyle == 1){
+                fprintf(ft, "%s\n", current->style->color);
+                fprintf(ft, "%s\n", current->style->fillColor);
+                fprintf(ft, "%f\n", current->style->rotate);
+            }
+            fprintf(ft, "\n");
+            current = current->next;
+        }
     }
 }
