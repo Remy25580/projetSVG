@@ -227,6 +227,7 @@ void deleteShape(shapeGroup_t *s){
         }
 
         else{
+            s->nb = s->nb - 1;
             current = s->head;
             if(choice == 1){
                 s->head = s->head->next;
@@ -242,7 +243,7 @@ void deleteShape(shapeGroup_t *s){
                 current->previous->next = current->next;
                 freeShape(current);
             }
-            s->nb = s->nb - 1;
+            deleted = 1;
         }
     }
 }
