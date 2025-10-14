@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "creation/creation.h"
 #include "creation/path.h"
 #include "creation/userInterface.h"

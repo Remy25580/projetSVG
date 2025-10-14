@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "creation.h"
 #include "path.h"
 #include "userInterface.h"
@@ -78,6 +79,9 @@ void freeGroup(shapeGroup_t *group){
 
 void freeShape(shapesElt *shape){
     printf("initializing deletion\n");
+    if(shape->style != NULL){
+        free(shape->style);
+    }
     switch(shape->shpType){
         case(RECTANGLETYPE):
             printf("Deleting %s . . .\n", shape->name);

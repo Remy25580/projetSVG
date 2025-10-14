@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "creation.h"
 #include "path.h"
 #include "userInterface.h"
@@ -204,10 +205,10 @@ void getShapes(shapeGroup_t *s){
                 break;
         }
         if(current->style !=NULL){
-            if(current->style->color != " "){
+            if(strcmp(current->style->color, "none") != 0){
                 printf("Color of the contour : %s\n", current->style->color);
             }
-            if(current->style->fillColor != " "){
+            if(strcmp(current->style->fillColor, "none") != 0){
                 printf("Filling color of the shape : %s\n", current->style->fillColor);
             }
             if(current->style->rotate != 0){
@@ -293,16 +294,16 @@ void editShapes(shapeGroup_t *s){
     int i;
     int choice;
     int choice2;
-    shapeStyle *st;
-    st->color = " ";
-    st->fillColor = " ";
+    shapeStyle *st = malloc(1*sizeof(shapeStyle));
+    st->color = "none";
+    st->fillColor = "none";
     st->rotate = 0;
     st->xtranslate = 0;
     st->ytranslate = 0;
     st->xinvert = 0;
     st->yinvert = 0;
 
-    char *col;
+    char col[20];
     float x;
     float y;
     float r;
@@ -346,7 +347,7 @@ void editShapes(shapeGroup_t *s){
                 printf("6 - Invert it on y-axis\n");
                 printf("0 - Cancel\n");
                 printf("How do you want to edit it ?\n");
-                scanf("%d", choice2);
+                scanf("%d", &choice2);
 
                 if(choice < 0 || choice > s->nb){
                     printf("No shape of yours is attributed to this number, please type again");
@@ -359,7 +360,7 @@ void editShapes(shapeGroup_t *s){
                     switch(choice2){
                         case(1):
                             printf("What color do you want to apply for the contour ?\n");
-                            scanf("%s", col);
+                            scanf("%19s", col);
                             st->color = col;
                             edited = 1;
                             break;
