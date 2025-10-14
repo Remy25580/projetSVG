@@ -33,6 +33,12 @@ int main(void){
                 newCreation = shapeCreation(newCreation);
                 break;
             case(2):
+                if(loaded == 0){
+                    printf("No shapes have been loaded yet, please create or load some.\n");
+                }
+                else{
+                    //fonction d'edition
+                }
                 break;
             case(3):
                 break;
@@ -62,6 +68,10 @@ int main(void){
             default:
                 printf("Invalid action, please retype.\n");
                 break;
+
+        }
+        if(newCreation->nb == 0){
+            loaded = 0;
         }
     }
     return EXIT_SUCCESS;
