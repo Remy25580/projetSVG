@@ -225,6 +225,7 @@ void loadShapes(shapeGroup_t *s){
             errName = 1;
         }
         if(errName == 0){
+            strcat(fileName, ".txt");
             ft = fopen(fileName, "r");
             if(ft == NULL){
                 printf("This file does not exit, please type again\n");
