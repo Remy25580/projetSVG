@@ -29,7 +29,10 @@ void setColor(shapeStyle *s, int fillOrContour){
         printf("14 - silver\n");
         printf("15 - fuchsia\n");
         printf("16 - olive\n");
-        scanf("%d", &choice);
+        while(scanf("%d", &choice) != 1){
+            printf("ERROR: an integer is required here, please type again.\n");
+            while (getchar() != '\n');
+        }
 
         switch(choice){
             case(1):
