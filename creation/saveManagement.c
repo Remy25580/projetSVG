@@ -8,7 +8,7 @@
 #include "color.h"
 #include "saveManagement.h"
 
-void saveShapes(shapeGroup_t *s, FILE *ft, char fileNametext[20]){
+void saveShapes(shapeGroup_t *s, FILE *ft, char *fileNametext){
     int choice = 2;
     int valid = 0;
     shapesElt *current;
