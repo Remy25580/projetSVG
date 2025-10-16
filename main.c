@@ -11,7 +11,7 @@
 int main(void){
     int end = 0;
     int choice = 1;
-    int loaded = 0;
+    int loaded = 0; 
     shapeGroup_t *newCreation = malloc(1 * sizeof(shapeGroup_t));
     printf("Welcome to that SVG editor.\n");
     while(end == 0){
@@ -61,6 +61,13 @@ int main(void){
                 }
                 break;
             case(5):
+                if (loaded == 1){
+                    printf("Shapes are already loaded, you cannot load others.\n");
+                }
+                else{
+                    loadShapes(newCreation);
+                    loaded = 1;
+                }
                 break;
             case(6):
                 if (loaded == 0){
