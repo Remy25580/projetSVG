@@ -54,9 +54,15 @@ path_t *createPath(path_t *t, int editing){
                 temp.opt = M;
                 printf("What is the position where you want to move in ? \n");
                 printf("x position : ");
-                scanf("%f", &x);
+                while(scanf("%f", &x)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                    }
                 printf("y position : ");
-                scanf("%f", &y);
+                while(scanf("%f", &y)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("\n");
                 temp.op.m.xpos = x;
                 temp.op.m.ypos = y;
@@ -66,9 +72,15 @@ path_t *createPath(path_t *t, int editing){
                 temp.opt = L;
                 printf("To what point do you want to draw a line ?\n");
                 printf("x position : ");
-                scanf("%f", &x);
+                while(scanf("%f", &x)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("y position : ");
-                scanf("%f", &y);
+                while(scanf("%f", &y)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("\n");
                 temp.op.l.xpos = x;
                 temp.op.l.ypos = y;
@@ -78,7 +90,10 @@ path_t *createPath(path_t *t, int editing){
                 temp.opt = H;
                 printf("To what x-axis do you want to draw a horizontal line ? \n");
                 printf("x-axis : ");
-                scanf("%f", &x);
+                while(scanf("%f", &x)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("\n");
                 temp.op.h.xpos = x;
                 printf("You drew a horizontal line to that axis !\n");
@@ -87,7 +102,10 @@ path_t *createPath(path_t *t, int editing){
                 temp.opt = V;
                 printf("To what y-axis do you want to draw a vertical line? \n");
                 printf("y-axis : ");
-                scanf("%f", &y);
+                while(scanf("%f", &y)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("\n");
                 temp.op.v.ypos = y;
                 printf("You drew a vertical line to that axis !\n");
@@ -101,21 +119,39 @@ path_t *createPath(path_t *t, int editing){
                 temp.opt = C;
                 printf("To what point do you want to create a cubic curve ?\n");
                 printf("x position : ");
-                scanf("%f", &x);
+                while(scanf("%f", &x)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("y position : ");
-                scanf("%f", &y);
+                while(scanf("%f", &y)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("\n");
                 printf("Now, what's the control point for the start of your curve ?\n");
                 printf("x position : ");
-                scanf("%f", &xpent1);
+                while(scanf("%f", &xpent1)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("y position : ");
-                scanf("%f", &ypent1);
+                while(scanf("%f", &ypent1)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("\n");
                 printf("And, what's the control point for the end of your curve ?\n");
                 printf("x position : ");
-                scanf("%f", &xpent2);
+                while(scanf("%f", &xpent2)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("y position : ");
-                scanf("%f", &ypent2);
+                while(scanf("%f", &ypent2)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("\n");
                 temp.op.c.xend = x;
                 temp.op.c.yend = y;
@@ -129,15 +165,27 @@ path_t *createPath(path_t *t, int editing){
                 temp.opt = S;
                 printf("To what point do you want to draw that cubic curve ?\n");
                 printf("x position : ");
-                scanf("%f", &x);
+                while(scanf("%f", &x)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("y position : ");
-                scanf("%f", &y);
+                while(scanf("%f", &y)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("\n");
                 printf("And now, what will be the control point for the end of that curve ?\n");
                 printf("x position : ");
-                scanf("%f", &xpent2);
+                while(scanf("%f", &xpent2)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("y position : ");
-                scanf("%f", &ypent2);
+                while(scanf("%f", &ypent2)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("\n");
                 temp.op.s.xend = x;
                 temp.op.s.yend = y;
@@ -149,15 +197,27 @@ path_t *createPath(path_t *t, int editing){
                 temp.opt = Q;
                 printf("To what point do you want to create a quadratic curve ?\n");
                 printf("x position : ");
-                scanf("%f", &x);
+                while(scanf("%f", &x)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("y position : ");
-                scanf("%f", &y);
+                while(scanf("%f", &y)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("\n");
                 printf("And, what will be the control point of your curve ?\n");
                 printf("x position : ");
-                scanf("%f", &xpent1);
+                while(scanf("%f", &xpent1)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("y position : ");
-                scanf("%f", &ypent1);
+                while(scanf("%f", &ypent1)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("\n");
                 temp.op.q.xend = x;
                 temp.op.q.yend = y;
@@ -169,9 +229,15 @@ path_t *createPath(path_t *t, int editing){
                 temp.opt = T;
                 printf("To what point do you want to draw that quadratic curve ?\n");
                 printf("x position : ");
-                scanf("%f", &x);
+                while(scanf("%f", &x)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("y position : ");
-                scanf("%f", &y);
+                while(scanf("%f", &y)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("\n");
                 temp.op.t.xend = x;
                 temp.op.t.yend = y;
@@ -181,29 +247,50 @@ path_t *createPath(path_t *t, int editing){
                 temp.opt = A;
                 printf("First of all, to what point will your arc go ?\n");
                 printf("x position : ");
-                scanf("%f", &x);
+                while(scanf("%f", &x)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("y position : ");
-                scanf("%f", &y);
+                while(scanf("%f", &x)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("\n");
                 printf("Now, what are the radiuses of the ellipse to make your arc ?\n");
                 printf("x radius (lenght) : ");
-                scanf("%f", &xr);
+                while(scanf("%f", &xr)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("y radius (height) : ");
-                scanf("%f", &yr);
+                while(scanf("%f", &yr)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("\n");
                 printf("What will be the rotation of that ellipse, to draw your arc ?\n");
-                scanf("%f", &rotation);
+                while(scanf("%f", &rotation)!= 1){
+                    printf("ERROR: a float is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 printf("\n");
                 printf("So, will the small or big side of the ellipse be drawn as an arc ?\n");
                 printf("Type 0 for the small, or 1 for the big ");
-                scanf("%d", &side);
+                while(scanf("%f", &side)!= 1){
+                    printf("ERROR: an integer is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 if(side != 0 && side != 1){
                     side = 1;
                     printf("If a value other than 0 or 1 has been typed, it'll be considered as 1.\n");
                 }
                 printf("And to finish, will the arc be drawn at positive angles or negative ones ?\n");
                 printf("Type 0 for the negative, or 1 for the positive ");
-                scanf("%d", &drawingWay);
+                while(scanf("%f", &drawingWay)!= 1){
+                    printf("ERROR: an integer is required here, please type again.\n");
+                    while (getchar() != '\n');
+                }
                 if(drawingWay != 0 && drawingWay != 1){
                     drawingWay = 1;
                     printf("If a value other then 0 or 1 has been typed, it'll be considered as 1.\n");
