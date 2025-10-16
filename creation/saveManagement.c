@@ -117,29 +117,29 @@ void saveShapes(shapeGroup_t *s){
                     for(int k = 0; k < current->shp.path->size; k++){
                         switch(current->shp.path->list[k].opt){
                             case(M):
-                                fprintf(ft, "M");
+                                fprintf(ft, "M\n");
                                 fprintf(ft, "%f\n", current->shp.path->list[k].op.m.xpos);
                                 fprintf(ft, "%f\n", current->shp.path->list[k].op.m.ypos);
                                 break;
                             case(L):
-                                fprintf(ft, "L");
+                                fprintf(ft, "L\n");
                                 fprintf(ft, "%f\n", current->shp.path->list[k].op.l.xpos);
                                 fprintf(ft, "%f\n", current->shp.path->list[k].op.l.ypos);
                                 break;
                             case(H):
-                                fprintf(ft, "H");
+                                fprintf(ft, "H\n");
                                 fprintf(ft, "%f\n", current->shp.path->list[k].op.h.xpos);
                                 break;
                             case(V):
-                                fprintf(ft, "V");
+                                fprintf(ft, "V\n");
                                 fprintf(ft, "%f\n", current->shp.path->list[k].op.v.ypos);
                                 break;
                             case(Z):
-                                fprintf(ft, "Z");
+                                fprintf(ft, "Z\n");
                                 fprintf(ft, "%d\n", current->shp.path->list[k].op.z.verif);
                                 break;
                             case(C):
-                                fprintf(ft, "C");
+                                fprintf(ft, "C\n");
                                 fprintf(ft, "%f\n", current->shp.path->list[k].op.c.xend);
                                 fprintf(ft, "%f\n", current->shp.path->list[k].op.c.yend);
                                 fprintf(ft, "%f\n", current->shp.path->list[k].op.c.xpent1);
@@ -148,26 +148,26 @@ void saveShapes(shapeGroup_t *s){
                                 fprintf(ft, "%f\n", current->shp.path->list[k].op.c.ypent2);
                                 break;
                             case(S):
-                                fprintf(ft, "S");
+                                fprintf(ft, "S\n");
                                 fprintf(ft, "%f\n", current->shp.path->list[k].op.s.xend);
                                 fprintf(ft, "%f\n", current->shp.path->list[k].op.s.yend);
                                 fprintf(ft, "%f\n", current->shp.path->list[k].op.s.xpent2);
                                 fprintf(ft, "%f\n", current->shp.path->list[k].op.s.ypent2);
                                 break;
                             case(Q):
-                                fprintf(ft, "Q");
+                                fprintf(ft, "Q\n");
                                 fprintf(ft, "%f\n", current->shp.path->list[k].op.q.xend);
                                 fprintf(ft, "%f\n", current->shp.path->list[k].op.q.yend);
                                 fprintf(ft, "%f\n", current->shp.path->list[k].op.q.xpent1);
                                 fprintf(ft, "%f\n", current->shp.path->list[k].op.q.ypent1);
                                 break;
                             case(T):
-                                fprintf(ft, "T");
+                                fprintf(ft, "T\n");
                                 fprintf(ft, "%f\n", current->shp.path->list[k].op.t.xend);
                                 fprintf(ft, "%f\n", current->shp.path->list[k].op.t.yend);
                                 break;
                             case(A):
-                                fprintf(ft, "A");
+                                fprintf(ft, "A\n");
                                 fprintf(ft, "%f\n", current->shp.path->list[k].op.a.xend);
                                 fprintf(ft, "%f\n", current->shp.path->list[k].op.a.yend);
                                 fprintf(ft, "%f\n", current->shp.path->list[k].op.a.xradius);
@@ -231,6 +231,7 @@ void loadShapes(shapeGroup_t *s){
                 printf("This file does not exit, please type again\n");
             }
             else{
+                printf("file opened\n");
                 opened = 1;
             }
         }
@@ -240,13 +241,16 @@ void loadShapes(shapeGroup_t *s){
     fgets(line, sizeof(line), ft);
     line[strcspn(line, "\n")] = '\0'; 
 
-    while(strcmp(line, "ENDSAVE")){
+    while(strcmp(line, "ENDSAVE") != 0){
+        printf("reading of a shape . . .\n");
         current = malloc(sizeof(shapesElt));
-        if(strcmp(line, "RECTANGLETYPE")){
+        if(strcmp(line, "RECTANGLETYPE") == 0){
+            printf("reading of a rectangle . . .\n");
             current->shpType = RECTANGLETYPE;
+            current->shp.rectangle = malloc(sizeof(rectangle_t));
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0'; 
-            current->name = line;
+            current->name = strdup(line);
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0';
             current->shp.rectangle->xpos = atof(line);
@@ -266,11 +270,13 @@ void loadShapes(shapeGroup_t *s){
             line[strcspn(line, "\n")] = '\0';
             current->shp.rectangle->yradius = atof(line);
         }
-        if(strcmp(line, "SQUARETYPE")){
+        if(strcmp(line, "SQUARETYPE") == 0){
+            printf("reading of a square . . .\n");
             current->shpType = SQUARETYPE;
+            current->shp.square = malloc(sizeof(square_t));
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0'; 
-            current->name = line;
+            current->name = strdup(line);
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0';
             current->shp.square->xpos = atof(line);
@@ -286,12 +292,15 @@ void loadShapes(shapeGroup_t *s){
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0';
             current->shp.square->yradius = atof(line);
+            printf("square has been read\n");
         }
-        if(strcmp(line, "CIRCLETYPE")){
+        if(strcmp(line, "CIRCLETYPE") == 0){
+            printf("reading of a circle . . .\n");
             current->shpType = CIRCLETYPE;
+            current->shp.circle = malloc(sizeof(circle_t));
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0';
-            current->name = line;
+            current->name = strdup(line);
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0';
             current->shp.circle->xpos = atof(line);
@@ -302,11 +311,13 @@ void loadShapes(shapeGroup_t *s){
             line[strcspn(line, "\n")] = '\0';
             current->shp.circle->radius = atof(line);
         }
-        if(strcmp(line, "ELLIPSETYPE")){
+        if(strcmp(line, "ELLIPSETYPE") == 0){
+            printf("reading of an ellipse . . .\n");
             current->shpType = ELLIPSETYPE;
+            current->shp.ellipse = malloc(sizeof(ellipse_t));
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0';
-            current->name = line;
+            current->name = strdup(line);
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0';
             current->shp.ellipse->xpos = atof(line);
@@ -320,11 +331,13 @@ void loadShapes(shapeGroup_t *s){
             line[strcspn(line, "\n")] = '\0';
             current->shp.ellipse->yradius = atof(line);
         }
-        if(strcmp(line, "LINETYPE")){
+        if(strcmp(line, "LINETYPE") == 0){
+            printf("reading of a line . . .\n");
             current->shpType = LINETYPE;
+            current->shp.line = malloc(sizeof(line_t));
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0';
-            current->name = line;
+            current->name = strdup(line);
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0';
             current->shp.line->xstart = atof(line);
@@ -338,14 +351,17 @@ void loadShapes(shapeGroup_t *s){
             line[strcspn(line, "\n")] = '\0';
             current->shp.line->yend = atof(line);
         }
-        if(strcmp(line, "POLYLINETYPE")){
-            current->shpType = LINETYPE;
+        if(strcmp(line, "POLYLINETYPE") == 0){
+            printf("reading of a polyline . . .\n");
+            current->shpType = POLYLINETYPE;
+            current->shp.polyline = malloc(sizeof(polyline_t));
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0';
-            current->name = line;
+            current->name = strdup(line);
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0';
             current->shp.polyline->nbLines = atoi(line);
+            current->shp.polyline->lines = malloc(current->shp.polyline->nbLines * sizeof(line_t));
             for(int i = 0; i < current->shp.polyline->nbLines; i++){
                 fgets(line, sizeof(line), ft);
                 line[strcspn(line, "\n")] = '\0';
@@ -361,14 +377,17 @@ void loadShapes(shapeGroup_t *s){
                 current->shp.polyline->lines[i].yend = atof(line);
             }
         }
-        if(strcmp(line, "POLYGONTYPE")){
+        if(strcmp(line, "POLYGONTYPE") == 0){
+            printf("reading of a polygon . . .\n");
             current->shpType = POLYGONTYPE;
+            current->shp.polygon = malloc(sizeof(polygon_t));
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0';
-            current->name = line;
+            current->name = strdup(line);
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0';
             current->shp.polygon->nbSides = atoi(line);
+            current->shp.polygon->lines = malloc(current->shp.polygon->nbSides * sizeof(line_t));
             for(int j = 0; j < current->shp.polygon->nbSides; j++){
                 fgets(line, sizeof(line), ft);
                 line[strcspn(line, "\n")] = '\0';
@@ -384,18 +403,21 @@ void loadShapes(shapeGroup_t *s){
                 current->shp.polygon->lines[j].yend = atof(line);
             }
         }
-        if(strcmp(line, "PATHTYPE")){
+        if(strcmp(line, "PATHTYPE") == 0){
+            printf("reading of a path . . .\n");
             current->shpType = PATHTYPE;
+            current->shp.path = malloc(sizeof(path_t));
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0';
-            current->name = line;
+            current->name = strdup(line);
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0';
             current->shp.path->size = atoi(line);
+            current->shp.path->list = malloc(current->shp.path->size * sizeof(operationComplete));
             for(int k = 0; k < current->shp.path->size; k++){
                 fgets(line, sizeof(line), ft);
                 line[strcspn(line, "\n")] = '\0';
-                if(strcmp(line, "M")){
+                if(strcmp(line, "M") == 0){
                     current->shp.path->list[k].opt = M;
                     fgets(line, sizeof(line), ft);
                     line[strcspn(line, "\n")] = '\0';
@@ -404,7 +426,7 @@ void loadShapes(shapeGroup_t *s){
                     line[strcspn(line, "\n")] = '\0';
                     current->shp.path->list[k].op.m.ypos = atof(line);
                 }
-                if(strcmp(line, "L")){
+                if(strcmp(line, "L") == 0){
                     current->shp.path->list[k].opt = L;
                     fgets(line, sizeof(line), ft);
                     line[strcspn(line, "\n")] = '\0';
@@ -413,25 +435,25 @@ void loadShapes(shapeGroup_t *s){
                     line[strcspn(line, "\n")] = '\0';
                     current->shp.path->list[k].op.l.ypos = atof(line);
                 }
-                if(strcmp(line, "H")){
+                if(strcmp(line, "H") == 0){
                     current->shp.path->list[k].opt = H;
                     fgets(line, sizeof(line), ft);
                     line[strcspn(line, "\n")] = '\0';
                     current->shp.path->list[k].op.h.xpos = atof(line);
                 }
-                if(strcmp(line, "V")){
+                if(strcmp(line, "V") == 0){
                     current->shp.path->list[k].opt = V;
                     fgets(line, sizeof(line), ft);
                     line[strcspn(line, "\n")] = '\0';
                     current->shp.path->list[k].op.v.ypos = atof(line);
                 }
-                if(strcmp(line, "Z")){
+                if(strcmp(line, "Z") == 0){
                     current->shp.path->list[k].opt = Z;
                     fgets(line, sizeof(line), ft);
                     line[strcspn(line, "\n")] = '\0';
                     current->shp.path->list[k].op.z.verif = atoi(line);
                 }
-                if(strcmp(line, "C")){
+                if(strcmp(line, "C") == 0){
                     current->shp.path->list[k].opt = C;
                     fgets(line, sizeof(line), ft);
                     line[strcspn(line, "\n")] = '\0';
@@ -452,7 +474,7 @@ void loadShapes(shapeGroup_t *s){
                     line[strcspn(line, "\n")] = '\0';
                     current->shp.path->list[k].op.c.ypent2 = atof(line);
                 }
-                if(strcmp(line, "S")){
+                if(strcmp(line, "S") == 0){
                     current->shp.path->list[k].opt = S;
                     fgets(line, sizeof(line), ft);
                     line[strcspn(line, "\n")] = '\0';
@@ -467,7 +489,7 @@ void loadShapes(shapeGroup_t *s){
                     line[strcspn(line, "\n")] = '\0';
                     current->shp.path->list[k].op.s.ypent2 = atof(line);
                 }
-                if(strcmp(line, "Q")){
+                if(strcmp(line, "Q") == 0){
                     current->shp.path->list[k].opt = Q;
                     fgets(line, sizeof(line), ft);
                     line[strcspn(line, "\n")] = '\0';
@@ -482,7 +504,7 @@ void loadShapes(shapeGroup_t *s){
                     line[strcspn(line, "\n")] = '\0';
                     current->shp.path->list[k].op.q.ypent1 = atof(line);
                 }
-                if(strcmp(line, "T")){
+                if(strcmp(line, "T") == 0){
                     current->shp.path->list[k].opt = T;
                     fgets(line, sizeof(line), ft);
                     line[strcspn(line, "\n")] = '\0';
@@ -491,7 +513,7 @@ void loadShapes(shapeGroup_t *s){
                     line[strcspn(line, "\n")] = '\0';
                     current->shp.path->list[k].op.t.yend = atof(line);
                 }
-                if(strcmp(line, "A")){
+                if(strcmp(line, "A") == 0){
                     current->shp.path->list[k].opt = A;
                     fgets(line, sizeof(line), ft);
                     line[strcspn(line, "\n")] = '\0';
@@ -521,16 +543,18 @@ void loadShapes(shapeGroup_t *s){
         //récupération du type s'il existe
         fgets(line, sizeof(line), ft);
         line[strcspn(line, "\n")] = '\0';
-        if(strcmp(line, "0")){
+        if(strcmp(line, "0") == 0){
             current->style = NULL;
         }
-        if(strcmp(line, "1")){
+        if(strcmp(line, "1") == 0){
+            printf("adding its style . . .\n");
+            current->style = malloc(sizeof(shapeStyle));
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0';
-            current->style->color = line;
+            current->style->color = strdup(line);
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0';
-            current->style->fillColor = line;
+            current->style->fillColor = strdup(line);
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0';
             current->style->rotate = atof(line);
@@ -546,11 +570,14 @@ void loadShapes(shapeGroup_t *s){
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0';
             current->style->yinvert = atoi(line);
+            printf("Style added \n");
         }
         fgets(line, sizeof(line), ft);
 
         fgets(line, sizeof(line), ft);
         line[strcspn(line, "\n")] = '\0';
+        printf("adding it into the list . . .\n");
         addInList(s, current);
     }
+    printf("Save loaded!\n");
 }
