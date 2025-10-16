@@ -12,7 +12,6 @@ void saveShapes(shapeGroup_t *s, FILE *ft, char *fileNametext){
     int choice = 2;
     int valid = 0;
     shapesElt *current;
-    fileNametext = " ";
 
     while(choice != 0 || choice != 1){
         printf("Are you sure you want to save now ? 0 for no, 1 for yes\n");
@@ -24,7 +23,7 @@ void saveShapes(shapeGroup_t *s, FILE *ft, char *fileNametext){
 
     if(choice == 1){
 
-        if(strcmp(fileNametext, " ") == 0){
+        if(fileNametext == NULL){
             while(valid == 0){
                 printf("How do you want to name your save file ?\n");
                 scanf("%19s", fileNametext);
