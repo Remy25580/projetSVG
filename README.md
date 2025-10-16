@@ -46,7 +46,7 @@ The project includes a **Makefile** for easy build automation.
 make build
 
 # Run the program
-./main
+./projetSvg
 
 # Clean object files
 make clean
