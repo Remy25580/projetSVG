@@ -31,7 +31,6 @@ typedef enum{
     POLYLINETYPE,
     POLYGONTYPE,
     PATHTYPE,
-    GROUPTYPE
 } shapesType;
 
 struct shapesElt_s{

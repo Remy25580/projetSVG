@@ -43,41 +43,6 @@ void freePath(path_t *path){
     free(path);
 }
 
-void freeGroup(shapeGroup_t *group){
-    for (int i = 0; i<group->nb; i++){
-        switch(group->head[i].shpType){
-            case(RECTANGLETYPE):
-                freeRectangle(group->head[i].shp.rectangle);
-                break;
-            case(SQUARETYPE):
-                freeSquare(group->head[i].shp.square);
-                break;
-            case(CIRCLETYPE):
-                freeCircle(group->head[i].shp.circle);
-                break;
-            case(ELLIPSETYPE):
-                freeEllipse(group->head[i].shp.ellipse);
-                break;
-            case(LINETYPE):
-                freeLine(group->head[i].shp.line);
-                break;
-            case(POLYLINETYPE):
-                freePolyline(group->head[i].shp.polyline);
-                break;
-            case(POLYGONTYPE):
-                freePolygon(group->head[i].shp.polygon);
-                break;
-            case(PATHTYPE):
-                freePath(group->head[i].shp.path);
-                break;
-            case(GROUPTYPE):
-                freeGroup(group->head[i].shp.group);
-                break;
-            default:
-                break;
-        }
-    }
-}
 
 void freeShape(shapesElt *shape){
     printf("initializing deletion\n");
@@ -116,10 +81,6 @@ void freeShape(shapesElt *shape){
         case(PATHTYPE):
             printf("Deleting %s . . .\n", shape->name);
             freePath(shape->shp.path);
-            break;
-        case(GROUPTYPE):
-            printf("Deleting %s . . .\n", shape->name);
-            freeGroup(shape->shp.group);
             break;
         default:
             break;

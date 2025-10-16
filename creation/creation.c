@@ -8,15 +8,6 @@
 #include "saveManagement.h"
 
 
-// Définitions d'unions
-
-
-// Définitions d'énumérations
-
-
-
-//Définitions de fonctions
-
 rectangle_t *createRectangle(rectangle_t *r, int editing){
     if(editing == 0){
         r = malloc(1 * sizeof(rectangle_t));

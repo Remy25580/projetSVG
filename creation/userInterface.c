@@ -47,7 +47,6 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
         printf("6 - polyline\n");
         printf("7 - polygon\n");
         printf("8 - path\n");
-        printf("9 - group of shapes\n");
         printf("0 - exit the shapes creation\n");
         printf("\n");
         scanf("%d", &creation);
@@ -132,15 +131,6 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
                 printf("\n");
                 end = 1;
                 break;
-            case(9):
-                current->shpType = GROUPTYPE;
-                current->shp.group = shapeCreation(g);
-                printf("How do you want to name your group ?(20 characters maximum)\n");
-                scanf("%19s", name);
-                current->name = name;
-                printf("\n");
-                end = 1;
-                break;
             case(0):
                 end = 1;
                 err = 1;
@@ -198,10 +188,6 @@ void getShapes(shapeGroup_t *s){
             case(PATHTYPE):
                 printf("Here's your path, %s : \n", current->name);
                 getPath(current->shp.path);
-                break;
-            case(GROUPTYPE):
-                printf("Here's your shape group : \n");
-                getShapes(current->shp.group);
                 break;
             default:
                 break;

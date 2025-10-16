@@ -8,10 +8,11 @@
 #include "color.h"
 #include "saveManagement.h"
 
-void saveShapes(shapeGroup_t *s, FILE *ft, char *fileNametext){
+void saveShapes(shapeGroup_t *s){
     int choice = 2;
     int valid = 0;
     shapesElt *current;
+    char *fileNametext;
 
     while(choice != 1){
         printf("Are you sure you want to save now ? 0 for no, 1 for yes\n");
@@ -23,26 +24,23 @@ void saveShapes(shapeGroup_t *s, FILE *ft, char *fileNametext){
 
     if(choice == 1){
 
-        if(fileNametext == NULL){
-            while(valid == 0){
-                printf("How do you want to name your save file ?\n");
-                scanf("%19s", fileNametext);
 
-                if(strstr(fileNametext, ".") != NULL){
-                    printf("Invalid file name, you must not put a dot.\n");
-                }
-                else{
-                    valid = 1;
-                }
+        while(valid == 0){
+            printf("How do you want to name your save file ?\n");
+            scanf("%19s", fileNametext);
+
+            if(strstr(fileNametext, ".") != NULL){
+                printf("Invalid file name, you must not put a dot.\n");
             }
+            else{
+                valid = 1;
+            }
+            
         }
         strcat(fileNametext, ".txt");
-        if(ft == NULL){
-            ft = fopen(fileNametext, "w");
-        }
-        else{
-            ft = fopen(fileNametext, "a");
-        }
+
+        FILE *ft = fopen(fileNametext, "w");
+
 
         current = s->head;
 
@@ -176,14 +174,6 @@ void saveShapes(shapeGroup_t *s, FILE *ft, char *fileNametext){
                         }
                     }
                     break;
-                case(GROUPTYPE):
-                    fprintf(ft, "GROUPTYPE\n");
-                    fprintf(ft, "%d\n", current->shp.group->nb);
-                    fclose(ft);
-                    saveShapes(current->shp.group, ft, fileNametext);
-                    ft = fopen(fileNametext, "a");
-                    fprintf(ft, "ENDGROUP");
-                    break;
                 default:
                     break;
             }
@@ -205,4 +195,5 @@ void saveShapes(shapeGroup_t *s, FILE *ft, char *fileNametext){
         }
         fclose(ft);
     }
+    
 }
