@@ -45,10 +45,10 @@ void saveShapes(shapeGroup_t *s){
         current = s->head;
 
         while(current != NULL){
-            fprintf(ft, "%s\n", current->name);
             switch(current->shpType){
                 case(RECTANGLETYPE):
                     fprintf(ft, "RECTANGLETYPE\n");
+                    fprintf(ft, "%s\n", current->name);
                     fprintf(ft, "%f\n", current->shp.rectangle->xpos);
                     fprintf(ft, "%f\n", current->shp.rectangle->ypos);
                     fprintf(ft, "%f\n", current->shp.rectangle->height);
@@ -58,6 +58,7 @@ void saveShapes(shapeGroup_t *s){
                     break;
                 case(SQUARETYPE):
                     fprintf(ft, "SQUARETYPE\n");
+                    fprintf(ft, "%s\n", current->name);
                     fprintf(ft, "%f\n", current->shp.square->xpos);
                     fprintf(ft, "%f\n", current->shp.square->ypos);
                     fprintf(ft, "%f\n", current->shp.square->dimension);
@@ -66,12 +67,14 @@ void saveShapes(shapeGroup_t *s){
                     break;
                 case(CIRCLETYPE):
                     fprintf(ft, "CIRCLETYPE\n");
+                    fprintf(ft, "%s\n", current->name);
                     fprintf(ft, "%f\n", current->shp.circle->xpos);
                     fprintf(ft, "%f\n", current->shp.circle->ypos);
                     fprintf(ft, "%f\n", current->shp.circle->radius);
                     break;
                 case(ELLIPSETYPE):
                     fprintf(ft, "ELLIPSETYPE\n");
+                    fprintf(ft, "%s\n", current->name);
                     fprintf(ft, "%f\n", current->shp.ellipse->xpos);
                     fprintf(ft, "%f\n", current->shp.ellipse->ypos);
                     fprintf(ft, "%f\n", current->shp.ellipse->xradius);
@@ -79,6 +82,7 @@ void saveShapes(shapeGroup_t *s){
                     break;
                 case(LINETYPE):
                     fprintf(ft, "LINETYPE\n");
+                    fprintf(ft, "%s\n", current->name);
                     fprintf(ft, "%f\n", current->shp.line->xstart);
                     fprintf(ft, "%f\n", current->shp.line->ystart);
                     fprintf(ft, "%f\n", current->shp.line->xend);
@@ -86,6 +90,7 @@ void saveShapes(shapeGroup_t *s){
                     break;
                 case(POLYLINETYPE):
                     fprintf(ft, "POLYLINETYPE\n");
+                    fprintf(ft, "%s\n", current->name);
                     fprintf(ft, "%d\n", current->shp.polyline->nbLines);
                     for(int i = 0; i < current->shp.polyline->nbLines; i++){
                         fprintf(ft, "%f\n", current->shp.polyline->lines[i].xstart);
@@ -96,6 +101,7 @@ void saveShapes(shapeGroup_t *s){
                     break;
                 case(POLYGONTYPE):
                     fprintf(ft, "POLYGONTYPE\n");
+                    fprintf(ft, "%s\n", current->name);
                     fprintf(ft, "%d\n", current->shp.polygon->nbSides);
                     for(int j = 0; j < current->shp.polygon->nbSides; j++){
                         fprintf(ft, "%f\n", current->shp.polygon->lines[j].xstart);
@@ -106,6 +112,7 @@ void saveShapes(shapeGroup_t *s){
                     break;
                 case(PATHTYPE):
                     fprintf(ft, "PATHTYPE\n");
+                    fprintf(ft, "%s\n", current->name);
                     fprintf(ft, "%d\n", current->shp.path->size);
                     for(int k = 0; k < current->shp.path->size; k++){
                         switch(current->shp.path->list[k].opt){
@@ -193,11 +200,357 @@ void saveShapes(shapeGroup_t *s){
             fprintf(ft, "\n");
             current = current->next;
         }
+        fprintf(ft, "ENDSAVE");
         fclose(ft);
     }
 
 }
 
 void loadShapes(shapeGroup_t *s){
-    
+    s->nb = 0;
+    char *fileName = malloc(20*sizeof(char));
+    FILE *ft;
+    int opened = 0;
+    int errName;
+    char line[256];
+    shapesElt *current;
+    int beggining = 0;
+
+    while(opened == 0){
+        errName = 0;
+        printf("What file do you want to open?\n");
+        printf("Please type the name of the file without the extension      ");
+        scanf("%19s", fileName);
+        if(strstr(fileName, ".") != NULL){
+            printf("Invalid file name, you must not put a dot.\n");
+            errName = 1;
+        }
+        if(errName == 0){
+            ft = fopen(fileName, "r");
+            if(ft == NULL){
+                printf("This file does not exit, please type again\n");
+            }
+            else{
+                opened = 1;
+            }
+        }
+
+    }
+
+    fgets(line, sizeof(line), ft);
+    line[strcspn(line, "\n")] = '\0'; 
+
+    while(strcmp(line, "ENDSAVE")){
+        current = malloc(sizeof(shapesElt));
+        if(strcmp(line, "RECTANGLETYPE")){
+            current->shpType = RECTANGLETYPE;
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0'; 
+            current->name = line;
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.rectangle->xpos = atof(line);
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.rectangle->ypos = atof(line);
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.rectangle->height = atof(line);
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.rectangle->width = atof(line);
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.rectangle->xradius = atof(line);
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.rectangle->yradius = atof(line);
+        }
+        if(strcmp(line, "SQUARETYPE")){
+            current->shpType = SQUARETYPE;
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0'; 
+            current->name = line;
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.square->xpos = atof(line);
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.square->ypos = atof(line);
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.square->dimension = atof(line);
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.square->xradius = atof(line);
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.square->yradius = atof(line);
+        }
+        if(strcmp(line, "CIRCLETYPE")){
+            current->shpType = CIRCLETYPE;
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->name = line;
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.circle->xpos = atof(line);
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.circle->ypos = atof(line);
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.circle->radius = atof(line);
+        }
+        if(strcmp(line, "ELLIPSETYPE")){
+            current->shpType = ELLIPSETYPE;
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->name = line;
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.ellipse->xpos = atof(line);
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.ellipse->ypos = atof(line);
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.ellipse->xradius = atof(line);
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.ellipse->yradius = atof(line);
+        }
+        if(strcmp(line, "LINETYPE")){
+            current->shpType = LINETYPE;
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->name = line;
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.line->xstart = atof(line);
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.line->ystart = atof(line);
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.line->xend = atof(line);
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.line->yend = atof(line);
+        }
+        if(strcmp(line, "POLYLINETYPE")){
+            current->shpType = LINETYPE;
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->name = line;
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.polyline->nbLines = atoi(line);
+            for(int i = 0; i < current->shp.polyline->nbLines; i++){
+                fgets(line, sizeof(line), ft);
+                line[strcspn(line, "\n")] = '\0';
+                current->shp.polyline->lines[i].xstart = atof(line);
+                fgets(line, sizeof(line), ft);
+                line[strcspn(line, "\n")] = '\0';
+                current->shp.polyline->lines[i].ystart = atof(line);
+                fgets(line, sizeof(line), ft);
+                line[strcspn(line, "\n")] = '\0';
+                current->shp.polyline->lines[i].xend = atof(line);
+                fgets(line, sizeof(line), ft);
+                line[strcspn(line, "\n")] = '\0';
+                current->shp.polyline->lines[i].yend = atof(line);
+            }
+        }
+        if(strcmp(line, "POLYGONTYPE")){
+            current->shpType = POLYGONTYPE;
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->name = line;
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.polygon->nbSides = atoi(line);
+            for(int j = 0; j < current->shp.polygon->nbSides; j++){
+                fgets(line, sizeof(line), ft);
+                line[strcspn(line, "\n")] = '\0';
+                current->shp.polygon->lines[j].xstart = atof(line);
+                fgets(line, sizeof(line), ft);
+                line[strcspn(line, "\n")] = '\0';
+                current->shp.polygon->lines[j].ystart = atof(line);
+                fgets(line, sizeof(line), ft);
+                line[strcspn(line, "\n")] = '\0';
+                current->shp.polygon->lines[j].xend = atof(line);
+                fgets(line, sizeof(line), ft);
+                line[strcspn(line, "\n")] = '\0';
+                current->shp.polygon->lines[j].yend = atof(line);
+            }
+        }
+        if(strcmp(line, "PATHTYPE")){
+            current->shpType = PATHTYPE;
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->name = line;
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->shp.path->size = atoi(line);
+            for(int k = 0; k < current->shp.path->size; k++){
+                fgets(line, sizeof(line), ft);
+                line[strcspn(line, "\n")] = '\0';
+                if(strcmp(line, "M")){
+                    current->shp.path->list[k].opt = M;
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.m.xpos = atof(line);
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.m.ypos = atof(line);
+                }
+                if(strcmp(line, "L")){
+                    current->shp.path->list[k].opt = L;
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.l.xpos = atof(line);
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.l.ypos = atof(line);
+                }
+                if(strcmp(line, "H")){
+                    current->shp.path->list[k].opt = H;
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.h.xpos = atof(line);
+                }
+                if(strcmp(line, "V")){
+                    current->shp.path->list[k].opt = V;
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.v.ypos = atof(line);
+                }
+                if(strcmp(line, "Z")){
+                    current->shp.path->list[k].opt = Z;
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.z.verif = atoi(line);
+                }
+                if(strcmp(line, "C")){
+                    current->shp.path->list[k].opt = C;
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.c.xend = atof(line);
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.c.yend = atof(line);
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.c.xpent1 = atof(line);
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.c.ypent1 = atof(line);
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.c.xpent2 = atof(line);
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.c.ypent2 = atof(line);
+                }
+                if(strcmp(line, "S")){
+                    current->shp.path->list[k].opt = S;
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.s.xend = atof(line);
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.s.yend = atof(line);
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.s.xpent2 = atof(line);
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.s.ypent2 = atof(line);
+                }
+                if(strcmp(line, "Q")){
+                    current->shp.path->list[k].opt = Q;
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.q.xend = atof(line);
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.q.yend = atof(line);
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.q.xpent1 = atof(line);
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.q.ypent1 = atof(line);
+                }
+                if(strcmp(line, "T")){
+                    current->shp.path->list[k].opt = T;
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.t.xend = atof(line);
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.t.yend = atof(line);
+                }
+                if(strcmp(line, "A")){
+                    current->shp.path->list[k].opt = A;
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.a.xend = atof(line);
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.a.yend = atof(line);
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.a.xradius = atof(line);
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.a.yradius = atof(line);
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.a.rotation = atof(line);
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.a.side = atoi(line);
+                    fgets(line, sizeof(line), ft);
+                    line[strcspn(line, "\n")] = '\0';
+                    current->shp.path->list[k].op.a.drawingWay = atoi(line);
+                }
+            }
+        }
+
+        //récupération du type s'il existe
+        fgets(line, sizeof(line), ft);
+        line[strcspn(line, "\n")] = '\0';
+        if(strcmp(line, "0")){
+            current->style = NULL;
+        }
+        if(strcmp(line, "1")){
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->style->color = line;
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->style->fillColor = line;
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->style->rotate = atof(line);
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->style->xtranslate = atof(line);
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->style->ytranslate = atof(line);
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->style->xinvert = atoi(line);
+            fgets(line, sizeof(line), ft);
+            line[strcspn(line, "\n")] = '\0';
+            current->style->yinvert = atoi(line);
+        }
+        fgets(line, sizeof(line), ft);
+
+        fgets(line, sizeof(line), ft);
+        line[strcspn(line, "\n")] = '\0';
+        addInList(s, current);
+    }
 }
