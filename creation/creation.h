@@ -5,6 +5,7 @@
 
 /**
  * Structure that defines the rectangle shape
+ * @author Rémy Martinot
  */
 typedef struct rectangle_s{
     float height;
@@ -17,6 +18,7 @@ typedef struct rectangle_s{
 
 /**
  * Structure that defines the square shape
+ * @author Rémy Martinot
  */
 typedef struct square_s{
     float dimension;
@@ -28,6 +30,7 @@ typedef struct square_s{
 
 /**
  * Structure that defines the circle shape
+ * @author Rémy Martinot
  */
 typedef struct circle_s{
     float radius;
@@ -37,6 +40,7 @@ typedef struct circle_s{
 
 /**
  * Structure that defines the ellipse shape
+ * @author Rémy Martinot
  */
 typedef struct ellipse_s{
     float xradius;
@@ -47,6 +51,7 @@ typedef struct ellipse_s{
 
 /**
  * Structure that defines the line shape
+ * @author Rémy Martinot
  */
 typedef struct line_s{
     float xstart;
@@ -58,6 +63,7 @@ typedef struct line_s{
 /**
  * Structure that defines the polyline shape
  * => Uses a list of lines
+ * @author Rémy Martinot
  */
 typedef struct polyline_s{
     int nbLines;
@@ -67,6 +73,7 @@ typedef struct polyline_s{
 /**
  * Structure that defines the polygon shape
  * Uses a list of lines
+ * @author Rémy Martinot
  */
 typedef struct polygon_s{
     int nbSides;
@@ -78,92 +85,113 @@ typedef struct polygon_s{
 
 /**
  * Creates a rectangle
- * @param r the rectangle_t object in which the informations are put, to create or edit a rectangle
- * @param editing defines if the rectangle is created (0) or edited (1)
+ * @param r The rectangle_t object in which the informations are put, to create or edit a rectangle
+ * @param editing Defines if the rectangle is created (0) or edited (1)
+ * @return The rectangle filled with the informations given by the user
+ * @author Rémy Martinot
  */
 rectangle_t *createRectangle(rectangle_t *r, int editing);
 
 /**
  * Writes the informations about a rectangle
- * @param r rectangle from which you get the informations
+ * @param r Rectangle from which you get the informations
+ * @author Rémy Martinot
  */
 void getRectangle(rectangle_t *r);
 
 /**
  * Creates a square
- * @param c the square_t object in which the informations are put, to create or edit a square
- * @param editing defines if the square is created (0) or edited (1)
+ * @param c The square_t object in which the informations are put, to create or edit a square
+ * @param editing Defines if the square is created (0) or edited (1)
+ * @return The square filled with the informations given by the user
+ * @author Rémy Martinot
  */
 square_t *createSquare(square_t *c, int editing);
 
 /**
  * Writes the informations about a square
- * @param c square from which you get the informations
+ * @param c Square from which you get the informations
+ * @author Rémy Martinot
  */
 void getSquare(square_t *c);
 
 /**
  * Creates a circle
- * @param c the circle_t object in which the informations are put, to create or edit a circle
- * @param editing defines if the circle is created (0) or edited (1)
+ * @param c The circle_t object in which the informations are put, to create or edit a circle
+ * @param editing Defines if the circle is created (0) or edited (1)
+ * @return The circle filled with the informations given by the user
+ * @author Rémy Martinot
  */
 circle_t *createCicrcle(circle_t *c, int editing);
 
 /**
  * Writes the informations about a circle
- * @param c circle from which you get the informations
+ * @param c Circle from which you get the informations
+ * @author Rémy Martinot
  */
 void getCircle(circle_t *c);
 
 /**
  * Creates an ellipse
- * @param e the ellipse_t object in which the informations are put, to create or edit an ellipse
- * @param editing defines if the ellipse is created (0) or edited (1)
+ * @param e The ellipse_t object in which the informations are put, to create or edit an ellipse
+ * @param editing Defines if the ellipse is created (0) or edited (1)
+ * @return The ellipse filled with the informations given by the user
+ * @author Rémy Martinot
  */
 ellipse_t *createEllipse(ellipse_t *e, int editing);
 
 /**
  * Writes the informations about an ellipse
- * @param e ellipse from which you get the informations
+ * @param e Ellipse from which you get the informations
+ * @author Rémy Martinot
  */
 void getEllipse(ellipse_t *e);
 
 /**
  * Creates a line
- * @param l the line_t object in which the informations are put, to create or edit a line
- * @param editing defines if the line is created (0) or edited (1)
+ * @param l The line_t object in which the informations are put, to create or edit a line
+ * @param editing Tefines if the line is created (0) or edited (1)
+ * @return The line filled with the informations given by the user
+ * @author Rémy Martinot
  */
 line_t *createLine(line_t *l, int editing);
 
 /**
  * Writes the informations about a line
- * @param l line from which you get the informations
+ * @param l Line from which you get the informations
+ * @author Rémy Martinot
  */
 void getLine(line_t *l);
 
 /**
  * Creates a polyline
- * @param pl the polyline_t object in which the informations are put, to create or edit a polyline
- * @param editing defines if the polyline is created (0) or edited (1)
+ * @param pl The polyline_t object in which the informations are put, to create or edit a polyline
+ * @param editing Defines if the polyline is created (0) or edited (1)
+ * @return The polyline filled with the informations given by the user
+ * @author Rémy Martinot
  */
 polyline_t *createPolyline(polyline_t *pl, int editing);
 
 /**
  * Writes the informations about a polyline
- * @param pl polyline from which you get the informations
+ * @param pl Polyline from which you get the informations
+ * @author Rémy Martinot
  */
 void getPolyline(polyline_t *pl);
 
 /**
  * Creates a polygon
- * @param pg the polygon_t object in which the informations are put, to create or edit a polygon
- * @param editing defines if the polygon is created (0) or edited (1)
+ * @param pg The polygon_t object in which the informations are put, to create or edit a polygon
+ * @param editing Defines if the polygon is created (0) or edited (1)
+ * @return The polygon filled with the informations given by the user
+ * @author Rémy Martinot
  */
 polygon_t *createPolygon(polygon_t *pg, int editing);
 
 /**
  * Writes the informations about a polygon
- * @param pg polyline from which you get the informations
+ * @param pg Polyline from which you get the informations
+ * @author Rémy Martinot
  */
 void getPolygon(polygon_t *pg);
 
