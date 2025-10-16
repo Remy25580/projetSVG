@@ -3,9 +3,6 @@ FLAGS := -std=c99 -Wall -Werror -Wextra
 EXE := projetSvg
 
 build:
-	del *.o
-	del *.exe
-
 	$(CC) $(FLAGS) -c main.c
 	$(CC) $(FLAGS) -c creation/creation.c
 	$(CC) $(FLAGS) -c creation/path.c

@@ -180,7 +180,10 @@ void saveShapes(shapeGroup_t *s, FILE *ft, char fileNametext[20]){
                 case(GROUPTYPE):
                     fprintf(ft, "GROUPTYPE\n");
                     fprintf(ft, "%d\n", current->shp.group->nb);
+                    fclose(ft);
                     saveShapes(current->shp.group, ft, fileNametext);
+                    ft = fopen(fileNametext, "a");
+                    fprintf(ft, "ENDGROUP");
                     break;
                 default:
                     break;
@@ -201,5 +204,6 @@ void saveShapes(shapeGroup_t *s, FILE *ft, char fileNametext[20]){
             fprintf(ft, "\n");
             current = current->next;
         }
+        fclose(ft);
     }
 }
