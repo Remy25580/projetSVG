@@ -276,7 +276,7 @@ polyline_t *createPolyline(polyline_t *pl, int editing){
     }
     int nb;
     printf("First of all, how many lines do you want to connect ? \n");
-    while(scanf("%f", &nb)!= 1){
+    while(scanf("%d", &nb)!= 1){
         printf("ERROR: an integer is required here, please type again.\n");
         while (getchar() != '\n');
     }
@@ -345,7 +345,7 @@ polygon_t *createPolygon(polygon_t *pg, int editing){
     }
     int nb;
     printf("First of all, how many sides will your polygon have ? \n");
-    while(scanf("%f", &nb)!= 1){
+    while(scanf("%d", &nb)!= 1){
         printf("ERROR: an integer is required here, please type again.\n");
         while (getchar() != '\n');
     }
