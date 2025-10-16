@@ -65,7 +65,8 @@ int main(void){
                     printf("Shapes are already loaded, you cannot load others.\n");
                 }
                 else{
-                    printf("TEXT TO DELETE\n");
+                    loadShapes(newCreation);
+                    loaded = 1;
                 }
                 break;
             case(6):
