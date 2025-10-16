@@ -277,7 +277,7 @@ path_t *createPath(path_t *t, int editing){
                 printf("\n");
                 printf("So, will the small or big side of the ellipse be drawn as an arc ?\n");
                 printf("Type 0 for the small, or 1 for the big ");
-                while(scanf("%f", &side)!= 1){
+                while(scanf("%d", &side)!= 1){
                     printf("ERROR: an integer is required here, please type again.\n");
                     while (getchar() != '\n');
                 }
@@ -287,7 +287,7 @@ path_t *createPath(path_t *t, int editing){
                 }
                 printf("And to finish, will the arc be drawn at positive angles or negative ones ?\n");
                 printf("Type 0 for the negative, or 1 for the positive ");
-                while(scanf("%f", &drawingWay)!= 1){
+                while(scanf("%d", &drawingWay)!= 1){
                     printf("ERROR: an integer is required here, please type again.\n");
                     while (getchar() != '\n');
                 }
