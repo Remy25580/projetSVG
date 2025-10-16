@@ -58,9 +58,7 @@ int main(void){
                     printf("No shapes have been loaded yet, please create or load some.\n");
                 }
                 else{
-                    def = " ";
                     saveShapes(newCreation, NULL, def);
-                    def = " ";
                 }
                 break;
             case(5):

@@ -13,7 +13,7 @@ void saveShapes(shapeGroup_t *s, FILE *ft, char *fileNametext){
     int valid = 0;
     shapesElt *current;
 
-    while(choice != 0 || choice != 1){
+    while(choice != 1){
         printf("Are you sure you want to save now ? 0 for no, 1 for yes\n");
         scanf("%d", &choice);
         if(choice == 0){
