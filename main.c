@@ -26,7 +26,10 @@ int main(void){
         printf("0 - Exit\n");
         printf("\n");
 
-        scanf("%d", &choice);
+        while(scanf("%d", &choice) != 1){
+            printf("ERROR: an integer is required here, please type again.\n");
+            while (getchar() != '\n');
+        }
         switch (choice){
             case(1):
                 if (loaded == 0){

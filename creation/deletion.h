@@ -1,6 +1,8 @@
 #ifndef DELETION
 #define DELETION
 
+
+
 void freeRectangle(rectangle_t *rectangle);
 void freeSquare(square_t *square);
 void freeCircle(circle_t *circle);
