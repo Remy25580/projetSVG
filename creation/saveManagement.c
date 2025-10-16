@@ -16,8 +16,8 @@ void saveShapes(shapeGroup_t *s){
 
     while(choice != 1){
         printf("Are you sure you want to save now ? 0 for no, 1 for yes\n");
-        while(scanf("%f", &choice)!= 1){
-            printf("ERROR: a float is required here, please type again.\n");
+        while(scanf("%d", &choice)!= 1){
+            printf("ERROR: an integer is required here, please type again.\n");
             while (getchar() != '\n');
         }
         if(choice == 0){
