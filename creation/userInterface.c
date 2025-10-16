@@ -49,7 +49,10 @@ shapeGroup_t *shapeCreation(shapeGroup_t *g){
         printf("8 - path\n");
         printf("0 - exit the shapes creation\n");
         printf("\n");
-        scanf("%d", &creation);
+        while(scanf("%d", &creation)!= 1){
+            printf("ERROR: an integer is required here, please type again.\n");
+            while (getchar() != '\n');
+        }
         switch (creation){
             case(1):
                 current->shpType = RECTANGLETYPE;
@@ -234,7 +237,10 @@ void deleteShape(shapeGroup_t *s){
         }
         printf("What shape do you want to delete ? Please enter its number (0 to cancel)\n");
 
-        scanf("%d", &choice);
+        while(scanf("%d", &choice)!= 1){
+            printf("ERROR: an integer is required here, please type again.\n");
+            while (getchar() != '\n');
+        }
 
         if(choice < 1){
             deleted = 1;
@@ -307,7 +313,10 @@ void stylishShapes(shapeGroup_t *s){
             printingElt = printingElt->next;
         }
         printf("What shape do you want to stylish ? Please enter its number (0 to cancel)\n");
-        scanf("%d", &choice);
+        while(scanf("%d", &choice)!= 1){
+            printf("ERROR: an integer is required here, please type again.\n");
+            while (getchar() != '\n');
+        }
 
         if(choice < 0 || choice > s->nb){
             printf("No shape of yours is attributed to this number, please type again\n");
@@ -336,7 +345,10 @@ void stylishShapes(shapeGroup_t *s){
                     printf("6 - Invert it on y-axis\n");
                     printf("0 - Cancel\n");
                     printf("How do you want to edit it ?\n");
-                    scanf("%d", &choice2);
+                    while(scanf("%d", &choice2)!= 1){
+                        printf("ERROR: an integer is required here, please type again.\n");
+                        while (getchar() != '\n');
+                    }
 
                     if(choice < 0 || choice > s->nb){
                         printf("No shape of yours is attributed to this number, please type again");
@@ -358,16 +370,25 @@ void stylishShapes(shapeGroup_t *s){
                             case(3):
                                 printf("At what point do you want to move it ?\n");
                                 printf("x position : ");
-                                scanf("%f", &x);
+                                while(scanf("%f", &x)!= 1){
+                                    printf("ERROR: a float is required here, please type again.\n");
+                                    while (getchar() != '\n');
+                                }
                                 printf("y position : ");
-                                scanf("%f", &y);
+                                while(scanf("%f", &y)!= 1){
+                                    printf("ERROR: a float is required here, please type again.\n");
+                                    while (getchar() != '\n');
+                                }
                                 st->xtranslate = x;
                                 st->ytranslate = y;
                                 edited = 1;
                                 break;
                             case(4):
                                 printf("To what angle do you want it to rotate ?\n");
-                                scanf("%f", &r);
+                                while(scanf("%f", &r)!= 1){
+                                    printf("ERROR: a float is required here, please type again.\n");
+                                    while (getchar() != '\n');
+                                }
                                 st->rotate = r;
                                 edited = 1;
                                 break;
@@ -420,7 +441,10 @@ void editShapes(shapeGroup_t *s){
         }
 
         printf("What shape do you want to edit ? Please enter its number (0 to cancel)\n");
-        scanf("%d", &choice);
+        while(scanf("%d", &choice)!= 1){
+            printf("ERROR: an integer is required here, please type again.\n");
+            while (getchar() != '\n');
+        }
 
         if(choice < 1){
             edited = 1;
