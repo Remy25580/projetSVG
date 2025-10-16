@@ -54,7 +54,6 @@ void getRectangle(rectangle_t *r){
     printf("\t Start postition : %.2f;%.2f\n", r->xpos, r->ypos);
     printf("\t Height : %.2f  Width : %.2f\n", r->height, r->width);
     printf("\t Radius of the corners : %.2fx and %.2fy \n", r->xradius,r->yradius);
-    printf("\n");
 }
 
 square_t *createSquare(square_t *c, int editing){
@@ -98,7 +97,6 @@ void getSquare(square_t *c){
     printf("\t Start postition : %.2f;%.2f\n", c->xpos, c->ypos);
     printf("\t Size : %.2f x %.2f\n", c->dimension, c->dimension);
     printf("\t Radius of the corners : %.2fx and %.2fy \n", c->xradius,c->yradius);
-    printf("\n");
 }
 
 circle_t *createCicrcle(circle_t *c, int editing){
@@ -129,7 +127,6 @@ void getCircle(circle_t *c){
     printf("\n");
     printf("\t Position of your circle : %.2f;%.2f \n", c->xpos, c->ypos);
     printf("\t Radius of the circle : %.2f \n", c->radius);
-    printf("\n");
 }
 
 ellipse_t *createEllipse(ellipse_t *e, int editing){
@@ -165,7 +162,6 @@ void getEllipse(ellipse_t *e){
     printf("\t Position of your ellipse : %.2f;%.2f \n", e->xpos, e->ypos);
     printf("\t Lenght of your ellipse(x radius) : %.2f \n", e->xradius);
     printf("\t Height of your ellipse(y radius) : %.2f \n", e->yradius);
-    printf("\n");
 }
 
 line_t *createLine(line_t *l, int editing){
@@ -205,7 +201,6 @@ void getLine(line_t *l){
     printf("\n");
     printf("\t Begining point : %.2f;%.2f \n", l->xstart, l->ystart);
     printf("\t Ending point : %.2f;%.2f \n", l->xend,l->yend);
-    printf("\n");
 }
 
 polyline_t *createPolyline(polyline_t *pl, int editing){
@@ -260,7 +255,6 @@ void getPolyline(polyline_t *pl){
         printf("\t            End: %.2f;%.2f\n",pl->lines[i].xend, pl->lines[i].yend);
 
     }
-    printf("\n");
 }
 
 polygon_t *createPolygon(polygon_t *pg, int editing){
@@ -318,5 +312,4 @@ void getPolygon(polygon_t *pg){
     for (int i = 0; i < pg->nbSides; i++){
         printf("\t Point n %d: %.2f;%.2f \n", i+1, pg->lines[i].xstart, pg->lines[i].ystart);
     }
-    printf("\n");
 }

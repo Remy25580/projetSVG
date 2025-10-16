@@ -194,24 +194,25 @@ void getShapes(shapeGroup_t *s){
         }
         if(current->style !=NULL){
             if(strcmp(current->style->color, "none") != 0){
-                printf("Color of the contour : %s\n", current->style->color);
+                printf("\t Color of the contour : %s\n", current->style->color);
             }
             if(strcmp(current->style->fillColor, "none") != 0){
-                printf("Filling color of the shape : %s\n", current->style->fillColor);
+                printf("\t Filling color of the shape : %s\n", current->style->fillColor);
             }
             if(current->style->rotate != 0){
-                printf("Rotation of the shape with an angle of : %.2f\n", current->style->rotate);
+                printf("\t Rotation of the shape with an angle of : %.2f\n", current->style->rotate);
             }
             if(current->style->xtranslate !=0 || current->style->ytranslate != 0){
-                printf("Shape translated to %.2f;%.2f\n", current->style->xtranslate, current->style->ytranslate);
+                printf("\t Shape translated to %.2f;%.2f\n", current->style->xtranslate, current->style->ytranslate);
             }
             if(current->style->xinvert == 1){
-                printf("Shape inverted on the x-axis\n");
+                printf("\t Shape inverted on the x-axis\n");
             }
             if(current->style->yinvert == 1){
-                printf("Shape inverted on the y-axis\n");
+                printf("\t Shape inverted on the y-axis\n");
             }
         }
+        printf("\n");
         current = current->next;
     }
 
