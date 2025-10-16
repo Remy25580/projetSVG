@@ -16,7 +16,10 @@ void saveShapes(shapeGroup_t *s){
 
     while(choice != 1){
         printf("Are you sure you want to save now ? 0 for no, 1 for yes\n");
-        scanf("%d", &choice);
+        while(scanf("%f", &choice)!= 1){
+            printf("ERROR: a float is required here, please type again.\n");
+            while (getchar() != '\n');
+        }
         if(choice == 0){
             break;
         }
@@ -242,10 +245,8 @@ void loadShapes(shapeGroup_t *s){
     line[strcspn(line, "\n")] = '\0'; 
 
     while(strcmp(line, "ENDSAVE") != 0){
-        printf("reading of a shape . . .\n");
         current = malloc(sizeof(shapesElt));
         if(strcmp(line, "RECTANGLETYPE") == 0){
-            printf("reading of a rectangle . . .\n");
             current->shpType = RECTANGLETYPE;
             current->shp.rectangle = malloc(sizeof(rectangle_t));
             fgets(line, sizeof(line), ft);
@@ -271,7 +272,6 @@ void loadShapes(shapeGroup_t *s){
             current->shp.rectangle->yradius = atof(line);
         }
         if(strcmp(line, "SQUARETYPE") == 0){
-            printf("reading of a square . . .\n");
             current->shpType = SQUARETYPE;
             current->shp.square = malloc(sizeof(square_t));
             fgets(line, sizeof(line), ft);
@@ -292,10 +292,8 @@ void loadShapes(shapeGroup_t *s){
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0';
             current->shp.square->yradius = atof(line);
-            printf("square has been read\n");
         }
         if(strcmp(line, "CIRCLETYPE") == 0){
-            printf("reading of a circle . . .\n");
             current->shpType = CIRCLETYPE;
             current->shp.circle = malloc(sizeof(circle_t));
             fgets(line, sizeof(line), ft);
@@ -312,7 +310,6 @@ void loadShapes(shapeGroup_t *s){
             current->shp.circle->radius = atof(line);
         }
         if(strcmp(line, "ELLIPSETYPE") == 0){
-            printf("reading of an ellipse . . .\n");
             current->shpType = ELLIPSETYPE;
             current->shp.ellipse = malloc(sizeof(ellipse_t));
             fgets(line, sizeof(line), ft);
@@ -332,7 +329,6 @@ void loadShapes(shapeGroup_t *s){
             current->shp.ellipse->yradius = atof(line);
         }
         if(strcmp(line, "LINETYPE") == 0){
-            printf("reading of a line . . .\n");
             current->shpType = LINETYPE;
             current->shp.line = malloc(sizeof(line_t));
             fgets(line, sizeof(line), ft);
@@ -352,7 +348,6 @@ void loadShapes(shapeGroup_t *s){
             current->shp.line->yend = atof(line);
         }
         if(strcmp(line, "POLYLINETYPE") == 0){
-            printf("reading of a polyline . . .\n");
             current->shpType = POLYLINETYPE;
             current->shp.polyline = malloc(sizeof(polyline_t));
             fgets(line, sizeof(line), ft);
@@ -378,7 +373,6 @@ void loadShapes(shapeGroup_t *s){
             }
         }
         if(strcmp(line, "POLYGONTYPE") == 0){
-            printf("reading of a polygon . . .\n");
             current->shpType = POLYGONTYPE;
             current->shp.polygon = malloc(sizeof(polygon_t));
             fgets(line, sizeof(line), ft);
@@ -404,7 +398,6 @@ void loadShapes(shapeGroup_t *s){
             }
         }
         if(strcmp(line, "PATHTYPE") == 0){
-            printf("reading of a path . . .\n");
             current->shpType = PATHTYPE;
             current->shp.path = malloc(sizeof(path_t));
             fgets(line, sizeof(line), ft);
@@ -540,14 +533,12 @@ void loadShapes(shapeGroup_t *s){
             }
         }
 
-        //récupération du type s'il existe
         fgets(line, sizeof(line), ft);
         line[strcspn(line, "\n")] = '\0';
         if(strcmp(line, "0") == 0){
             current->style = NULL;
         }
         if(strcmp(line, "1") == 0){
-            printf("adding its style . . .\n");
             current->style = malloc(sizeof(shapeStyle));
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0';
@@ -570,13 +561,11 @@ void loadShapes(shapeGroup_t *s){
             fgets(line, sizeof(line), ft);
             line[strcspn(line, "\n")] = '\0';
             current->style->yinvert = atoi(line);
-            printf("Style added \n");
         }
         fgets(line, sizeof(line), ft);
 
         fgets(line, sizeof(line), ft);
         line[strcspn(line, "\n")] = '\0';
-        printf("adding it into the list . . .\n");
         addInList(s, current);
     }
     printf("Save loaded!\n");
