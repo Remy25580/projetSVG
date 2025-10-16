@@ -12,7 +12,6 @@ int main(void){
     int end = 0;
     int choice = 1;
     int loaded = 0;
-    char *def = malloc(30 * sizeof(char));
     shapeGroup_t *newCreation = malloc(1 * sizeof(shapeGroup_t));
     printf("Welcome to that SVG editor.\n");
     while(end == 0){
@@ -58,7 +57,7 @@ int main(void){
                     printf("No shapes have been loaded yet, please create or load some.\n");
                 }
                 else{
-                    saveShapes(newCreation, NULL, def);
+                    saveShapes(newCreation);
                 }
                 break;
             case(5):

@@ -1,7 +1,7 @@
 #ifndef SAVE
 #define SAVE
 
-void saveShapes(shapeGroup_t *s, FILE *ft, char *fileNametext);
+void saveShapes(shapeGroup_t *s);
 void loadShapes();
 
 #endif

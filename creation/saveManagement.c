@@ -12,7 +12,7 @@ void saveShapes(shapeGroup_t *s){
     int choice = 2;
     int valid = 0;
     shapesElt *current;
-    char *fileNametext;
+    char *fileNametext = malloc(20*sizeof(char));
 
     while(choice != 1){
         printf("Are you sure you want to save now ? 0 for no, 1 for yes\n");
@@ -195,5 +195,5 @@ void saveShapes(shapeGroup_t *s){
         }
         fclose(ft);
     }
-    
+
 }
