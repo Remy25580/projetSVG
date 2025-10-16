@@ -1,8 +1,10 @@
 #ifndef CREATION
 #define CREATION
 
+//-----------------STRUCTURES------------------//
+
 /**
- * Class that defines the rectangle shape
+ * Structure that defines the rectangle shape
  */
 typedef struct rectangle_s{
     float height;
@@ -14,7 +16,7 @@ typedef struct rectangle_s{
 } rectangle_t;
 
 /**
- * Class that defines the square shape
+ * Structure that defines the square shape
  */
 typedef struct square_s{
     float dimension;
@@ -25,7 +27,7 @@ typedef struct square_s{
 } square_t;
 
 /**
- * Class that defines the circle shape
+ * Structure that defines the circle shape
  */
 typedef struct circle_s{
     float radius;
@@ -34,7 +36,7 @@ typedef struct circle_s{
 } circle_t;
 
 /**
- * Class that defines the ellipse shape
+ * Structure that defines the ellipse shape
  */
 typedef struct ellipse_s{
     float xradius;
@@ -44,7 +46,7 @@ typedef struct ellipse_s{
 } ellipse_t;
 
 /**
- * Class that defines the line shape
+ * Structure that defines the line shape
  */
 typedef struct line_s{
     float xstart;
@@ -54,7 +56,8 @@ typedef struct line_s{
 } line_t;
 
 /**
- * Class that defines the polyline shape
+ * Structure that defines the polyline shape
+ * => Uses a list of lines
  */
 typedef struct polyline_s{
     int nbLines;
@@ -62,12 +65,16 @@ typedef struct polyline_s{
 } polyline_t;
 
 /**
- * Class that defines the polygon shape
+ * Structure that defines the polygon shape
+ * Uses a list of lines
  */
 typedef struct polygon_s{
     int nbSides;
     line_t *lines;
 } polygon_t;
+
+
+//-------------------FUNCTIONS--------------------//
 
 /**
  * Creates a rectangle
