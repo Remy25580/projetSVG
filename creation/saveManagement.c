@@ -214,7 +214,6 @@ void loadShapes(shapeGroup_t *s){
     int errName;
     char line[256];
     shapesElt *current;
-    int beggining = 0;
 
     while(opened == 0){
         errName = 0;
