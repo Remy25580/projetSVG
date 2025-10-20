@@ -247,8 +247,8 @@ void svgShapes(shapeGroup_t *s){
     char *name = malloc(20 * sizeof(char));
     char *nameFile = malloc(25*sizeof(char));
     int validName = 0;
-    float x = xMax(s) + 30;
-    float y = yMax(s) + 30;
+    float x = xMax(s)*1.5;
+    float y = yMax(s)*1.5;
     shapesElt *current = s->head;
     int transformApplied;
 
