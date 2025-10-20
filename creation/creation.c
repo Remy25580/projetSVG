@@ -5,7 +5,9 @@
 #include "path.h"
 #include "userInterface.h"
 #include "deletion.h"
+#include "color.h"
 #include "saveManagement.h"
+#include "svg.h"
 
 
 rectangle_t *createRectangle(rectangle_t *r, int editing){

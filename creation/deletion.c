@@ -7,6 +7,7 @@
 #include "deletion.h"
 #include "color.h"
 #include "saveManagement.h"
+#include "svg.h"
 
 void freeRectangle(rectangle_t *rectangle){
     free(rectangle);

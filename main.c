@@ -7,6 +7,7 @@
 #include "creation/deletion.h"
 #include "creation/color.h"
 #include "creation/saveManagement.h"
+#include"creation/svg.h"
 
 int main(void){
     int end = 0;

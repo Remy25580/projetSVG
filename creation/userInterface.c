@@ -7,6 +7,7 @@
 #include "deletion.h"
 #include "color.h"
 #include "saveManagement.h"
+#include "svg.h"
 
 void addInList(shapeGroup_t *list, shapesElt *elt){
     if(list->nb == 0){

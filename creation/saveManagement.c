@@ -7,6 +7,7 @@
 #include "deletion.h"
 #include "color.h"
 #include "saveManagement.h"
+#include "svg.h"
 
 int saveShapes(shapeGroup_t *s){
     int choice = 2;
