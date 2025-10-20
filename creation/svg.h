@@ -20,9 +20,7 @@ float yMax(shapeGroup_t *s);
 /**
  * Writes the svg shapes into an SVG file
  * @param s The list of shapes that are going to be written
- * @param x The dimension x of the viewbox
- * @param y The dimension y of the viewbox
  * @author Rémy Martinot
  */
-void svgShapes(shapeGroup_t *s, float x, float y);
+void svgShapes(shapeGroup_t *s);
 #endif

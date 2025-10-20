@@ -10,6 +10,7 @@ build:
 	$(CC) $(FLAGS) -c creation/deletion.c
 	$(CC) $(FLAGS) -c creation/color.c
 	$(CC) $(FLAGS) -c creation/saveManagement.c
+	$(CC) $(FLAGS) -c creation/svg.c
 	$(CC) *.o -o $(EXE)
 
 clean:
