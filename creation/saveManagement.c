@@ -14,6 +14,7 @@ int saveShapes(shapeGroup_t *s){
     int valid = 0;
     shapesElt *current;
     char *fileNametext = malloc(20*sizeof(char));
+    int svg;
 
 
     printf("Are you sure you want to save now ? 0 for no, 1 for yes\n");
@@ -204,7 +205,16 @@ int saveShapes(shapeGroup_t *s){
         fprintf(ft, "ENDSAVE");
         fclose(ft);
     }
-    return EXIT_SUCCESS;
+    printf("Do you also want to write your shapes in an SVG file ?\n");
+    printf("Type 0 for no or 1 for yes : ");
+    svg = zeroOrOne();
+    if(svg == 0){
+        return EXIT_SUCCESS;
+    }
+    else{
+        svgShapes(s);
+        return EXIT_SUCCESS;
+    }
 }
 
 void loadShapes(shapeGroup_t *s){
