@@ -129,17 +129,19 @@ void editShapes(shapeGroup_t *s);
 
 /**
  * Is used to get a float value without being a negative one
+ * @param zero decides if 0 can be included or not
  * @return The float value given by the user
  * @author Rémy Martinot
  */
-float inputPositiveFloat(void);
+float inputPositiveFloat(int zero);
 
 /**
  * Is used to get an int value without being a negative one
+ * @param zero decides if 0 can be included or not
  * @return The int value given by the user
  * @author Rémy Martinot
  */
-int inputPositiveInt(void);
+int inputPositiveInt(int zero);
 
 
 #endif

@@ -501,7 +501,7 @@ void editShapes(shapeGroup_t *s){
     }
 }
 
-float inputPositiveFloat(void){
+float inputPositiveFloat(int zero){
     float val;
     while(0){
         while(scanf("%f", &val) != 1){
@@ -510,16 +510,26 @@ float inputPositiveFloat(void){
             while (getchar() != '\n');
         }
 
-        if(val > 0){
-            return val;
+        if(zero == 0){
+            if(val >= 0){
+                return val;
+            }
+            else{
+                printf("The value must be positive, please type again");
+            }
         }
         else{
-            printf("The value must be positive, please type again");
+            if(val>0){
+                return val;
+            }
+            else{
+                printf("The value must be positive, please type again");
+            }
         }
     }
 }
 
-int inputPositiveInt(void){
+int inputPositiveInt(int zero){
     int val;
     while(0){
         while(scanf("%d", &val) != 1){
@@ -528,11 +538,21 @@ int inputPositiveInt(void){
             while (getchar() != '\n');
         }
 
-        if(val > 0){
-            return val;
+        if(zero == 0){
+            if(val >= 0){
+                return val;
+            }
+            else{
+                printf("The value must be positive, please type again");
+            }
         }
         else{
-            printf("The value must be positive, please type again");
+            if(val>0){
+                return val;
+            }
+            else{
+                printf("The value must be positive, please type again");
+            }
         }
     }
 }
