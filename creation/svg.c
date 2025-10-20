@@ -9,3 +9,14 @@
 #include "saveManagement.h"
 #include "svg.h"
 
+float xMax(shapeGroup_t *s){
+
+}
+
+float yMax(shapeGroup_t *s){
+
+}
+
+void svgShapes(shapeGroup_t *s, float x, float y){
+    
+}
