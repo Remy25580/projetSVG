@@ -377,12 +377,18 @@ void svgShapes(shapeGroup_t *s){
                             current->shp.path->list[k].op.a.drawingWay,
                             current->shp.path->list[k].op.a.xend, current->shp.path->list[k].op.a.yend);
                             break;
+                        case(D):
+                            break;
+                        default:
+                            break;;
                     }
                     if(k != current->shp.path->size - 1){
                         fprintf(ft, " ");
                     }
                 }
                 fprintf(ft, "'");
+                break;
+            default:
                 break;
 
         }
