@@ -503,7 +503,8 @@ void editShapes(shapeGroup_t *s){
 
 float inputPositiveFloat(int zero){
     float val;
-    while(0){
+    int condition = 0;
+    while(condition == 0){
         while(scanf("%f", &val) != 1){
             printf("ERROR: a float is required here.\n");
             printf("Please type again : ");
@@ -521,7 +522,7 @@ float inputPositiveFloat(int zero){
         }
         else{
             if(val>0){
-                return val;
+                condition = 1;
             }
             else{
                 printf("The value must be positive.\n");
@@ -529,11 +530,13 @@ float inputPositiveFloat(int zero){
             }
         }
     }
+    return val;
 }
 
 int inputPositiveInt(int zero){
     int val;
-    while(0){
+    int condition = 0;
+    while(condition == 0){
         while(scanf("%d", &val) != 1){
             printf("ERROR: an integer is required here.\n");
             printf("Please type again : ");
@@ -551,7 +554,7 @@ int inputPositiveInt(int zero){
         }
         else{
             if(val>0){
-                return val;
+                condition = 1;
             }
             else{
                 printf("The value must be positive.\n");
@@ -559,11 +562,13 @@ int inputPositiveInt(int zero){
             }
         }
     }
+    return val;
 }
 
 int zeroOrOne(void){
     int val;
-    while(0){
+    int condition = 0;
+    while(condition == 0){
         while(scanf("%d", &val) != 1){
             printf("ERROR: an integer is required here.\n");
             printf("Please type again : ");
@@ -571,11 +576,12 @@ int zeroOrOne(void){
         }
 
         if(val == 0 || val == 1){
-            return val;
+            condition = 1;
         }
         else{
             printf("The value must be either 0 or 1.\n");
             printf("Please type again : ");
         }
     }
+    return val;
 }
