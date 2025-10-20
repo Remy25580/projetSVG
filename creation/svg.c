@@ -452,5 +452,6 @@ void svgShapes(shapeGroup_t *s){
 
         current = current->next;
     }
+    fprintf(ft, "/svg");
     fclose(ft);
 }
