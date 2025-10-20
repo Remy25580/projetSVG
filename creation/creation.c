@@ -18,42 +18,24 @@ rectangle_t *createRectangle(rectangle_t *r, int editing){
     float x;
     float y;
     printf("x position : ");
-    while(scanf("%f", &x)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    x = inputPositiveFloat(0);
     printf("y position : ");
-    while(scanf("%f", &y)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    y = inputPositiveFloat(0);
     printf("And now, what will be the height of your rectangle ?\n");
     float h;
-    while(scanf("%f", &h)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    h = inputPositiveFloat(1);
     printf("And what will be the width of your rectangle ?\n");
     float w;
-    while(scanf("%f", &w)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    w = inputPositiveFloat(1);
 
     printf("Now let's make the corners of your rectangle.\n");
     float rx = 0;
     float ry = 0;
 
     printf("So, what's the x radius of the corners ?\n");
-    while(scanf("%f", &rx)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    rx = inputPositiveFloat(0);
     printf("And to finish, what is the y radius of the corners ?\n");
-    while(scanf("%f", &ry)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    ry = inputPositiveFloat(0);
     
     printf("Your rectangle is now made! \n");
     r->xpos = x;
@@ -84,37 +66,21 @@ square_t *createSquare(square_t *c, int editing){
     float x;
     float y;
     printf("x position : ");
-    while(scanf("%f", &x)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    x = inputPositiveFloat(0);
     printf("y position : ");
-    while(scanf("%f", &y)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
-
+    y = inputPositiveFloat(0);
     printf("Now, what will be the dimensions of your square's borders ?\n");
     float d;
-    while(scanf("%f", &d)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    d = inputPositiveFloat(1);
 
     printf("Now let's make the corners of your square.\n");
     float rx = 0;
     float ry = 0;
 
     printf("So, what's the x radius of the corners ?\n");
-    while(scanf("%f", &rx)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    rx = inputPositiveFloat(0);
     printf("And to finish, what is the y radius of the corners ?\n");
-    while(scanf("%f", &ry)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    ry = inputPositiveFloat(0);
 
     printf("Your square is now made! \n");
     c->xpos = x;
@@ -142,22 +108,12 @@ circle_t *createCicrcle(circle_t *c, int editing){
     float x;
     float y;
     printf("x position : ");
-    while(scanf("%f", &x)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    x = inputPositiveFloat(0);
     printf("y position : ");
-    while(scanf("%f", &y)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
-
+    y = inputPositiveFloat(0);
     printf("And to finsh, what's the radius of your circle ?\n");
     float r;
-    while(scanf("%f", &r)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    r = inputPositiveFloat(1);
     printf("Your circle is now made !\n");
     c->xpos = x;
     c->ypos = y;
@@ -181,28 +137,15 @@ ellipse_t *createEllipse(ellipse_t *e, int editing){
     float x;
     float y;
     printf("x position : ");
-    while(scanf("%f", &x)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    x = inputPositiveFloat(0);
     printf("y position : ");    
-    while(scanf("%f", &y)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
-
+    y = inputPositiveFloat(0);
     printf("Now, what's the x radius of your ellipse ?\n");
     float xr;
-    while(scanf("%f", &xr)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    xr = inputPositiveFloat(1);
     printf("And to finish, what is the y radius of your ellipse ?\n");
     float yr;
-    while(scanf("%f", &yr)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    yr = inputPositiveFloat(1);
     printf("Your ellipse is now made !\n");
     e->xpos = x;
     e->ypos = y;
@@ -228,32 +171,20 @@ line_t *createLine(line_t *l, int editing){
     float xs;
     float ys;
     printf("x position : ");
-    while(scanf("%f", &xs)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    xs = inputPositiveFloat(0);
     printf("\n");
     printf("y position : ");
-    while(scanf("%f", &ys)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    ys = inputPositiveFloat(0);
     printf("\n");
     printf("Good! Now what's the position of the ending of your line ?\n");
     printf("\n");
     float xe;
     float ye;
     printf("x position : ");
-    while(scanf("%f", &xe)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    xe = inputPositiveFloat(0);
     printf("\n");
     printf("y position : ");
-    while(scanf("%f", &ye)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    ye = inputPositiveFloat(0);
     printf("\n");
     printf("Your line is now made !\n");
     l->xstart = xs;
@@ -276,10 +207,7 @@ polyline_t *createPolyline(polyline_t *pl, int editing){
     }
     int nb;
     printf("First of all, how many lines do you want to connect ? \n");
-    while(scanf("%d", &nb)!= 1){
-        printf("ERROR: an integer is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    nb = inputPositiveInt(1);
 
     printf("Great! Now let's create your lines.\n");
     pl->nbLines = nb;
@@ -288,15 +216,9 @@ polyline_t *createPolyline(polyline_t *pl, int editing){
     float xs;
     float ys;
     printf("x position : ");
-    while(scanf("%f", &xs)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    xs = inputPositiveFloat(0);
     printf("y position : ");
-    while(scanf("%f", &ys)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    ys = inputPositiveFloat(0);
     float x;
     float y;
     line_t currentLine;
@@ -305,15 +227,9 @@ polyline_t *createPolyline(polyline_t *pl, int editing){
     for (int i = 0; i < nb; i++){
         printf("What's the point n %d of your polyline ?\n", i+2);
         printf("x position : ");
-        while(scanf("%f", &x)!= 1){
-            printf("ERROR: a float is required here, please type again.\n");
-            while (getchar() != '\n');
-        }
+        x = inputPositiveFloat(0);
         printf("y position : ");
-        while(scanf("%f", &y)!= 1){
-            printf("ERROR: a float is required here, please type again.\n");
-            while (getchar() != '\n');
-        }
+        y = inputPositiveFloat(0);
 
         currentLine.xend = x;
         currentLine.yend = y;
@@ -345,10 +261,7 @@ polygon_t *createPolygon(polygon_t *pg, int editing){
     }
     int nb;
     printf("First of all, how many sides will your polygon have ? \n");
-    while(scanf("%d", &nb)!= 1){
-        printf("ERROR: an integer is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    nb = inputPositiveInt(1);
     
     printf("Great! Now let's create the sides.\n");
     pg->nbSides = nb;
@@ -357,15 +270,9 @@ polygon_t *createPolygon(polygon_t *pg, int editing){
     float xs;
     float ys;
     printf("x position : ");
-    while(scanf("%f", &xs)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    xs = inputPositiveFloat(0);
     printf("y position : ");
-    while(scanf("%f", &ys)!= 1){
-        printf("ERROR: a float is required here, please type again.\n");
-        while (getchar() != '\n');
-    }
+    ys = inputPositiveFloat(0);
     float x;
     float y;
     line_t currentLine;
@@ -374,15 +281,9 @@ polygon_t *createPolygon(polygon_t *pg, int editing){
     for (int i = 0; i < nb-1; i++){
         printf("What's the point n %d of your polylgon ?\n", i+2);
         printf("x position : ");
-        while(scanf("%f", &x)!= 1){
-            printf("ERROR: a float is required here, please type again.\n");
-            while (getchar() != '\n');
-        }
+        x = inputPositiveFloat(0);
         printf("y position : ");
-        while(scanf("%f", &y)!= 1){
-            printf("ERROR: a float is required here, please type again.\n");
-            while (getchar() != '\n');
-        }
+        y = inputPositiveFloat(0);
 
         currentLine.xend = x;
         currentLine.yend = y;

@@ -515,7 +515,8 @@ float inputPositiveFloat(int zero){
                 return val;
             }
             else{
-                printf("The value must be positive, please type again");
+                printf("The value must be positive or 0.\n");
+                printf("Please type again  : ");
             }
         }
         else{
@@ -523,7 +524,8 @@ float inputPositiveFloat(int zero){
                 return val;
             }
             else{
-                printf("The value must be positive, please type again");
+                printf("The value must be positive.\n");
+                printf("Please type again  : ");
             }
         }
     }
@@ -543,7 +545,8 @@ int inputPositiveInt(int zero){
                 return val;
             }
             else{
-                printf("The value must be positive, please type again");
+                printf("The value must be positive or 0.\n");
+                printf("Please type again : ");
             }
         }
         else{
@@ -551,8 +554,28 @@ int inputPositiveInt(int zero){
                 return val;
             }
             else{
-                printf("The value must be positive, please type again");
+                printf("The value must be positive.\n");
+                printf("Please type again  : ");
             }
+        }
+    }
+}
+
+int zeroOrOne(void){
+    int val;
+    while(0){
+        while(scanf("%d", &val) != 1){
+            printf("ERROR: an integer is required here.\n");
+            printf("Please type again : ");
+            while (getchar() != '\n');
+        }
+
+        if(val == 0 || val == 1){
+            return val;
+        }
+        else{
+            printf("The value must be either 0 or 1.\n");
+            printf("Please type again : ");
         }
     }
 }

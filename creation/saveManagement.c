@@ -8,22 +8,19 @@
 #include "color.h"
 #include "saveManagement.h"
 
-void saveShapes(shapeGroup_t *s){
+int saveShapes(shapeGroup_t *s){
     int choice = 2;
     int valid = 0;
     shapesElt *current;
     char *fileNametext = malloc(20*sizeof(char));
 
-    while(choice != 1){
-        printf("Are you sure you want to save now ? 0 for no, 1 for yes\n");
-        while(scanf("%d", &choice)!= 1){
-            printf("ERROR: an integer is required here, please type again.\n");
-            while (getchar() != '\n');
-        }
-        if(choice == 0){
-            break;
-        }
+
+    printf("Are you sure you want to save now ? 0 for no, 1 for yes\n");
+    choice = zeroOrOne();
+    if(choice == 0){
+        return EXIT_SUCCESS;
     }
+    
 
     if(choice == 1){
 
@@ -206,7 +203,7 @@ void saveShapes(shapeGroup_t *s){
         fprintf(ft, "ENDSAVE");
         fclose(ft);
     }
-
+    return EXIT_SUCCESS;
 }
 
 void loadShapes(shapeGroup_t *s){

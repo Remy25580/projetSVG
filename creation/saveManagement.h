@@ -4,9 +4,10 @@
 /**
  * Saves the shapes created or loaded by writing it into a txt file
  * @param s The shapes that are going to be saved
+ * @return EXIT_SUCCES
  * @author Rémy Martinot
  */
-void saveShapes(shapeGroup_t *s);
+int saveShapes(shapeGroup_t *s);
 
 /**
  * Loads shapes from a txt file
