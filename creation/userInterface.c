@@ -500,3 +500,39 @@ void editShapes(shapeGroup_t *s){
         }
     }
 }
+
+float inputPositiveFloat(void){
+    float val;
+    while(0){
+        while(scanf("%f", &val) != 1){
+            printf("ERROR: a float is required here.\n");
+            printf("Please type again : ");
+            while (getchar() != '\n');
+        }
+
+        if(val > 0){
+            return val;
+        }
+        else{
+            printf("The value must be positive, please type again");
+        }
+    }
+}
+
+int inputPositiveInt(void){
+    int val;
+    while(0){
+        while(scanf("%d", &val) != 1){
+            printf("ERROR: an integer is required here.\n");
+            printf("Please type again : ");
+            while (getchar() != '\n');
+        }
+
+        if(val > 0){
+            return val;
+        }
+        else{
+            printf("The value must be positive, please type again");
+        }
+    }
+}

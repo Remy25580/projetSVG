@@ -127,5 +127,19 @@ void stylishShapes(shapeGroup_t *s);
  */
 void editShapes(shapeGroup_t *s);
 
+/**
+ * Is used to get a float value without being a negative one
+ * @return The float value given by the user
+ * @author Rémy Martinot
+ */
+float inputPositiveFloat(void);
+
+/**
+ * Is used to get an int value without being a negative one
+ * @return The int value given by the user
+ * @author Rémy Martinot
+ */
+int inputPositiveInt(void);
+
 
 #endif
